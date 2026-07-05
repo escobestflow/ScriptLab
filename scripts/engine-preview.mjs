@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+// Zero-cost prompt snapshots via /api/generate's dryRun mode.
+//
+// Captures the fully-assembled prompt (system blocks + user message +
+// routed model + cost estimate) for a fixed matrix of fixture × action
+// pairs, WITHOUT any Anthropic call. Run it before and after a prompt
+// change and diff the outputs — that's the engine's regression harness.
+//
+// Usage:
+//   npm run dev                                  # terminal 1 (no secrets needed)
+//   node scripts/engine-preview.mjs <outdir>     # terminal 2
+//   node scripts/engine-preview.mjs fixtures/engine/snapshots/after
+//   diff -r fixtures/engine/snapshots/before fixtures/engine/snapshots/after
+//
+// Env: BASE=http://localhost:3000 (default) to point elsewhere.
+// Cost: $0 — the endpoint returns before contacting Anthropic.
+
+import { readFile, writeFile, mkdir } from "node:fs/promises";
+import path from "node:path";
+
+const BASE = process.env.BASE || "http://localhost:3000";
+const OUT = process.argv[2] || "fixtures/engine/snapshots/current";
+// The /api/generate beta gate checks x-user-email against
+// NEXT_PUBLIC_ALLOWED_EMAILS (a client-shipped, non-secret allowlist).
+// Override with EMAIL=you@example.com when running against an
+// environment with a different allowlist.
+const EMAIL = process.env.EMAIL || "luisfescobarjr@gmail.com";
+
+// The capture matrix — representative, cheap, meaningful. Add rows as
+// new prompt surfaces become interesting; keep names stable so diffs
+// line up across runs.
+const MATRIX = [
+  { fixture: "fresh-feature", action: "generate_concept_logline" },
+  { fixture: "fresh-feature", action: "generate_concept_summary" },
+  { fixture: "developed-feature", action: "generate_concept_logline" },
+  { fixture: "developed-feature", action: "generate_beats" },
+  { fixture: "developed-feature", action: "sync_story_to_script" },
+  { fixture: "tv-ongoing", action: "generate_concept_logline" },
+];
+
+function renderReadable(r) {
+  const lines = [];
+  lines.push(`ACTION: ${r.action}`);
+  lines.push(`MODEL: ${r.model}   maxTokens: ${r.maxTokens}   jsonPrefill: ${r.jsonPrefill}`);
+  lines.push(`EST INPUT TOKENS: ${r.estimate.inputTokens}   est cold-cache input cost: $${r.estimate.inputCostUsd}`);
+  lines.push("");
+  r.system.forEach((b, i) => {
+    lines.push(`───────── SYSTEM BLOCK ${i + 1} ${b.cached ? "(cached)" : "(uncached)"} — ~${b.estTokens} tok ─────────`);
+    lines.push(b.text);
+    lines.push("");
+  });
+  lines.push("───────── USER MESSAGE ─────────");
+  lines.push(r.userMessage);
+  lines.push("");
+  return lines.join("\n");
+}
+
+async function main() {
+  await mkdir(OUT, { recursive: true });
+  let failures = 0;
+  for (const { fixture, action } of MATRIX) {
+    const name = `${fixture}__${action}`;
+    try {
+      const story = JSON.parse(
+        await readFile(path.join("fixtures/engine", `${fixture}.json`), "utf8"),
+      );
+      const res = await fetch(`${BASE}/api/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-user-email": EMAIL },
+        body: JSON.stringify({
+          story,
+          action: { type: action, payload: {} },
+          profile: null,
+          dryRun: true,
+        }),
+      });
+      if (!res.ok) {
+        const body = await res.text();
+        throw new Error(`HTTP ${res.status}: ${body.slice(0, 300)}`);
+      }
+      const data = await res.json();
+      if (data.dryRun !== true) {
+        throw new Error("response is not a dry-run payload — refusing to continue (live-call safety)");
+      }
+      await writeFile(path.join(OUT, `${name}.json`), JSON.stringify(data, null, 2));
+      await writeFile(path.join(OUT, `${name}.txt`), renderReadable(data));
+      console.log(`✓ ${name}  (model=${data.model}, ~${data.estimate.inputTokens} input tok)`);
+    } catch (err) {
+      failures++;
+      console.error(`✗ ${name}: ${err.message}`);
+    }
+  }
+  console.log(failures === 0 ? `\nAll snapshots written to ${OUT}` : `\n${failures} failure(s)`);
+  process.exit(failures === 0 ? 0 : 1);
+}
+
+main();

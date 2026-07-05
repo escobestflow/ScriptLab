@@ -1,0 +1,113 @@
+{
+  "id": "33333333-3333-4333-8333-333333333333",
+  "title": "Stockyard Kings",
+  "projectType": "tv-show",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture3",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture3",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture3",
+      "charactersDraftId": "chd_fixture3",
+      "storyDraftId": "sd_fixture3",
+      "scriptDraftId": "scd_fixture3",
+      "episodesDraftId": "epd_fixture3",
+      "arcsDraftId": "ad_fixture3"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture3",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "",
+      "settings": {
+        "framework": null,
+        "genres": ["drama"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "Succession", "aspects": ["wit", "family power"] }
+        ],
+        "writerStyles": [],
+        "vibe": "",
+        "unpredictability": 6,
+        "darkness": 6,
+        "pace": 5,
+        "endingTypes": [],
+        "seriesType": "ongoing",
+        "episodeCount": 8,
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Three siblings inherit a failing cattle empire and the ledger of favors their father used to run a county.",
+        "tone": "",
+        "themes": []
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture3",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": []
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture3",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture3",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ],
+  "episodesDrafts": [
+    {
+      "id": "epd_fixture3",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "episodes": [
+        { "id": "ep_1", "title": "Probate", "number": 1, "beats": [], "logline": "The will is read; the county starts calling in favors the kids didn't know existed." },
+        { "id": "ep_2", "title": "Feed Bill", "number": 2, "beats": [], "logline": "First payroll under new management comes up forty grand short." }
+      ]
+    }
+  ],
+  "arcsDrafts": [
+    {
+      "id": "ad_fixture3",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "arcs": []
+    }
+  ]
+}

@@ -6,7 +6,7 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { Story } from "@/lib/story";
-import { ActionRequest, modelForAction, costFromUsage } from "@/lib/prompt";
+import { ActionRequest, modelForAction, costFromUsage, PRICING } from "@/lib/prompt";
 import { buildPrompt } from "@/lib/contextBuilder";
 import { isBetaAllowed, BETA_FORBIDDEN_RESPONSE } from "@/lib/betaAccess";
 import type { WriterProfile } from "@/lib/writerProfile";
@@ -15,7 +15,27 @@ import { logUsage } from "@/lib/usageLog";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+// Lazily constructed so the route module loads WITHOUT the API key.
+// The SDK throws at construction when the key is absent — the old
+// module-scope client crashed every request in a key-less environment,
+// including dry-run prompt previews that never contact Anthropic.
+// Lazy init means: dry-run works in a zero-secret local environment;
+// live calls fail with a clear message instead of a module-load crash.
+let _client: Anthropic | null = null;
+function getClient(): Anthropic | null {
+  if (_client) return _client;
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) return null;
+  _client = new Anthropic({ apiKey });
+  return _client;
+}
+
+// Rough token count for dry-run cost previews. chars/4 is deliberately
+// simple and labeled as an estimate in the response — good to roughly
+// ±20%, plenty for "is this prompt 3K or 30K tokens" decisions.
+function estTokens(text: string): number {
+  return Math.ceil(text.length / 4);
+}
 
 export async function POST(req: Request) {
   // Beta gate. AuthProvider injects X-User-Email on every /api/* fetch
@@ -29,10 +49,15 @@ export async function POST(req: Request) {
     });
   }
   try {
-    const { story, action, profile } = (await req.json()) as {
+    const { story, action, profile, dryRun } = (await req.json()) as {
       story: Story;
       action: ActionRequest;
       profile?: WriterProfile | null;
+      /** When true, return the fully-assembled prompt + model + cost
+       *  estimate WITHOUT contacting Anthropic. Zero API cost. The
+       *  cost-safe testing layer for all prompt-engineering work —
+       *  see FABLE_ENGINE_COST_SAFETY.md. */
+      dryRun?: boolean;
     };
 
     const model = modelForAction(action.type);
@@ -81,6 +106,56 @@ export async function POST(req: Request) {
       action.type === "tv_import_episodes" ||
       action.type === "tv_import_pilot";
     const maxTokens = isScriptHeavy ? 32000 : wantsJsonPrefill ? 8192 : 4096;
+
+    // ── Dry-run: prompt preview with zero API cost ──────────────────
+    // Returns exactly what WOULD be sent — every system block (with
+    // cache flags), the user message, the routed model, output cap,
+    // and a labeled cost estimate. Never touches Anthropic. This is
+    // how prompt changes get validated without spending money.
+    if (dryRun === true) {
+      const price = PRICING[model];
+      const systemBlocks = system.map(b => ({
+        cached: !!b.cache_control,
+        chars: b.text.length,
+        estTokens: estTokens(b.text),
+        text: b.text,
+      }));
+      const inputTokens =
+        systemBlocks.reduce((n, b) => n + b.estTokens, 0) + estTokens(userMessage);
+      return Response.json({
+        dryRun: true,
+        action: action.type,
+        model,
+        maxTokens,
+        jsonPrefill: wantsJsonPrefill,
+        system: systemBlocks,
+        userMessage,
+        estimate: {
+          note: "chars/4 heuristic — ±20%. Input cost assumes a cold cache (worst case); cached blocks re-bill at ~10% within the cache TTL.",
+          inputTokens,
+          inputCostUsd: price ? +((inputTokens / 1_000_000) * price.input).toFixed(6) : null,
+          maxOutputCostUsd: price ? +((maxTokens / 1_000_000) * price.output).toFixed(6) : null,
+        },
+      });
+    }
+
+    // ── Live-call kill switch ───────────────────────────────────────
+    // Set UNFOLD_AI_LIVE=false in the environment to refuse all live
+    // text generation while leaving dry-run previews working. Unset
+    // (the default everywhere today) = live calls allowed, behavior
+    // unchanged.
+    if (process.env.UNFOLD_AI_LIVE === "false") {
+      return new Response(JSON.stringify({
+        error: "Live AI calls are disabled (UNFOLD_AI_LIVE=false). Use dryRun: true for prompt previews, or unset the flag to re-enable.",
+      }), { status: 503, headers: { "Content-Type": "application/json" } });
+    }
+
+    const client = getClient();
+    if (!client) {
+      return new Response(JSON.stringify({
+        error: "ANTHROPIC_API_KEY is not configured in this environment. Dry-run previews (dryRun: true) work without it.",
+      }), { status: 503, headers: { "Content-Type": "application/json" } });
+    }
 
     const messages: any[] = [{ role: "user", content: userMessage }];
     if (wantsJsonPrefill) {
