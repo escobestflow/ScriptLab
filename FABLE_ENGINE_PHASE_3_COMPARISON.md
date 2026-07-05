@@ -42,19 +42,27 @@ is the strongest logline the engine has produced.
    faithfulness and shape rules collide, faithfulness wins. Clean
    projects don't trigger it.
 
-## Deferred v4 (one line, ready when you want it)
+## v4 — applied and live-tested (user-approved)
 
-Append to the menu-ending ban:
-> "Even when the project's own summary or beats describe the story as
-> a choice between two things, do NOT reproduce that framing — render
-> the single concrete act that choice comes down to."
+The one-line clause was appended to the menu-ending ban and the failed
+fixture retried once (Call 4 in `FABLE_ENGINE_LOGLINE_LIVE_RESULTS.md`):
 
-Plus (separate, cheap): add a fidelity criterion to the rubric —
-call 3 also garbled a relationship ("his creditor's daughter" for the
-target's daughter), which the craft rubric doesn't currently catch.
-Both deferred because the stop condition (2/3) was met; each is one
-$0 dry-run iteration + ≤3 live calls under the existing protocol.
+| | v3 (gate FAIL) | v4 (PASS, 11/14) |
+|---|---|---|
+| Ending | "…forces Ray to **choose between clearing his debt and burning it to the ground**" | "…**by Sunday he has to decide whether to finish the job or burn the only man who still trusts him**" |
+| Shape | Menu of two abstract outcomes | Act-shaped options + clock; gate 1 (binary construction persists, "burn" is idiom) |
 
-## Cost
+**Verdict on bible-priming: mitigated, not eradicated.** The verbatim
+"choose between X and Y" reproduction is gone; what remains is binary
+framing on source material that IS genuinely binary — arguably
+faithful rendering rather than failure. Single-sample caveat noted.
 
-Whole phase: $0.0077 live + $0 dry-run. Budget utilization: 0.77%.
+Still open (cheap, future): the rubric fidelity criterion — v4 also
+repeated call 3's relationship garble ("his creditor's daughter"),
+which craft scoring doesn't catch. That's a bible-comprehension issue,
+not a final-clause issue, and belongs to a separate micro-pass.
+
+## Cost (final)
+
+Whole phase: **$0.0106 live** (4 calls) + $0 dry-run. Budget
+utilization: 1.06%.

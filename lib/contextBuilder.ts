@@ -798,7 +798,7 @@ Anatomy requirements:
 - The trap: getting what they want must threaten what they need — build it into the situation itself, not into commentary about it.
 - FINAL CLAUSE RULE — most loglines die here: the last clause must be a CONCRETE ACT, COST, or COLLISION from this story's world — something a camera could film as a scene. The strongest endings turn the premise's own machinery against the protagonist. Two shapes are BANNED:
   (a) Insight endings — "forces her to admit/realize/learn/face…", "discovers what really matters". If your draft ends on an insight, delete it and end on the act that would force that insight.
-  (b) Menu endings — "must choose between X and Y". Never present a choice as a menu of options; show the single specific action the choice comes down to, with its cost visible inside the act.
+  (b) Menu endings — "must choose between X and Y". Never present a choice as a menu of options; show the single specific action the choice comes down to, with its cost visible inside the act. This holds EVEN WHEN the project's own summary or beats describe the story as a choice between two things — do not reproduce that framing; translate it into the concrete act it comes down to.
 
 The difference, on invented premises (do not reuse their content):
 - WEAK (insight ending): "…a stranded wedding band must share a van with the groom's ex, forcing each of them to face what they left behind."

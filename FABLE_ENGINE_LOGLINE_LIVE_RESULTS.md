@@ -84,12 +84,43 @@ deferred per the stop rule.**
 
 ---
 
-## Totals
+## Call 4 (v4 — user-approved bible-priming fix)
+
+- **Timestamp:** 2026-07-05 19:45:51 EDT
+- **Fixture:** developed-feature (the v3 gate-failure, retried)
+- **Model:** claude-haiku-4-5 · **Cost:** $0.002910 (2,475 in / 87 out) · 1.6s
+- **Prompt version:** v4 — v3 plus one clause appended to the
+  menu-ending ban: "This holds EVEN WHEN the project's own summary or
+  beats describe the story as a choice between two things — do not
+  reproduce that framing; translate it into the concrete act it comes
+  down to."
+- **Output:**
+  > "A washed-up rodeo fixer agrees to babysit his creditor's daughter
+  > for one weekend to clear a forty-grand debt—but the kid figures
+  > out he's there to help strip her father's business, and by Sunday
+  > he has to decide whether to finish the job or burn the only man
+  > who still trusts him."
+- **Score:** 11/14 — 1: 2 · 2: 2 · 3: 2 · **4 (gate): 1** · 5: 1 · 6: 1 · 7: 2
+- **Pass/fail: PASS** (no gate fail, ≥10). Per protocol ("if it
+  passes, stop"), no further calls.
+- **Honest read:** clearly better, not fully nailed. The v3 verbatim
+  menu ("choose between clearing his debt and burning it to the
+  ground" — two abstract outcomes) became act-shaped options with a
+  clock ("by Sunday… finish the job or burn the only man who still
+  trusts him"). Gate scores 1, not 2: the construction is still
+  binary and "burn" is idiom rather than a filmable act. Relevant
+  nuance: this fixture's story IS a binary at its core — the residual
+  binary framing is partly faithful rendering of genuinely binary
+  source material. Single-sample caveat applies (one pass ≠ proven
+  stability).
+- **Prompt changed afterward:** NO — stop condition met.
+
+## Totals (final)
 
 | | |
 |---|---|
-| Live calls | **3** (of 8 allowed) |
-| Actual spend | **$0.007654** (of $1.00) |
-| Passes | 2/3, including the hardest (abstraction-danger) case |
-| Models | Haiku only — it IS giving useful signal; no escalation warranted |
-| Prompt revisions after live data | 0 (deferred v4 documented) |
+| Live calls | **4** (of 8 allowed) — 3 in round 1 (v3), 1 in the v4 retry |
+| Actual spend | **$0.010564** (1.06% of $1.00) |
+| Passes | 3/4 overall; v4 retry converted the v3 failure to a pass |
+| Models | Haiku only — sufficient signal at every step |
+| Prompt revisions driven by live data | 1 (v3 → v4, one clause) |
