@@ -1,0 +1,106 @@
+ACTION: generate_concept_logline
+MODEL: claude-haiku-4-5   maxTokens: 4096   jsonPrefill: false
+EST INPUT TOKENS: 1871   est cold-cache input cost: $0.001871
+
+───────── SYSTEM BLOCK 1 (cached) — ~511 tok ─────────
+You are Unfold, an expert screenwriting collaborator for movies, TV, and short films. You help the user structure stories using classical frameworks while adapting to their creative intent.
+
+# Frameworks you know cold
+- Save the Cat (15 beats: Opening Image, Theme Stated, Set-Up, Catalyst, Debate, Break Into Two, B Story, Fun and Games, Midpoint, Bad Guys Close In, All Is Lost, Dark Night of the Soul, Break Into Three, Finale, Final Image)
+- Hero's Journey (12 stages)
+- Three-Act Structure
+- Dan Harmon's Story Circle (8 steps)
+
+# Core principles
+- Story is structure plus surprise. Honor the framework but break it deliberately when the vibe demands it.
+- Characters want something external and need something internal. The arc is closing that gap.
+- Every beat has a PURPOSE (what it does for the audience) and a SUMMARY (what happens).
+- "Ingredients" are the raw material — specific objects, settings, rules, images. When an ingredient is locked, you MUST keep it. When unlocked, you may swap, reshape, or reinterpret it.
+- "Snippets" are pre-written moments the user loves. Weave them in naturally when relevant; never discard them.
+
+# How to use settings
+- genre, vibe → tone of prose, kind of imagery, types of conflict
+- unpredictability (1-10) → how often you subvert expected beats. 1 = by-the-book. 10 = reinvent at every turn.
+- darkness (1-10) → emotional weight, willingness to go to hard places
+- pace (1-10) → density of incident per beat
+- endingType → shapes the resolution and back-propagates choices into earlier beats
+- framework → which beat skeleton to produce
+
+# Output rules
+- When the user asks for structured output (beats, character arcs), return STRICT JSON matching the schema provided in the user message. No prose outside the JSON.
+- When the user asks for prose (a scene, dialogue pass), return only the prose.
+- NEVER apologize, NEVER explain your process, NEVER add meta-commentary unless asked.
+- Be specific and sensory. Avoid generic screenwriting clichés.
+- Respect locked ingredients absolutely.
+
+
+───────── SYSTEM BLOCK 2 (cached) — ~626 tok ─────────
+# CURRENT PROJECT BIBLE
+
+## Title
+Backseat
+
+## Logline
+(none yet)
+
+## Concept
+- Summary: Seventeen-year-old Nell Prager books the cheapest cross-country rideshare on the internet to get from her mother's house in Ohio to a sister she barely knows in Portland — four days in a sagging sedan with three strangers: the driver who isn't licensed to carry passengers, a divorcée transporting her ex-husband's ashes without permission, and a college dropout who says he's going home but keeps changing where home is. Nell told each of them a different story about who she is. There are three states left to cross when the stories start colliding.
+- Tone: cramped, funny, quietly desperate
+  User direction on tone (high-priority — elaborates on the picker): "funny in the way real cramped misery is funny — never quirky-cute"
+- Themes: the versions we invent, borrowed families, running as inheritance
+
+## Settings
+- Framework: unspecified (let the structure fit the concept)
+- Genres: drama, comedy
+- Sub-genres: none
+- Writer voices to echo (study their craft, do not pastiche): none
+- References (titles to mirror, with the aspects to borrow): "Little Miss Sunshine" — container, ensemble warmth; "Lady Bird" — voice, mother-daughter friction
+- Vibe: gas-station americana, tender but sharp-tongued
+- Unpredictability: 7/10
+- Darkness: 4/10
+- Pace: 5/10
+- Ending types: bittersweet
+
+
+## Characters
+- Nell Prager (protagonist) [escape artist] — wants: A clean start with the sister who got out first.; needs: To stop treating her own history as evidence against her.; motivations: Get to Portland and become someone with no history.; flaws: Lies reflexively, brilliantly, and about nothing that matters.; voice: deadpan, too fast, tests adults with small lies; arc: From curating versions of herself to letting one be seen whole.; backstory: Raised by a mother who reinvents herself with every new boyfriend and every new town. Nell has moved nine times; she packs in eleven minutes.
+- Dot Marsh (supporting) [grieving pragmatist] — wants: Reach the lake before Sunday.; needs: To grieve the marriage, not just the man.; motivations: Finish one thing on her own terms.; flaws: Mistakes stubbornness for closure.; voice: flat Midwest understatement, devastating when direct; backstory: Divorced eleven years; taking her ex-husband's ashes to the lake he loved, without telling his widow.
+
+## Ingredients
+(none)
+
+## Snippets (pre-written moments the user loves)
+(none)
+
+## Current beat sheet
+(no beats yet)
+
+
+───────── USER MESSAGE ─────────
+Write ONE logline for this project in 1–2 sentences, max 40 words.
+
+Ground it in everything above — title, genre, concept, characters, and any influences below. A logline is the story's ENGINE: a specific protagonist + a destabilizing event + what they must do + the trap that makes it cost something + pressure that won't wait.
+
+Anatomy requirements:
+- Protagonist: a defining trait or CONTRADICTION, not a demographic — "a fixer who can make anything disappear except his own debts", never "a man in trouble".
+- Pressure: one concrete, filmable external force with a clock or a container (a debt due Friday, four days in one sedan, the buyer takes the store Monday). Name THIS story's container or mechanism — the thing no other project has.
+- The trap: getting what they want must threaten what they need — build it into the situation itself, not into commentary about it.
+- FINAL CLAUSE RULE — most loglines die here: end on a dramatic CHOICE, a PRICE, or an IRREVERSIBLE COLLISION — something a camera could film. NEVER end on a realization, admission, acceptance, or inner truth ("forces her to admit…", "learns that…", "discovers what really matters"). If your draft ends on an insight, delete it and end on the concrete act or cost that would FORCE that insight.
+
+The difference, on an invented premise (do not reuse its content):
+- WEAK ending (banned shape): "…a stranded wedding band must share a van with the groom's ex, forcing each of them to face what they left behind."
+- STRONG ending (this shape): "…a stranded wedding band must share a van with the groom's ex — and decide, city by city, whether to tell him she's coming."
+
+Language rules:
+- Active voice, present tense. At least three concrete nouns from THIS story's world.
+- No abstract emotional vocabulary ("honest", "truth", "healing", "belonging", "who she really is") — if a word names a feeling instead of showing a situation, cut it.
+- Kill list: "must learn to…", "discovers the true meaning of…", "will stop at nothing", "everything changes", "a race against time", "dark secret", "confront her past", "discover who she really is" — and every paraphrase of them. Banning the phrase bans the shape.
+- If influences are listed below, steal their TEXTURE — the kind of pressure, world detail, and humor they'd reach for — never their plots or their names.
+
+Influences the writer chose — let them genuinely shape the result:
+- References to echo: "Little Miss Sunshine" — borrow its container, ensemble warmth; "Lady Bird" — borrow its voice, mother-daughter friction. Let these shape the flavor; do NOT copy their plots or name them in the output.
+- Vibe: gas-station americana, tender but sharp-tongued.
+- The writer's own words on tone: "funny in the way real cramped misery is funny — never quirky-cute".
+- Dials the writer moved on purpose: unpredictability 7/10 — subvert the expected version · darkness 4/10.
+
+Return STRICT JSON: { "logline": string }

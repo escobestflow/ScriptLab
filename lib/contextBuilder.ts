@@ -780,17 +780,33 @@ Return STRICT JSON: { "title": string }
 - "title" = the single best option (not a list)`;
 
     case "generate_concept_logline":
+      // Phase-2 rewrite. The Phase-1 version banned cliché PHRASES but
+      // not the failure CLASS — the first live output complied with
+      // every rule and still ended on abstract self-realization
+      // ("…forces her to admit the person she's running from is the
+      // only honest thing she has"). This version adds a hard
+      // final-clause contract (choice/price/collision — never insight)
+      // and defines the target by contrast (weak/strong pair), which
+      // is much harder to paraphrase around than a phrase list.
       return `Write ONE logline for this project in 1–2 sentences, max 40 words.
 
-Ground it in everything above — title, genre, concept, characters, and any influences below. A logline is the story's ENGINE stated as a proposition: a specific protagonist + the destabilizing event + what they must do + what makes that hard + what it costs if they fail.
+Ground it in everything above — title, genre, concept, characters, and any influences below. A logline is the story's ENGINE: a specific protagonist + a destabilizing event + what they must do + the trap that makes it cost something + pressure that won't wait.
 
-Craft bar:
-- SPECIFIC protagonist with a defining trait or contradiction — "a washed-up rodeo fixer", never "a man".
-- Build in irony or a trap: the strongest loglines make the goal and the obstacle feed each other (getting what they want costs what they need).
-- Active voice, present tense. The protagonist DOES something; things don't merely happen to them.
-- Concrete nouns from this story's world. Zero adjective-stuffing.
-- Kill list: "must learn to…", "discovers the true meaning of…", "will stop at nothing", "everything changes", "a race against time", "dark secret" — any phrase you have read on a thousand posters.
-- The reader should feel the genre without it being named.${influencesBlock(story)}
+Anatomy requirements:
+- Protagonist: a defining trait or CONTRADICTION, not a demographic — "a fixer who can make anything disappear except his own debts", never "a man in trouble".
+- Pressure: one concrete, filmable external force with a clock or a container (a debt due Friday, four days in one sedan, the buyer takes the store Monday). Name THIS story's container or mechanism — the thing no other project has.
+- The trap: getting what they want must threaten what they need — build it into the situation itself, not into commentary about it.
+- FINAL CLAUSE RULE — most loglines die here: end on a dramatic CHOICE, a PRICE, or an IRREVERSIBLE COLLISION — something a camera could film. NEVER end on a realization, admission, acceptance, or inner truth ("forces her to admit…", "learns that…", "discovers what really matters"). If your draft ends on an insight, delete it and end on the concrete act or cost that would FORCE that insight.
+
+The difference, on an invented premise (do not reuse its content):
+- WEAK ending (banned shape): "…a stranded wedding band must share a van with the groom's ex, forcing each of them to face what they left behind."
+- STRONG ending (this shape): "…a stranded wedding band must share a van with the groom's ex — and decide, city by city, whether to tell him she's coming."
+
+Language rules:
+- Active voice, present tense. At least three concrete nouns from THIS story's world.
+- No abstract emotional vocabulary ("honest", "truth", "healing", "belonging", "who she really is") — if a word names a feeling instead of showing a situation, cut it.
+- Kill list: "must learn to…", "discovers the true meaning of…", "will stop at nothing", "everything changes", "a race against time", "dark secret", "confront her past", "discover who she really is" — and every paraphrase of them. Banning the phrase bans the shape.
+- If influences are listed below, steal their TEXTURE — the kind of pressure, world detail, and humor they'd reach for — never their plots or their names.${influencesBlock(story)}
 
 Return STRICT JSON: { "logline": string }`;
 
