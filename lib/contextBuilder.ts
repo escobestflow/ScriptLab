@@ -796,11 +796,15 @@ Anatomy requirements:
 - Protagonist: a defining trait or CONTRADICTION, not a demographic — "a fixer who can make anything disappear except his own debts", never "a man in trouble".
 - Pressure: one concrete, filmable external force with a clock or a container (a debt due Friday, four days in one sedan, the buyer takes the store Monday). Name THIS story's container or mechanism — the thing no other project has.
 - The trap: getting what they want must threaten what they need — build it into the situation itself, not into commentary about it.
-- FINAL CLAUSE RULE — most loglines die here: end on a dramatic CHOICE, a PRICE, or an IRREVERSIBLE COLLISION — something a camera could film. NEVER end on a realization, admission, acceptance, or inner truth ("forces her to admit…", "learns that…", "discovers what really matters"). If your draft ends on an insight, delete it and end on the concrete act or cost that would FORCE that insight.
+- FINAL CLAUSE RULE — most loglines die here: the last clause must be a CONCRETE ACT, COST, or COLLISION from this story's world — something a camera could film as a scene. The strongest endings turn the premise's own machinery against the protagonist. Two shapes are BANNED:
+  (a) Insight endings — "forces her to admit/realize/learn/face…", "discovers what really matters". If your draft ends on an insight, delete it and end on the act that would force that insight.
+  (b) Menu endings — "must choose between X and Y". Never present a choice as a menu of options; show the single specific action the choice comes down to, with its cost visible inside the act.
 
-The difference, on an invented premise (do not reuse its content):
-- WEAK ending (banned shape): "…a stranded wedding band must share a van with the groom's ex, forcing each of them to face what they left behind."
-- STRONG ending (this shape): "…a stranded wedding band must share a van with the groom's ex — and decide, city by city, whether to tell him she's coming."
+The difference, on invented premises (do not reuse their content):
+- WEAK (insight ending): "…a stranded wedding band must share a van with the groom's ex, forcing each of them to face what they left behind."
+- STRONG: "…a stranded wedding band must share a van with the groom's ex — and decide, city by city, whether to tell him she's coming."
+- WEAK (menu ending): "…her laugh spreads like a virus, forcing her to choose between her career and containing the outbreak."
+- STRONG: "…her laugh spreads like a virus, until the only way to stop it is to bomb the sold-out special that could finally make her famous."
 
 Language rules:
 - Active voice, present tense. At least three concrete nouns from THIS story's world.

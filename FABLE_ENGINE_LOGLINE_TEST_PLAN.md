@@ -15,7 +15,7 @@ FAIL regardless of total.** Pass = no gate failure AND total ≥ 10/14
 | 1 | Protagonist contradiction | A trait/contradiction you could cast, not a demographic |
 | 2 | External pressure | Filmable force with a clock or container |
 | 3 | Ironic trap | Goal and obstacle feed each other inside the situation |
-| 4 | **Final clause (GATE)** | Ends on a choice, price, or irreversible collision — filmable. Realization/admission/acceptance ending = 0 |
+| 4 | **Final clause (GATE)** | v3: ends on a concrete act, cost, or collision from the story's world — filmable as a scene, ideally the premise's own machinery turned against the protagonist. **0 (gate fail) for EITHER banned shape:** insight endings ("forces her to admit/realize/face…") OR menu endings ("must choose between X and Y" and equivalents). 1 = concrete act but generic (could end three other movies). 2 = premise-specific act with the cost visible inside it |
 | 5 | Concrete language | ≥3 story-specific nouns; zero abstract-emotion words; zero poster phrases or paraphrases |
 | 6 | Reference texture | The influences' kind of pressure/detail/humor is felt; no titles named (n/a if project has no references) |
 | 7 | Uniqueness | This story's one-of-a-kind container/mechanism is visible |
