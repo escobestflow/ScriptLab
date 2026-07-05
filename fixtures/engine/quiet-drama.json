@@ -1,0 +1,117 @@
+{
+  "id": "55555555-5555-4555-8555-555555555555",
+  "title": "The Inventory",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture5",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture5",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture5",
+      "charactersDraftId": "chd_fixture5",
+      "storyDraftId": "sd_fixture5",
+      "scriptDraftId": "scd_fixture5"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture5",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "",
+      "settings": {
+        "framework": null,
+        "genres": ["drama"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "Manchester by the Sea", "aspects": ["restraint", "grief without speeches"] }
+        ],
+        "writerStyles": ["Kenneth Lonergan"],
+        "vibe": "fluorescent-lit, patient, no music telling you what to feel",
+        "unpredictability": 4,
+        "darkness": 6,
+        "pace": 3,
+        "endingTypes": ["ambiguous"],
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Two estranged brothers have one weekend to inventory their dead father's hardware store before the buyer takes possession Monday morning. Frank, who stayed and ran the register for twenty years, wants to sell every last hinge at its marked price. Charlie, who left at eighteen and came back for the funeral, keeps finding things that aren't for sale — a repair ledger full of forgiven debts, a shoebox of returned keys, their mother's handwriting on a layaway card from 1989. The count has to balance by Monday. Neither brother's version of their father does.",
+        "tone": "dry, exact, quietly loaded",
+        "themes": ["what the ledger forgives", "the one who stayed", "inheritance as argument"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture5",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_frank",
+          "name": "Frank Okafor",
+          "role": "protagonist",
+          "archetype": "the one who stayed",
+          "backstory": "Ran the store beside his father for twenty years; knows every SKU and none of his father's friends.",
+          "motivations": "Close the sale clean and prove staying was worth something.",
+          "flaws": "Counts everything; values almost nothing.",
+          "want": "The inventory balanced and the check cashed by Monday.",
+          "need": "To learn what his father actually spent the store on.",
+          "relationships": [],
+          "voice": "clipped, transactional, thaws by degrees",
+          "arc": "From balancing the count to honoring what was never counted.",
+          "notes": ""
+        },
+        {
+          "id": "ch_charlie",
+          "name": "Charlie Okafor",
+          "role": "supporting",
+          "archetype": "the one who left",
+          "backstory": "Left at eighteen after a fight nobody names; came back for the funeral with a rental car and no black suit.",
+          "motivations": "Find proof the old man was more than the register.",
+          "flaws": "Treats leaving as a personality.",
+          "want": "One object from the store that means something.",
+          "need": "To admit staying was also a choice someone made for him.",
+          "relationships": [],
+          "voice": "charming, evasive, lands one true sentence per day",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture5",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture5",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}

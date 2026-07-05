@@ -1,0 +1,118 @@
+{
+  "id": "44444444-4444-4444-8444-444444444444",
+  "title": "Backseat",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture4",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture4",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture4",
+      "charactersDraftId": "chd_fixture4",
+      "storyDraftId": "sd_fixture4",
+      "scriptDraftId": "scd_fixture4"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture4",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "",
+      "settings": {
+        "framework": null,
+        "genres": ["drama", "comedy"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "Little Miss Sunshine", "aspects": ["container", "ensemble warmth"] },
+          { "id": "ref_2", "title": "Lady Bird", "aspects": ["voice", "mother-daughter friction"] }
+        ],
+        "writerStyles": [],
+        "vibe": "gas-station americana, tender but sharp-tongued",
+        "unpredictability": 7,
+        "darkness": 4,
+        "pace": 5,
+        "endingTypes": ["bittersweet"],
+        "toneNote": "funny in the way real cramped misery is funny — never quirky-cute",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Seventeen-year-old Nell Prager books the cheapest cross-country rideshare on the internet to get from her mother's house in Ohio to a sister she barely knows in Portland — four days in a sagging sedan with three strangers: the driver who isn't licensed to carry passengers, a divorcée transporting her ex-husband's ashes without permission, and a college dropout who says he's going home but keeps changing where home is. Nell told each of them a different story about who she is. There are three states left to cross when the stories start colliding.",
+        "tone": "cramped, funny, quietly desperate",
+        "themes": ["the versions we invent", "borrowed families", "running as inheritance"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture4",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_nell",
+          "name": "Nell Prager",
+          "role": "protagonist",
+          "archetype": "escape artist",
+          "backstory": "Raised by a mother who reinvents herself with every new boyfriend and every new town. Nell has moved nine times; she packs in eleven minutes.",
+          "motivations": "Get to Portland and become someone with no history.",
+          "flaws": "Lies reflexively, brilliantly, and about nothing that matters.",
+          "want": "A clean start with the sister who got out first.",
+          "need": "To stop treating her own history as evidence against her.",
+          "relationships": [],
+          "voice": "deadpan, too fast, tests adults with small lies",
+          "arc": "From curating versions of herself to letting one be seen whole.",
+          "notes": ""
+        },
+        {
+          "id": "ch_dot",
+          "name": "Dot Marsh",
+          "role": "supporting",
+          "archetype": "grieving pragmatist",
+          "backstory": "Divorced eleven years; taking her ex-husband's ashes to the lake he loved, without telling his widow.",
+          "motivations": "Finish one thing on her own terms.",
+          "flaws": "Mistakes stubbornness for closure.",
+          "want": "Reach the lake before Sunday.",
+          "need": "To grieve the marriage, not just the man.",
+          "relationships": [],
+          "voice": "flat Midwest understatement, devastating when direct",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture4",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture4",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}

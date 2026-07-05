@@ -36,6 +36,13 @@ const MATRIX = [
   { fixture: "developed-feature", action: "generate_beats" },
   { fixture: "developed-feature", action: "sync_story_to_script" },
   { fixture: "tv-ongoing", action: "generate_concept_logline" },
+  // Phase 2 — logline quality cases. backseat-roadtrip mirrors the
+  // shape of the first real regression (strong container, abstract
+  // realization ending); quiet-drama is the abstraction-danger case
+  // (no external stakes to lean on); developed-feature (above) covers
+  // genre/external stakes.
+  { fixture: "backseat-roadtrip", action: "generate_concept_logline" },
+  { fixture: "quiet-drama", action: "generate_concept_logline" },
 ];
 
 function renderReadable(r) {
