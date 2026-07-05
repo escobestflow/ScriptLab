@@ -24,7 +24,7 @@ import {
   // inject into every prompt.
   SERIES_TYPE_LABELS, SERIES_TYPE_DESCRIPTIONS, SERIES_TYPE_RULES,
 } from "./story";
-import { ActionRequest, ActionType, SYSTEM_BRAIN } from "./prompt";
+import { ActionRequest, ActionType, systemBrainFor } from "./prompt";
 import { WriterProfile, renderProfileForPrompt, isProfileMeaningful } from "./writerProfile";
 import { renderStyleProfileForPrompt } from "./styleProfile";
 
@@ -67,7 +67,10 @@ export function buildPrompt(
   const bible = storyBible(story);
   const ask = buildAsk(story, action);
   const system: BuiltPrompt["system"] = [
-    { type: "text", text: SYSTEM_BRAIN, cache_control: { type: "ephemeral" } },
+    // Format-aware: feature/short calls no longer carry the TV-only
+    // series-type + episode-momentum rules (~25 lines of instructions
+    // that can't apply to them). TV calls are unchanged.
+    { type: "text", text: systemBrainFor(story.projectType), cache_control: { type: "ephemeral" } },
   ];
   // Writer profile is injected as its own cached block — it changes only
   // when the user captures new signals (not per-request), so the cache
@@ -374,6 +377,58 @@ Do NOT use a full feature-length arc. Use a flexible 3-stage skeleton:
   2. Pressure — something pushes the character into a decision, reaction, or exposure.
   3. Shift — something changes (external, emotional, moral, comic, or symbolic).
 ${flavor ? `\n${flavor}` : ""}`;
+}
+
+// Restates the writer's chosen influences with recency weight for the
+// short-creative concept asks (logline / title / summary / tone /
+// themes / tagline). All of this exists in the story bible, but as one
+// distant line each — models reliably underweight it there. The
+// script-sync prompt already restates voice targets for exactly this
+// reason (see syncPrompt_toScript's styleBlock: "restated here so they
+// actually shape the prose"); this brings the same treatment to the
+// concept fields, where generic output is most visible.
+//
+// Dials are included only when they deviate from the 5/10 default —
+// an untouched dial is noise, a moved dial is a deliberate choice.
+// Returns "" when nothing is set so callers can append unconditionally.
+function influencesBlock(story: Story): string {
+  const s = getActiveConceptDraft(story).settings;
+  const lines: string[] = [];
+  if (s.references?.length) {
+    lines.push(
+      `- References to echo: ${s.references
+        .map(r => `"${r.title}"${r.aspects?.length ? ` — borrow its ${r.aspects.join(", ")}` : ""}`)
+        .join("; ")}. Let these shape the flavor; do NOT copy their plots or name them in the output.`,
+    );
+  }
+  if (s.writerStyles?.length) {
+    lines.push(`- Writer voices to study (their craft, not pastiche): ${s.writerStyles.join(", ")}.`);
+  }
+  if (s.vibe?.trim()) {
+    lines.push(`- Vibe: ${s.vibe.trim()}.`);
+  }
+  if (s.toneNote?.trim()) {
+    lines.push(`- The writer's own words on tone: "${s.toneNote.trim()}".`);
+  }
+  if (s.themesNote?.trim()) {
+    lines.push(`- The writer's own words on themes: "${s.themesNote.trim()}".`);
+  }
+  const dials: string[] = [];
+  if (typeof s.unpredictability === "number" && s.unpredictability !== 5) {
+    dials.push(`unpredictability ${s.unpredictability}/10${s.unpredictability >= 7 ? " — subvert the expected version" : ""}`);
+  }
+  if (typeof s.darkness === "number" && s.darkness !== 5) {
+    dials.push(`darkness ${s.darkness}/10`);
+  }
+  if (typeof s.pace === "number" && s.pace !== 5) {
+    dials.push(`pace ${s.pace}/10`);
+  }
+  if (dials.length) lines.push(`- Dials the writer moved on purpose: ${dials.join(" · ")}.`);
+  if (!lines.length) return "";
+  return `
+
+Influences the writer chose — let them genuinely shape the result:
+${lines.join("\n")}`;
 }
 
 // User-supplied free-text steering for the active story-layer draft. When
@@ -711,39 +766,83 @@ Return STRICT JSON: { "text": string }
     // cohere with the user's existing choices. All return strict JSON.
 
     case "generate_concept_title":
-      return `Generate ONE evocative working title for this project.
-Use the existing concept (format, genre, logline, summary, tone, themes, ending) above as the guiding brief. Titles should be short (1–5 words), cinematic, and memorable — not generic, not on-the-nose.
+      return `Generate ONE working title for this project.
+
+Ground it in the bible above — genre, concept, tone, and any influences below. The title is the first promise the audience receives; it should carry this specific story's charge, not its genre's.
+
+Craft bar:
+- 1–3 words preferred, 5 max. Concrete beats abstract: a specific noun or image from THIS story's world outranks a mood word.
+- The best titles gain a second meaning once you know the story — literal on the poster, thematic after the credits.
+- Kill list: gerund titles ("Breaking…", "Finding…", "Becoming…"), "The [Noun]" unless the noun is genuinely striking, one-word abstractions ("Legacy", "Reckoning", "Descent"), anything that could sit on a hundred other films.
+- Say it aloud: if it sounds like a perfume ad or a prestige-drama parody, cut it and go again.${influencesBlock(story)}
 
 Return STRICT JSON: { "title": string }
 - "title" = the single best option (not a list)`;
 
     case "generate_concept_logline":
       return `Write ONE logline for this project in 1–2 sentences, max 40 words.
-Use the existing concept (format, genre, title, summary, tone, themes, ending) above as the brief. A great logline contains: protagonist, inciting event, goal, central conflict, and stakes. Specificity beats abstraction. No adjective-stuffing.
+
+Ground it in everything above — title, genre, concept, characters, and any influences below. A logline is the story's ENGINE stated as a proposition: a specific protagonist + the destabilizing event + what they must do + what makes that hard + what it costs if they fail.
+
+Craft bar:
+- SPECIFIC protagonist with a defining trait or contradiction — "a washed-up rodeo fixer", never "a man".
+- Build in irony or a trap: the strongest loglines make the goal and the obstacle feed each other (getting what they want costs what they need).
+- Active voice, present tense. The protagonist DOES something; things don't merely happen to them.
+- Concrete nouns from this story's world. Zero adjective-stuffing.
+- Kill list: "must learn to…", "discovers the true meaning of…", "will stop at nothing", "everything changes", "a race against time", "dark secret" — any phrase you have read on a thousand posters.
+- The reader should feel the genre without it being named.${influencesBlock(story)}
 
 Return STRICT JSON: { "logline": string }`;
 
     case "generate_concept_summary":
       return `Write a premise/summary for this project. 3–5 sentences, ~80 words.
-Use the existing concept (format, genre, title, logline, tone, themes, ending) as the brief. The summary should establish world → protagonist → inciting event → central tension → thematic undertow. Prose, not outline. No headers, no bullets.
+
+Build on what already exists above (title, genre, logline, tone, themes, and any influences below) — deepen it, never contradict it. Spine: world → protagonist → destabilizing event → escalating central tension → the thematic undertow beneath it all.
+
+Craft bar:
+- Cause-and-effect, not "and then": each sentence should turn the screw on the one before it.
+- The protagonist makes at least one active CHOICE inside the summary — they drive the story, they aren't dragged through it.
+- Concrete and sensory: name the world's specific texture (trades, places, objects), not its category.
+- End on tension or an open question, never on resolution — this is a premise, not a synopsis.
+- No marketing voice ("a gripping tale of…") and no theme-announcing ("explores the nature of…") — dramatize the theme through the situation instead.
+- Prose, not outline. No headers, no bullets.${influencesBlock(story)}
 
 Return STRICT JSON: { "summary": string }`;
 
     case "generate_concept_tagline":
-      return `Write ONE tagline for this project — a short, punchy compression of the logline above. STRICT CONSTRAINT: 120 characters or fewer including spaces and punctuation. Single sentence, no period if it would push past 120. Sentence-case is fine; the UI uppercases it on display.
-Use the existing concept (format, genre, title, logline, summary, tone, themes, ending) as the brief, but reach for the logline's central tension specifically — what's the one thing this story is ABOUT. Avoid generic prestige-cinema words ("haunting", "powerful", "unforgettable"). No quote marks around the result.
+      return `Write ONE tagline for this project — a short, punchy compression of the story's central tension. STRICT CONSTRAINT: 120 characters or fewer including spaces and punctuation. Single sentence, no period if it would push past 120. Sentence-case is fine; the UI uppercases it on display.
+
+Craft bar:
+- Aim at the story's IRONY or trap, not its plot — the best taglines weaponize the central contradiction, stated fresh.
+- Concrete beats clever-generic; wit beats hype.
+- Kill list: prestige filler ("haunting", "powerful", "unforgettable"), "In a world…", "Some secrets…", rhetorical questions.
+- No quote marks around the result.${influencesBlock(story)}
 
 Return STRICT JSON: { "tagline": string }`;
 
     case "generate_concept_tone":
       return `Pick ONE tone descriptor for this project.
-Use the existing concept (format, genre, title, logline, summary, themes, ending) as the brief. The tone should be a short evocative phrase (2–6 words) that would guide a writer's room — e.g. "bone-dry deadpan", "neon-lit dread", "sun-bleached melancholy".
+
+A tone is a working instruction for the writer's room — it should tell someone how a scene FEELS to write and to watch, not what genre it is. 2–6 words, compound and evocative; friction between the words is good ("sun-bleached melancholy", "bone-dry menace", "tender and profane").
+
+Craft bar:
+- Derive it from THIS story's specifics (world, concept, influences) — not from the genre's default palette.
+- Single generic adjectives are banned: "dark", "gritty", "intense", "atmospheric" alone say nothing.
+- If influences are listed below, let their texture inform the phrase — without naming any title.${influencesBlock(story)}
 
 Return STRICT JSON: { "tone": string }`;
 
     case "generate_concept_themes":
       return `Propose 3–5 thematic throughlines for this project.
-Use the existing concept (format, genre, title, logline, summary, tone, ending) as the brief. Themes should be punchy noun phrases (1–3 words each) — e.g. "grief", "inherited violence", "the cost of ambition". Avoid clichés and single-word banalities like "love" or "family" unless genuinely central. No duplicates of themes already present: ${d.concept?.themes?.length ? d.concept.themes.join(", ") : "(none yet)"}.
+
+Themes are the argument running under the plot — what the story keeps testing. Punchy noun phrases (1–3 words each), grounded in the concept and characters above.
+
+Craft bar:
+- Prefer themes WITH TENSION built in: "loyalty for sale" beats "loyalty"; "inherited debts" beats "family".
+- Each theme must be checkable against the story: if no scene could dramatize it, cut it.
+- Single-word banalities ("love", "family", "identity") only if the concept makes them unavoidable — and then sharpen them with a modifier.
+- No moralizing, no "the importance of X".
+- No duplicates of themes already present: ${d.concept?.themes?.length ? d.concept.themes.join(", ") : "(none yet)"}.${influencesBlock(story)}
 
 Return STRICT JSON: { "themes": string[] }`;
 
