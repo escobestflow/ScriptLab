@@ -1,0 +1,189 @@
+{
+  "id": "77777777-7777-4777-8777-777777777777",
+  "title": "Second Wedding",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture7",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture7",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture7",
+      "charactersDraftId": "chd_fixture7",
+      "storyDraftId": "sd_fixture7",
+      "scriptDraftId": "scd_fixture7"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture7",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "An ordained divorce mediator agrees to officiate her ex-husband's wedding to her half-sister — over one rehearsal weekend where every toast, seating chart, and vow draft reopens the file on who left whom.",
+      "settings": {
+        "framework": null,
+        "genres": ["drama", "comedy"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "The Celebration", "aspects": ["family event as pressure cooker"] }
+        ],
+        "writerStyles": [],
+        "vibe": "banquet-hall crossfire, smiling through clenched teeth",
+        "unpredictability": 6,
+        "darkness": 5,
+        "pace": 6,
+        "endingTypes": ["bittersweet"],
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Ruth Adler — divorce mediator, ordained online as a joke that stopped being funny — is asked to officiate the wedding of Marcus (her ex-husband) to Piper (her half-sister, eleven years younger, same mother). The rehearsal weekend at the family lake house also gathers Gene (Ruth's stepfather, who is ALSO Marcus's business partner) and Sadie (Marcus's nineteen-year-old daughter from his first marriage — Ruth's former stepdaughter, who still calls Ruth 'mom' when nobody's listening). Ruth wrote her own divorce settlement; now she has to write their vows.",
+        "tone": "dry, wounded, ceremonial",
+        "themes": ["who gets custody of a family", "vows as contracts", "the mediator's own file"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture7",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_ruth",
+          "name": "Ruth Adler",
+          "role": "protagonist",
+          "archetype": "mediator who can't mediate herself",
+          "backstory": "Built a practice untangling other people's marriages after failing to untangle her own.",
+          "motivations": "Prove — publicly, ceremonially — that she is fine.",
+          "flaws": "Treats every conversation as a negotiation to be won calmly.",
+          "want": "Officiate flawlessly and leave Sunday with the moral high ground.",
+          "need": "To stop billing her grief by the hour.",
+          "relationships": [
+            { "characterId": "ch_marcus", "description": "ex-husband (divorced 4 years; she drafted the settlement herself)" },
+            { "characterId": "ch_piper", "description": "half-sister — same mother, eleven years younger; the bride" },
+            { "characterId": "ch_gene", "description": "stepfather (married Ruth's mother when Ruth was 15)" },
+            { "characterId": "ch_sadie", "description": "former stepdaughter from Marcus's first marriage; Sadie still calls her 'mom' in private" }
+          ],
+          "voice": "mediation-speak weaponized; 'what I'm hearing is…' as a knife",
+          "arc": "From performing neutrality to filing her own grievance out loud.",
+          "notes": ""
+        },
+        {
+          "id": "ch_marcus",
+          "name": "Marcus Hale",
+          "role": "supporting",
+          "archetype": "conflict-avoidant groom",
+          "backstory": "Divorced twice; co-owns a marina franchise with Gene.",
+          "motivations": "Get through the weekend without a single raised voice.",
+          "flaws": "Believes silence is kindness.",
+          "want": "Everyone smiling in the photos.",
+          "need": "To say one true thing before the vows.",
+          "relationships": [
+            { "characterId": "ch_ruth", "description": "ex-wife; asked her to officiate believing it would 'close the loop'" },
+            { "characterId": "ch_piper", "description": "fiancée — met at Ruth's mother's funeral" },
+            { "characterId": "ch_gene", "description": "business partner in the marina franchise" },
+            { "characterId": "ch_sadie", "description": "daughter from his FIRST marriage (not Ruth's biological child)" }
+          ],
+          "voice": "agreeable to the point of vanishing; apologizes mid-sentence",
+          "arc": "",
+          "notes": ""
+        },
+        {
+          "id": "ch_piper",
+          "name": "Piper Voss",
+          "role": "supporting",
+          "archetype": "bride in her sister's shadow",
+          "backstory": "Grew up hearing Ruth held up as the standard; kept the surname of the father Ruth never shared.",
+          "motivations": "One event where she is not the footnote.",
+          "flaws": "Confuses being envied with being loved.",
+          "want": "Ruth's blessing, in front of everyone, in the vows Ruth writes.",
+          "need": "To want the marriage more than the optics of it.",
+          "relationships": [
+            { "characterId": "ch_ruth", "description": "half-sister — same mother, different fathers; kept her own father's surname (Voss)" },
+            { "characterId": "ch_marcus", "description": "fiancé" },
+            { "characterId": "ch_gene", "description": "stepfather to Ruth only — Gene arrived after Piper's father; to Piper he is 'mom's second husband', not a parent" }
+          ],
+          "voice": "bright, brittle, rehearsed toasts",
+          "arc": "",
+          "notes": ""
+        },
+        {
+          "id": "ch_gene",
+          "name": "Gene Kessler",
+          "role": "supporting",
+          "archetype": "patriarch by paperwork",
+          "backstory": "Married the girls' mother; buried her two years ago; has been hosting holidays out of momentum since.",
+          "motivations": "Keep the family assembled at any cost, including honesty.",
+          "flaws": "Uses the marina partnership to keep Marcus in the family like a lien.",
+          "want": "The wedding to go perfectly at HIS lake house.",
+          "need": "To admit the family he's preserving dissolved two years ago.",
+          "relationships": [
+            { "characterId": "ch_ruth", "description": "stepdaughter (he raised her from 15; walked her down the aisle at her wedding to Marcus)" },
+            { "characterId": "ch_marcus", "description": "business partner AND former son-in-law — soon to be son-in-law again via Piper" },
+            { "characterId": "ch_piper", "description": "his late wife's younger daughter; never formally his step-anything and both of them know it" }
+          ],
+          "voice": "toastmaster boom with a two-second delay where doubt lives",
+          "arc": "",
+          "notes": ""
+        },
+        {
+          "id": "ch_sadie",
+          "name": "Sadie Hale",
+          "role": "supporting",
+          "archetype": "the kid keeping receipts",
+          "backstory": "Nineteen; Marcus's daughter from his first marriage to Dana (absent, alive, unmentioned at events). Ruth raised her ages 8–15.",
+          "motivations": "Make someone say ONE accurate sentence about this family out loud.",
+          "flaws": "Mistakes cruelty-by-accuracy for honesty.",
+          "want": "Maid of honor toast that tells the truth.",
+          "need": "Permission to keep loving Ruth without betraying Piper's day.",
+          "relationships": [
+            { "characterId": "ch_marcus", "description": "father" },
+            { "characterId": "ch_ruth", "description": "former stepmother, functionally her mother ages 8–15; still calls her 'mom' privately" },
+            { "characterId": "ch_piper", "description": "future stepmother, six years older than her; they follow each other and like nothing" }
+          ],
+          "voice": "gen-z deposition style; quotes people back verbatim with timestamps",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture7",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [
+        { "id": "b7_1", "name": "The Ask", "summary": "Marcus and Piper ask Ruth to officiate; Ruth says yes before either finishes the sentence, to win the moment.", "purpose": "Establish Ruth performing 'fine' as a competitive sport.", "position": 0, "momentIds": [], "characterIds": ["ch_ruth", "ch_marcus", "ch_piper"], "status": "design" },
+        { "id": "b7_2", "name": "Seating Chart Summit", "summary": "Gene's seating chart puts Ruth at the family table between Sadie and the empty chair kept for the girls' late mother; Ruth re-drafts it like a settlement exhibit and Sadie photographs both versions.", "purpose": "The audience sees the family's real fault lines drawn in table assignments — and Sadie building her receipts file.", "position": 1, "momentIds": [], "characterIds": ["ch_ruth", "ch_gene", "ch_sadie"], "status": "design" },
+        { "id": "b7_3", "name": "Vow Draft One", "summary": "Piper rejects Ruth's first vow draft as 'a contract'; Ruth rewrites it warmer and realizes she's quoting her own wedding vows to Marcus.", "purpose": "Ruth's professional armor cracks along the exact seam of the old marriage.", "position": 2, "momentIds": [], "characterIds": ["ch_ruth", "ch_piper"], "status": "design" },
+        { "id": "b7_4", "name": "Rehearsal Toast", "summary": "Sadie's practice toast quotes, verbatim with dates, three family lies from the weekend; Gene cuts the mic and Marcus, for once, doesn't smooth it over.", "purpose": "The receipts detonate; Marcus's silence breaks where we expected Ruth's to.", "position": 3, "momentIds": [], "characterIds": ["ch_sadie", "ch_gene", "ch_marcus", "ch_ruth"], "status": "design" }
+      ],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture7",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}

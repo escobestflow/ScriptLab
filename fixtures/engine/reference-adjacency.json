@@ -1,0 +1,121 @@
+{
+  "id": "88888888-8888-4888-8888-888888888888",
+  "title": "Comfort Measures",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture8",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture8",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture8",
+      "charactersDraftId": "chd_fixture8",
+      "storyDraftId": "sd_fixture8",
+      "scriptDraftId": "scd_fixture8"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture8",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "A hospice nurse who prides herself on 'good deaths' starts skimming end-of-life medications for a grieving black market — and her newest patient is the retired pharmacist who trained her.",
+      "settings": {
+        "framework": null,
+        "genres": ["drama", "thriller"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "Breaking Bad", "aspects": ["moral descent", "pressure-cooker tension"] }
+        ],
+        "writerStyles": [],
+        "vibe": "hand-sanitizer and hymnals; kitchens at 3am",
+        "unpredictability": 6,
+        "darkness": 8,
+        "pace": 5,
+        "endingTypes": ["tragic"],
+        "toneNote": "intimate, not operatic — the crime fits in a tote bag",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Noor Haddad is the hospice nurse families ask for by name. She is also, eleven months into her mother's unpayable memory-care bills, the person quietly diverting leftover fentanyl patches and lorazepam from the dying to a buyer who supplies other people's good deaths off the books. Her system is exact: never short a patient, never touch the chart, never take from anyone lucid enough to notice. Then she's assigned Walter Reyes — the retired hospital pharmacist who taught her to count, who is dying slowly, lucidly, and who counts everything.",
+        "tone": "hushed, exact, mournful",
+        "themes": ["mercy as contraband", "debts of care", "being known by your teacher"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture8",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_noor",
+          "name": "Noor Haddad",
+          "role": "protagonist",
+          "archetype": "caretaker gone quiet-criminal",
+          "backstory": "Fifteen years of other families' worst nights; her own mother no longer knows her on Tuesdays.",
+          "motivations": "Keep her mother in the good facility without selling the house her father built.",
+          "flaws": "Believes her precision makes it mercy instead of theft.",
+          "want": "Eight more months of payments without getting caught.",
+          "need": "To let someone witness her instead of managing them.",
+          "relationships": [
+            { "characterId": "ch_walter", "description": "her mentor — precepted her hospital rotation twenty years ago; now her assigned hospice patient" }
+          ],
+          "voice": "gentle imperatives; dosage-exact language even about feelings",
+          "arc": "From immaculate systems to a confession she administers herself.",
+          "notes": ""
+        },
+        {
+          "id": "ch_walter",
+          "name": "Walter Reyes",
+          "role": "antagonist",
+          "archetype": "dying auditor",
+          "backstory": "Thirty-eight years behind the hospital pharmacy counter; taught two generations of nurses that counting is a moral act.",
+          "motivations": "Die with his ledger balanced — and every count in his orbit accurate.",
+          "flaws": "Would rather be correct than comforted, even now.",
+          "want": "To know why his patch schedule is eleven minutes off.",
+          "need": "To spend his last accuracy on grace instead of a verdict.",
+          "relationships": [
+            { "characterId": "ch_noor", "description": "his best student; he recognizes her diversion pattern because he invented the audit that catches it" }
+          ],
+          "voice": "pharmacist's murmur; questions phrased as inventory",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture8",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture8",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}

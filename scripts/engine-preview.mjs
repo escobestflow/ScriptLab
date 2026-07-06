@@ -43,6 +43,17 @@ const MATRIX = [
   // genre/external stakes.
   { fixture: "backseat-roadtrip", action: "generate_concept_logline" },
   { fixture: "quiet-drama", action: "generate_concept_logline" },
+  // Quality Gauntlet — beats → scene → script chain. Rows with a
+  // `payload` exercise per-beat surfaces (generate_scene reads
+  // payload.beatIndex). See FABLE_GAUNTLET_FIXTURES.md for what each
+  // fixture traps.
+  { fixture: "horror-comedy", action: "generate_beats" },
+  { fixture: "reference-adjacency", action: "generate_beats" },
+  { fixture: "anti-generic-trap", action: "generate_beats" },
+  { fixture: "developed-feature", action: "generate_scene", payload: { beatIndex: 3 } },
+  { fixture: "relationship-trap", action: "generate_scene", payload: { beatIndex: 1 } },
+  { fixture: "scene-intent", action: "generate_scene", payload: { beatIndex: 1 } },
+  { fixture: "relationship-trap", action: "sync_story_to_script" },
 ];
 
 function renderReadable(r) {
@@ -65,7 +76,7 @@ function renderReadable(r) {
 async function main() {
   await mkdir(OUT, { recursive: true });
   let failures = 0;
-  for (const { fixture, action } of MATRIX) {
+  for (const { fixture, action, payload } of MATRIX) {
     const name = `${fixture}__${action}`;
     try {
       const story = JSON.parse(
@@ -76,7 +87,7 @@ async function main() {
         headers: { "Content-Type": "application/json", "x-user-email": EMAIL },
         body: JSON.stringify({
           story,
-          action: { type: action, payload: {} },
+          action: { type: action, payload: payload ?? {} },
           profile: null,
           dryRun: true,
         }),

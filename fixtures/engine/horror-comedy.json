@@ -1,0 +1,121 @@
+{
+  "id": "66666666-6666-4666-8666-666666666666",
+  "title": "Quorum",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture6",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture6",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture6",
+      "charactersDraftId": "chd_fixture6",
+      "storyDraftId": "sd_fixture6",
+      "scriptDraftId": "scd_fixture6"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture6",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "When a cul-de-sac HOA discovers the thing under the retention pond honors any rule passed by majority vote, the board's pettiest tyrant becomes the neighborhood's only qualified demonologist.",
+      "settings": {
+        "framework": null,
+        "genres": ["horror", "comedy"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "What We Do in the Shadows", "aspects": ["deadpan", "mundane-supernatural clash"] }
+        ],
+        "writerStyles": [],
+        "vibe": "laminated agendas vs ancient evil; fluorescent clubhouse dread",
+        "unpredictability": 7,
+        "darkness": 5,
+        "pace": 7,
+        "endingTypes": ["twist"],
+        "toneNote": "the horror is real and the comedy is procedural — nobody winks at the camera",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Pinehurst Commons has 47 homes, a retention pond, and a thing in the pond that has eaten a resident every June since 1988 — but only residents in violation of the bylaws. Carol Bench, the HOA president everyone despises for her citation-happy clipboard raj, realizes her unbearable rulebook is the only fence holding the thing in. When a new board majority votes to dissolve the covenants and sell to a developer, Carol has until the June meeting to keep 46 households in perfect compliance — or feed the pond the two-thirds quorum it needs.",
+        "tone": "deadpan procedural dread",
+        "themes": ["rules as ritual", "petty power, real stakes", "community as covenant"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture6",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_carol",
+          "name": "Carol Bench",
+          "role": "protagonist",
+          "archetype": "petty tyrant, load-bearing",
+          "backstory": "Twenty-two years as HOA president; wrote the 340-page covenant herself after what happened to the Kowalskis in '03.",
+          "motivations": "Keep the pond fed on citations instead of neighbors.",
+          "flaws": "Would rather be feared and right than believed.",
+          "want": "The covenants preserved, unanimously.",
+          "need": "One neighbor who follows the rules because they trust her, not because they fear the fine.",
+          "relationships": [
+            { "characterId": "ch_dev", "description": "public enemy — Dev leads the vote to dissolve the covenants; privately he is the only board member who has read all 340 pages" }
+          ],
+          "voice": "citation numbers as punctuation; never raises her volume, only her specificity",
+          "arc": "From enforcing the rules to explaining them.",
+          "notes": ""
+        },
+        {
+          "id": "ch_dev",
+          "name": "Dev Okonkwo",
+          "role": "antagonist",
+          "archetype": "reasonable man, wrong about everything",
+          "backstory": "Moved in three years ago; flipping four properties; June 1988 means nothing to him.",
+          "motivations": "Dissolve the HOA, close the sale, move the family somewhere with a better school district.",
+          "flaws": "Mistakes Carol's fear for control-freakery because that's cheaper than believing her.",
+          "want": "The dissolution vote passed before the developer's option expires.",
+          "need": "To read the minutes from June 1988.",
+          "relationships": [
+            { "characterId": "ch_carol", "description": "sees Carol as the last obstacle between his family and a clean exit" }
+          ],
+          "voice": "spreadsheet reasonableness; jokes to defuse, then regrets the joke",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture6",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture6",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}

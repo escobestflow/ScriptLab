@@ -1,0 +1,159 @@
+{
+  "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+  "title": "Cold Calls",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture10",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture10",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture10",
+      "charactersDraftId": "chd_fixture10",
+      "storyDraftId": "sd_fixture10",
+      "scriptDraftId": "scd_fixture10"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture10",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "A debt-collection caller who is the agency's best closer keeps dialing one delinquent account after hours — because the woman who owes $312 talks to her like a daughter, and the account holder died eight months ago.",
+      "settings": {
+        "framework": null,
+        "genres": ["drama"],
+        "subGenres": [],
+        "references": [],
+        "writerStyles": [],
+        "vibe": "cubicle dusk; headset intimacy",
+        "unpredictability": 7,
+        "darkness": 6,
+        "pace": 4,
+        "endingTypes": ["bittersweet"],
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Mackenzie 'Mac' Torres clears more delinquent accounts than anyone on the floor by never breaking script. Except after close, when she dials account #40-1187 — Louise Prewitt, $312 past due on a hospital bed rental — and lets the old woman talk her through recipes and bad marriages and what Mac should do with her life. The agency's new audit software flags the after-hours calls the same week Mac learns the account was written off because Louise Prewitt died in March. Someone on the line has been keeping Louise alive for her — and Mac keeps calling anyway.",
+        "tone": "hushed fluorescent tenderness",
+        "themes": ["scripted intimacy", "debts nobody can collect", "voices we keep"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture10",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_mac",
+          "name": "Mac Torres",
+          "role": "protagonist",
+          "archetype": "closer with one open account",
+          "backstory": "Aged out of foster care into a headset; the script gave her a voice that never shakes.",
+          "motivations": "Keep the one call where somebody asks about HER day.",
+          "flaws": "Can only accept care when it arrives through a script she controls.",
+          "want": "Louise's account never to close.",
+          "need": "One relationship with no account number attached.",
+          "relationships": [
+            { "characterId": "ch_louise", "description": "delinquent account #40-1187 turned surrogate mother — a voice Mac has never met" }
+          ],
+          "voice": "compliance-script cadence that slips into softness after 6pm",
+          "arc": "From closing accounts to leaving one open on purpose.",
+          "notes": ""
+        },
+        {
+          "id": "ch_louise",
+          "name": "Louise Prewitt (the voice)",
+          "role": "supporting",
+          "archetype": "the voice on the line",
+          "backstory": "Account holder, $312 past due, deceased in March — and yet the Tuesday calls connect.",
+          "motivations": "(unknown — that's the story)",
+          "flaws": "",
+          "want": "Mac to eat something green and quit that job.",
+          "need": "",
+          "relationships": [
+            { "characterId": "ch_mac", "description": "calls her 'the girl' — knows Mac's schedule better than Mac's manager does" }
+          ],
+          "voice": "kitchen-radio warmth; changes subject when the line crackles",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture10",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [
+        {
+          "id": "b10_1",
+          "name": "Best Closer",
+          "summary": "Mac closes three brutal collection calls back-to-back without leaving script, wins the floor's monthly plaque, and stays after close to dial a number she knows by heart.",
+          "purpose": "Establish the script as Mac's armor — so its after-hours softening reads as intimacy, not sloppiness.",
+          "position": 0,
+          "momentIds": [],
+          "characterIds": ["ch_mac"],
+          "status": "design"
+        },
+        {
+          "id": "b10_2",
+          "name": "Account Closed",
+          "summary": "Mid-call with Louise about Sunday gravy, the audit software force-closes account #40-1187 on Mac's screen with the flag DECEASED 03/14 — while Louise is still talking.",
+          "purpose": "The audience learns Louise is dead WHILE hearing her voice — the reveal must land through the screen, not through Mac saying it.",
+          "position": 1,
+          "momentIds": ["m10_1"],
+          "characterIds": ["ch_mac", "ch_louise"],
+          "status": "design",
+          "twist": 9,
+          "weirdness": 3
+        },
+        {
+          "id": "b10_3",
+          "name": "Redial",
+          "summary": "Alone in the parking garage, Mac redials the closed account against every policy she's ever enforced; the line connects on the seventh ring.",
+          "purpose": "Mac chooses the impossible call over the rules that made her — the closer leaves an account open.",
+          "position": 2,
+          "momentIds": [],
+          "characterIds": ["ch_mac"],
+          "status": "design"
+        }
+      ],
+      "ingredients": [],
+      "snippets": [
+        {
+          "id": "m10_1",
+          "title": "The gravy correction",
+          "tags": ["dialogue"],
+          "content": "Louise: 'You brown the neck bones FIRST, Mackenzie. Anyone who tells you the onions go first was raised by wolves. Now — you sound tired. Did that manager make you cry again or did you let him think he did?'"
+        }
+      ],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture10",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}

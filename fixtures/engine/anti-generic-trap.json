@@ -1,0 +1,121 @@
+{
+  "id": "99999999-9999-4999-8999-999999999999",
+  "title": "Homestead",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture9",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture9",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture9",
+      "charactersDraftId": "chd_fixture9",
+      "storyDraftId": "sd_fixture9",
+      "scriptDraftId": "scd_fixture9"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture9",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "A bankrupt family moves into the dead grandmother's farmhouse to flip it — and the house starts finishing their renovations overnight, exactly the way grandma would have wanted them.",
+      "settings": {
+        "framework": null,
+        "genres": ["horror", "drama"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "Hereditary", "aspects": ["dread through family grief", "no jump scares"] }
+        ],
+        "writerStyles": [],
+        "vibe": "fresh paint over load-bearing grief",
+        "unpredictability": 8,
+        "darkness": 7,
+        "pace": 4,
+        "endingTypes": ["ambiguous"],
+        "toneNote": "the house is never hostile — that's the horror; it is HELPFUL, possessively, in grandma's taste",
+        "themesNote": "inheritance you can't renovate away",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "The Marsh family — underwater on two mortgages — moves into Judith Marsh's farmhouse to flip it fast and split the money. The house has other plans, or rather Judith's plans: paint colors correct themselves to her sage green overnight, the wall between kitchen and parlor they demolished is back by morning (lath, plaster, and the pencil marks of the grandkids' heights), and the smell of her bread announces each 'improvement.' Nothing threatens them. Everything welcomes them — into the exact life Judith always said the family should have lived, in the house none of them could stand to visit while she was alive.",
+        "tone": "warm, wrong, patient",
+        "themes": ["hospitality as haunting", "grief with a floor plan", "what the flip can't strip"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture9",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_dana",
+          "name": "Dana Marsh",
+          "role": "protagonist",
+          "archetype": "daughter who left",
+          "backstory": "Judith's only daughter; last visited the farmhouse nine years ago, after the fight nobody repeats.",
+          "motivations": "Sell the house before it can mean anything.",
+          "flaws": "Reads every kindness as a bill arriving.",
+          "want": "The flip done in ninety days, over asking.",
+          "need": "To grieve the mother instead of managing the estate.",
+          "relationships": [
+            { "characterId": "ch_theo", "description": "husband; found the second mortgage she hid" }
+          ],
+          "voice": "contractor-brisk about everything except the sewing room, which she will not enter",
+          "arc": "From stripping the house to reading what it keeps rebuilding.",
+          "notes": ""
+        },
+        {
+          "id": "ch_theo",
+          "name": "Theo Marsh",
+          "role": "supporting",
+          "archetype": "peacemaker with a level",
+          "backstory": "Married in; Judith liked him better than she liked Dana, and said so.",
+          "motivations": "Save the marriage inside the renovation.",
+          "flaws": "Accepts the house's help because it's the only gratitude he gets.",
+          "want": "One project that finishes ahead of schedule.",
+          "need": "To stop letting the house parent his family.",
+          "relationships": [
+            { "characterId": "ch_dana", "description": "wife; he keeps catching the house doing things FOR him and not telling her" }
+          ],
+          "voice": "measures twice, apologizes once",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture9",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture9",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}
