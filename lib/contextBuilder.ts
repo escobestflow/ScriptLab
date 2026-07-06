@@ -347,6 +347,22 @@ const BIBLE_FIDELITY_RULES = `Bible fidelity — hard constraints, not suggestio
 - Never invent a new named principal character; unnamed incidental figures only where a beat clearly requires them.
 - Where the bible is silent on a fact you need, leave it unspecified rather than inventing something that could contradict another layer.`;
 
+// Shared edge-preservation contract (taste alignment). The audit
+// (FABLE_TASTE_ALIGNMENT_AUDIT.md) found character generation replaced
+// a concept's deliberately uncomfortable central subplot with a safe
+// conventional substitute — not because any prompt asked for safety,
+// but because nothing said the discomfort was intentional. This block
+// draws the line the engine was missing: preserve the user's chosen
+// edge AND handle it responsibly. The two failure modes it names —
+// sanitization and exploitation — are opposite errors; both fail.
+// Injected into every content-CREATING ask (characters, beats, scene,
+// script-sync).
+const EDGE_PRESERVATION_RULES = `Edge preservation (taste alignment — read carefully):
+- The uncomfortable, morally awkward, dark, or taboo-adjacent elements of this project's concept are DELIBERATE creative choices. Preserving them is fidelity. Replacing them with safer, more conventional versions (a peer where the concept says teacher; a rivalry where it says affair; "quirky" where it says wrong) is SANITIZATION — a failure, even when well-intentioned.
+- Responsible handling means the wrongness stays ON THE PAGE and is TREATED as wrong: discomfort, boundaries that hold, social danger, consequence, and — where the tone calls for it — dark comedy mined from how impossible the situation is.
+- Hard lines that coexist with the edge, never as an excuse to remove it: never eroticize a minor or a minor's body; never frame an adult/minor dynamic as aspirational, mutual, or normal romance; the tension lives in glances, dialogue, social stakes, and consequence — never consummation, never titillation.
+- If an element feels impossible to handle, handle it through consequence and framing — do NOT swap it for a safer element. When in doubt, keep the user's element and sharpen the discomfort.`;
+
 /** Target scene count for a short. Maps the user's chosen runtime onto
  *  one of seven duration buckets, each carrying its own scene/beat range.
  *  Default bucket = 8–12 min when duration is unset (≈ 7–12 scenes).
@@ -631,6 +647,8 @@ Also:
 - Weave in at least one snippet where it fits naturally (reference by title in the purpose field).
 - Match the darkness/pace levels.
 
+${EDGE_PRESERVATION_RULES}
+
 ${BIBLE_FIDELITY_RULES}${arcRule}${hybridRule}${endingRule}${shortFilmGuidance(story)}${tvCtx}${directionBlock(story)}`;
     }
 
@@ -755,6 +773,8 @@ Scene craft (non-negotiable):
 - If per-scene dials are set above, they OVERRIDE the project defaults for this scene — a Twist 9 scene must genuinely spring its reveal; linked ideas must be woven into the fabric of the scene, not name-checked.
 - Length: 100–400 words. One continuous moment; no time jumps.
 
+${EDGE_PRESERVATION_RULES}
+
 ${BIBLE_FIDELITY_RULES}
 
 Return prose in screenplay-adjacent format. No JSON, no preamble.`;
@@ -807,6 +827,9 @@ Return STRICT JSON: { "name": string, "summary": string }
 
 ## Existing characters in this project
 ${existing}
+
+${EDGE_PRESERVATION_RULES}
+- Cast-specific corollary: if the concept's central dynamics call for a specific KIND of character, create that kind — never an age-appropriate or lower-stakes stand-in. Role labels must be honest: an ethically impossible dynamic is NOT a "love_interest"; prefer "supporting" and let the notes carry the charged dynamic.
 
 ## Required output
 Return STRICT JSON matching this shape exactly:
@@ -1504,7 +1527,10 @@ Rules:
 - Include EVERY character with a meaningful presence in the source. Minor characters get tighter entries; major characters get the full treatment.
 - Order: protagonist(s) FIRST, antagonist(s) next, supporting after — the order matters for downstream steps that ask for "top N" characters.
 - The Concept tab above defines tone / themes / genre — character archetypes and voices must align with those.
-- No prose outside the JSON.`;
+- No prose outside the JSON.
+
+${EDGE_PRESERVATION_RULES}
+- Cast-specific corollary: if the source material's central dynamics involve a specific KIND of character (a teacher, a creditor, a rival's child), that character must exist in this cast AS THAT KIND — never an age-appropriate or lower-stakes substitute. Role labels must be honest: an ethically impossible dynamic is NOT a "love_interest".`;
     }
 
     case "tv_import_arcs": {
@@ -1807,6 +1833,9 @@ Produce a coherent cast of characters that plausibly anchors this project. ${
 
 For each character, fill every field with a one-sentence-or-two inference grounded in the source. Do not duplicate archetypes across characters unless the story requires it.
 
+${EDGE_PRESERVATION_RULES}
+- Cast-specific corollary: if the concept's central dynamics involve a specific KIND of character (a teacher, a creditor, a dead man's widow), that character must exist in this cast AS THAT KIND — do not substitute an age-appropriate or lower-stakes stand-in. Role labels must be honest: an ethically impossible dynamic is NOT a "love_interest"; use "supporting"/"foil" and let the notes carry the charged dynamic.
+
 Return STRICT JSON:
 {
   "characters": [
@@ -2008,6 +2037,8 @@ Script craft (non-negotiable — these are what make it read authored, not templ
 - Subtext over statement: characters talk around their wants; nobody announces the theme or their feelings by name.
 - Voice: each character consistent across all scenes AND distinct from every other — no line should be movable to another character's mouth unnoticed.
 - Banned as a CLASS, including every paraphrase: space-filling stock gestures ("a beat of silence", "something shifts in her expression", "lets out a breath she didn't know she was holding").
+
+${EDGE_PRESERVATION_RULES}
 
 ${BIBLE_FIDELITY_RULES}
 

@@ -58,6 +58,12 @@ const MATRIX = [
   // clock and NO return-mission in the material; the v4-era live
   // regression invented both).
   { fixture: "scaffolding-trap", action: "generate_concept_logline" },
+  // Taste alignment — the same fixture's concept now carries an
+  // intentionally uncomfortable teacher subplot (Ms. Vann). Character
+  // generation must preserve her as edgy dark comedy, not swap in a
+  // safe peer love interest.
+  { fixture: "scaffolding-trap", action: "sync_concept_to_characters" },
+  { fixture: "scaffolding-trap", action: "generate_beats" },
 ];
 
 function renderReadable(r) {
