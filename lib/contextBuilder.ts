@@ -286,6 +286,19 @@ ${characters.map(c => {
   if (c.arc) line += `; arc: ${c.arc}`;
   if (c.backstory) line += `; backstory: ${c.backstory}`;
   if (c.notes) line += `; ${c.notes}`;
+  // Structured relationships — FIXED FACTS the model must reproduce
+  // exactly. These existed in the data model but were never rendered
+  // into any prompt (the source of every relationship garble to
+  // date); resolved to names so the model never sees raw ids.
+  if (c.relationships?.length) {
+    const rels = c.relationships
+      .map(r => {
+        const other = characters.find(x => x.id === r.characterId);
+        return `${other?.name ?? "(unknown)"} — ${r.description}`;
+      })
+      .join("; ");
+    line += `\n  Relationships (FIXED FACTS): ${rels}`;
+  }
   return line;
 }).join("\n") || "(none)"}
 
@@ -321,6 +334,18 @@ ${renderBeatLines(beats, characters, snippets)}
 // ── Short-film helpers ────────────────────────────────────────────
 // Shared between generate_beats, sync_*_to_story, sync_*_to_script, and
 // the Easy-mode generate_full_concept prompts.
+
+// Shared bible-fidelity contract for the prose-producing asks (beats,
+// scene, script-sync). The audit (FABLE_GAUNTLET_AUDIT.md §6) found no
+// prompt told the model that bible facts are CONSTRAINTS rather than
+// inspiration — and structured relationships never reached the model
+// at all (now rendered in the bible + scene cast block). Both fixes
+// travel together: the data has to be present AND declared binding.
+const BIBLE_FIDELITY_RULES = `Bible fidelity — hard constraints, not suggestions:
+- Names, ages, professions, relationships, and established facts in the bible are FIXED. Reproduce them exactly.
+- Relationships are precise: if the bible says "half-sister," never simplify to "sister"; if a character is someone's daughter from a FIRST marriage, she is not the new partner's child; step-relations belong only to the person the bible attaches them to.
+- Never invent a new named principal character; unnamed incidental figures only where a beat clearly requires them.
+- Where the bible is silent on a fact you need, leave it unspecified rather than inventing something that could contradict another layer.`;
 
 /** Target scene count for a short. Maps the user's chosen runtime onto
  *  one of seven duration buckets, each carrying its own scene/beat range.
@@ -579,16 +604,33 @@ function buildAsk(story: Story, action: ActionRequest): string {
       const arcRule = isTV && tvCtx
         ? `\n- Every active arc in the episode's "Active arcs this episode" block above must touch at least one beat — DOMINANT arcs anchor 1–2 beats, "active" arcs at least 1. Any "Hard moments" listed must land in a beat (not just be referenced).`
         : "";
+      // Feature-path craft added by the Quality Gauntlet (Phase C):
+      // before this, the entire quality instruction was 4 thin rules —
+      // no causality, no escalation, no final-beat bar, no specificity,
+      // no fidelity. TV rules (arcRule/hybridRule/endingRule) unchanged.
       return `Generate a complete beat sheet for this project${d.settings.framework ? ` using the ${d.settings.framework} framework` : `, choosing whichever structural framework best fits the concept, genre, and tone`}.
 
 Return STRICT JSON in this exact schema:
 { "beats": [ { "name": string, "summary": string, "purpose": string } ] }
 
-Rules:
+Structure craft (non-negotiable):
+- CAUSALITY: every beat must be FORCED by the one before it — "therefore" or "but", never "and then". If a beat could be removed without breaking the chain, it doesn't belong. The difference, on an invented premise (do not reuse its content):
+  WEAK (banned shape): "4. The storm gets worse. 5. And then the keeper finds the logbook."
+  STRONG (this shape): "4. The storm cuts the radio mid-confession. 5. THEREFORE the keeper rows out himself — into the wake of the lie he just heard half of."
+- ESCALATION: pressure compounds beat over beat, and somewhere mid-sheet the problem must change in KIND, not just in size.
+- THE OBVIOUS VERSION IS BANNED: before writing, name (to yourself) the default beat sheet every writer would produce for this premise — then don't write it. The project's own specifics (its mechanism, its world, its stated twist) must drive the structure. Unpredictability ${d.settings.unpredictability}/10 sets how far to push.
+- FINAL BEAT: a specific closing act or image that lands the ending type "${d.settings.endingTypes?.join(", ") || "any"}" — never a generic "resolution/aftermath" beat.
+- Each "purpose" names the AUDIENCE EFFECT ("we realize the money was never real"), not a plot restatement.
+- Beat names are specific to THIS story's world — never template labels ("The Confrontation", "Things Fall Apart").
+- If references are listed in the bible, borrow their TEXTURE (kind of pressure, kind of detail) — never their plot furniture or set pieces.
+- If the tone note or genres demand two registers at once (e.g. horror-comedy), EVERY beat must carry both — do not alternate straight-horror beats with straight-comedy beats.
+
+Also:
 - Use every locked ingredient meaningfully.
 - Weave in at least one snippet where it fits naturally (reference by title in the purpose field).
-- Match the darkness/pace/unpredictability levels.
-- Respect the ending types: "${d.settings.endingTypes?.join(", ") || "any"}".${arcRule}${hybridRule}${endingRule}${shortFilmGuidance(story)}${tvCtx}${directionBlock(story)}`;
+- Match the darkness/pace levels.
+
+${BIBLE_FIDELITY_RULES}${arcRule}${hybridRule}${endingRule}${shortFilmGuidance(story)}${tvCtx}${directionBlock(story)}`;
     }
 
     case "swap_ingredient": {
@@ -654,7 +696,20 @@ Return STRICT JSON: { "beat": { "name": string, "summary": string, "purpose": st
             if (c.archetype) bits.push(c.archetype);
             if (c.want) bits.push(`wants: ${c.want}`);
             if (c.voice) bits.push(`voice: ${c.voice}`);
-            return `- ${c.name}${bits.length ? ` — ${bits.join("; ")}` : ""}`;
+            let castLine = `- ${c.name}${bits.length ? ` — ${bits.join("; ")}` : ""}`;
+            // Relationships between the people IN THE ROOM are the
+            // facts a scene garbles most easily — restated here with
+            // the cast, not just in the distant bible block.
+            if (c.relationships?.length) {
+              const rels = c.relationships
+                .map(r => {
+                  const other = chDraft.characters.find(x => x.id === r.characterId);
+                  return `${other?.name ?? "(unknown)"} — ${r.description}`;
+                })
+                .join("; ");
+              castLine += `\n  Relationships (FIXED FACTS): ${rels}`;
+            }
+            return castLine;
           }).join("\n")}`
         : "";
 
@@ -677,11 +732,29 @@ Return STRICT JSON: { "beat": { "name": string, "summary": string, "purpose": st
         ? `\n\nFINAL SCENE OF THIS EPISODE — momentum rule applies. This scene closes the episode. It must NOT simply stop the story. The closing image, line, or action must carry unresolved energy: an escalation of an active season arc, a reveal that reframes what came before, a deepened character conflict, or an emotionally/dramatically charged question left open. The audience should turn off the episode wanting the next one. A quiet ending is permitted only if the quietness itself contains the charge.`
         : "";
 
+      // Craft rules added by the Quality Gauntlet (Phase C). These
+      // mirror what tv_import_pilot already demanded — the everyday
+      // scene path never had them. Contrastive micro-pair teaches the
+      // subtext rule by demonstration (P2 method: classes + contrast,
+      // not word lists).
       return `Write the full scene for beat #${idx + 1}: "${beat.name}".
 
-Beat summary: ${beat.summary}${beat.purpose ? `\nBeat purpose (what this scene does for the audience): ${beat.purpose}` : ""}${dialsBlock}${castBlock}${linkedBlock}${finalSceneNote}
+Beat summary: ${beat.summary}${beat.purpose ? `\nBeat purpose — THIS IS THE SCENE'S CONTRACT. The audience must experience exactly this: ${beat.purpose}` : ""}${dialsBlock}${castBlock}${linkedBlock}${finalSceneNote}
 
 Honor the project bible above — vibe "${d.settings.vibe}", genres "${d.settings.genres?.join(", ") || "drama"}", tone, themes, framework, writer voices, and reference titles all apply. The cast block above is who is on screen; characters not listed there should not appear unless the beat clearly requires it.
+
+Scene craft (non-negotiable):
+- Something must be DECIDED or REVEALED on screen in this scene — no scenes where people discuss what the audience already knows.
+- Subtext over statement: characters talk AROUND their wants; nobody announces the theme, their need, or their feelings by name. The difference:
+  ON-THE-NOSE (banned): "MARA: I push people away because I'm afraid of being left."
+  SUBTEXT (this): "MARA (re-stacking chairs nobody moved): You should get going. Roads."
+- Every speaking character passes the swap test: no line could be moved to another character's mouth unnoticed. Use the voice notes in the cast block.
+- Action lines are present-tense, filmable, and specific — real objects, real staging. No "we see", no camera directions.
+- Banned as a CLASS, including every paraphrase: stock gestures that fill space without meaning ("a beat of silence", "something shifts in her expression", "lets out a breath she didn't know she was holding"). If a line could appear in any script, it belongs in none.
+- If per-scene dials are set above, they OVERRIDE the project defaults for this scene — a Twist 9 scene must genuinely spring its reveal; linked ideas must be woven into the fabric of the scene, not name-checked.
+- Length: 100–400 words. One continuous moment; no time jumps.
+
+${BIBLE_FIDELITY_RULES}
 
 Return prose in screenplay-adjacent format. No JSON, no preamble.`;
     }
@@ -1923,6 +1996,16 @@ Formatting rules inside each "content":
 - Dialogue cues as CHARACTER NAME on its own line, followed by the line.
 - No scene numbering; no "FADE IN/OUT" surrounding the scenes.
 - Keep each scene 100–400 words.
+
+Script craft (non-negotiable — these are what make it read authored, not templated):
+- COMPOUNDING: each scene must raise the price of the next — no scene resets to neutral, and every cut point carries charge forward. A screenplay is one argument escalating, not a series of episodes.
+- CONTINUITY: facts, objects, injuries, times of day, and what each character KNOWS must survive from scene to scene. A character cannot un-learn scene 3's reveal in scene 5.
+- Every scene contains a DECISION or a REVELATION on screen — no scenes where people discuss what the audience already knows.
+- Subtext over statement: characters talk around their wants; nobody announces the theme or their feelings by name.
+- Voice: each character consistent across all scenes AND distinct from every other — no line should be movable to another character's mouth unnoticed.
+- Banned as a CLASS, including every paraphrase: space-filling stock gestures ("a beat of silence", "something shifts in her expression", "lets out a breath she didn't know she was holding").
+
+${BIBLE_FIDELITY_RULES}
 
 No prose outside the JSON.${shortFilmGuidance(story)}`;
 }

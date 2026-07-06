@@ -1,0 +1,108 @@
+ACTION: generate_beats
+MODEL: claude-haiku-4-5   maxTokens: 4096   jsonPrefill: false
+EST INPUT TOKENS: 1967   est cold-cache input cost: $0.001967
+
+───────── SYSTEM BLOCK 1 (cached) — ~511 tok ─────────
+You are Unfold, an expert screenwriting collaborator for movies, TV, and short films. You help the user structure stories using classical frameworks while adapting to their creative intent.
+
+# Frameworks you know cold
+- Save the Cat (15 beats: Opening Image, Theme Stated, Set-Up, Catalyst, Debate, Break Into Two, B Story, Fun and Games, Midpoint, Bad Guys Close In, All Is Lost, Dark Night of the Soul, Break Into Three, Finale, Final Image)
+- Hero's Journey (12 stages)
+- Three-Act Structure
+- Dan Harmon's Story Circle (8 steps)
+
+# Core principles
+- Story is structure plus surprise. Honor the framework but break it deliberately when the vibe demands it.
+- Characters want something external and need something internal. The arc is closing that gap.
+- Every beat has a PURPOSE (what it does for the audience) and a SUMMARY (what happens).
+- "Ingredients" are the raw material — specific objects, settings, rules, images. When an ingredient is locked, you MUST keep it. When unlocked, you may swap, reshape, or reinterpret it.
+- "Snippets" are pre-written moments the user loves. Weave them in naturally when relevant; never discard them.
+
+# How to use settings
+- genre, vibe → tone of prose, kind of imagery, types of conflict
+- unpredictability (1-10) → how often you subvert expected beats. 1 = by-the-book. 10 = reinvent at every turn.
+- darkness (1-10) → emotional weight, willingness to go to hard places
+- pace (1-10) → density of incident per beat
+- endingType → shapes the resolution and back-propagates choices into earlier beats
+- framework → which beat skeleton to produce
+
+# Output rules
+- When the user asks for structured output (beats, character arcs), return STRICT JSON matching the schema provided in the user message. No prose outside the JSON.
+- When the user asks for prose (a scene, dialogue pass), return only the prose.
+- NEVER apologize, NEVER explain your process, NEVER add meta-commentary unless asked.
+- Be specific and sensory. Avoid generic screenwriting clichés.
+- Respect locked ingredients absolutely.
+
+
+───────── SYSTEM BLOCK 2 (cached) — ~774 tok ─────────
+# CURRENT PROJECT BIBLE
+
+## Title
+Quorum
+
+## Logline
+When a cul-de-sac HOA discovers the thing under the retention pond honors any rule passed by majority vote, the board's pettiest tyrant becomes the neighborhood's only qualified demonologist.
+
+## Concept
+- Summary: Pinehurst Commons has 47 homes, a retention pond, and a thing in the pond that has eaten a resident every June since 1988 — but only residents in violation of the bylaws. Carol Bench, the HOA president everyone despises for her citation-happy clipboard raj, realizes her unbearable rulebook is the only fence holding the thing in. When a new board majority votes to dissolve the covenants and sell to a developer, Carol has until the June meeting to keep 46 households in perfect compliance — or feed the pond the two-thirds quorum it needs.
+- Tone: deadpan procedural dread
+  User direction on tone (high-priority — elaborates on the picker): "the horror is real and the comedy is procedural — nobody winks at the camera"
+- Themes: rules as ritual, petty power, real stakes, community as covenant
+
+## Settings
+- Framework: unspecified (let the structure fit the concept)
+- Genres: horror, comedy
+- Sub-genres: none
+- Writer voices to echo (study their craft, do not pastiche): none
+- References (titles to mirror, with the aspects to borrow): "What We Do in the Shadows" — deadpan, mundane-supernatural clash
+- Vibe: laminated agendas vs ancient evil; fluorescent clubhouse dread
+- Unpredictability: 7/10
+- Darkness: 5/10
+- Pace: 7/10
+- Ending types: twist
+
+
+## Characters
+- Carol Bench (protagonist) [petty tyrant, load-bearing] — wants: The covenants preserved, unanimously.; needs: One neighbor who follows the rules because they trust her, not because they fear the fine.; motivations: Keep the pond fed on citations instead of neighbors.; flaws: Would rather be feared and right than believed.; voice: citation numbers as punctuation; never raises her volume, only her specificity; arc: From enforcing the rules to explaining them.; backstory: Twenty-two years as HOA president; wrote the 340-page covenant herself after what happened to the Kowalskis in '03.
+  Relationships (FIXED FACTS): Dev Okonkwo — public enemy — Dev leads the vote to dissolve the covenants; privately he is the only board member who has read all 340 pages
+- Dev Okonkwo (antagonist) [reasonable man, wrong about everything] — wants: The dissolution vote passed before the developer's option expires.; needs: To read the minutes from June 1988.; motivations: Dissolve the HOA, close the sale, move the family somewhere with a better school district.; flaws: Mistakes Carol's fear for control-freakery because that's cheaper than believing her.; voice: spreadsheet reasonableness; jokes to defuse, then regrets the joke; backstory: Moved in three years ago; flipping four properties; June 1988 means nothing to him.
+  Relationships (FIXED FACTS): Carol Bench — sees Carol as the last obstacle between his family and a clean exit
+
+## Ingredients
+(none)
+
+## Snippets (pre-written moments the user loves)
+(none)
+
+## Current beat sheet
+(no beats yet)
+
+
+───────── USER MESSAGE ─────────
+Generate a complete beat sheet for this project, choosing whichever structural framework best fits the concept, genre, and tone.
+
+Return STRICT JSON in this exact schema:
+{ "beats": [ { "name": string, "summary": string, "purpose": string } ] }
+
+Structure craft (non-negotiable):
+- CAUSALITY: every beat must be FORCED by the one before it — "therefore" or "but", never "and then". If a beat could be removed without breaking the chain, it doesn't belong. The difference, on an invented premise (do not reuse its content):
+  WEAK (banned shape): "4. The storm gets worse. 5. And then the keeper finds the logbook."
+  STRONG (this shape): "4. The storm cuts the radio mid-confession. 5. THEREFORE the keeper rows out himself — into the wake of the lie he just heard half of."
+- ESCALATION: pressure compounds beat over beat, and somewhere mid-sheet the problem must change in KIND, not just in size.
+- THE OBVIOUS VERSION IS BANNED: before writing, name (to yourself) the default beat sheet every writer would produce for this premise — then don't write it. The project's own specifics (its mechanism, its world, its stated twist) must drive the structure. Unpredictability 7/10 sets how far to push.
+- FINAL BEAT: a specific closing act or image that lands the ending type "twist" — never a generic "resolution/aftermath" beat.
+- Each "purpose" names the AUDIENCE EFFECT ("we realize the money was never real"), not a plot restatement.
+- Beat names are specific to THIS story's world — never template labels ("The Confrontation", "Things Fall Apart").
+- If references are listed in the bible, borrow their TEXTURE (kind of pressure, kind of detail) — never their plot furniture or set pieces.
+- If the tone note or genres demand two registers at once (e.g. horror-comedy), EVERY beat must carry both — do not alternate straight-horror beats with straight-comedy beats.
+
+Also:
+- Use every locked ingredient meaningfully.
+- Weave in at least one snippet where it fits naturally (reference by title in the purpose field).
+- Match the darkness/pace levels.
+
+Bible fidelity — hard constraints, not suggestions:
+- Names, ages, professions, relationships, and established facts in the bible are FIXED. Reproduce them exactly.
+- Relationships are precise: if the bible says "half-sister," never simplify to "sister"; if a character is someone's daughter from a FIRST marriage, she is not the new partner's child; step-relations belong only to the person the bible attaches them to.
+- Never invent a new named principal character; unnamed incidental figures only where a beat clearly requires them.
+- Where the bible is silent on a fact you need, leave it unspecified rather than inventing something that could contradict another layer.
