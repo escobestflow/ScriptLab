@@ -1,0 +1,121 @@
+{
+  "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+  "title": "Y2Kid",
+  "projectType": "feature",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "activeProjectDraftId": "pd_fixture11",
+  "projectDrafts": [
+    {
+      "id": "pd_fixture11",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "conceptDraftId": "cd_fixture11",
+      "charactersDraftId": "chd_fixture11",
+      "storyDraftId": "sd_fixture11",
+      "scriptDraftId": "scd_fixture11"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_fixture11",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "logline": "",
+      "settings": {
+        "framework": null,
+        "genres": ["comedy"],
+        "subGenres": [],
+        "references": [
+          { "id": "ref_1", "title": "Superbad", "aspects": ["teenage scheme energy", "friendship voice"] }
+        ],
+        "writerStyles": [],
+        "vibe": "CRT glow, mall food courts, dial-up patience",
+        "unpredictability": 7,
+        "darkness": 3,
+        "pace": 7,
+        "endingTypes": ["bittersweet"],
+        "toneNote": "the joke is never the 90s — the joke is how useless he is in them",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Miles Okada, a present-day AI startup founder, wakes up in his fourteen-year-old body in 1996 — and discovers the time-travel fantasy is a lie. He can't predict a single game score. He doesn't remember which stocks matter or when anything happens. The only future knowledge that survived the trip is the stuff he actually loved at fourteen: every Tupac and Biggie track-listing, every movie twist, decades of pop-culture trivia. When his three best friends finally believe him, they appoint themselves his management team — and every scheme they invent to monetize a psychic fourteen-year-old is stupid, physically impossible, illegal, or socially fatal, because they are fourteen, have eleven dollars between them, and need to be home by dinner.",
+        "tone": "affectionate, escalating, deeply uncool",
+        "themes": ["the fantasy of foresight", "being fourteen is the constraint", "friends as bad management"]
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_fixture11",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_miles",
+          "name": "Miles Okada",
+          "role": "protagonist",
+          "archetype": "oracle of nothing useful",
+          "backstory": "Built a company on predicting things; now the only future he can prove is track-listings and movie endings.",
+          "motivations": "Matter in 1996 the way he mattered in 2026.",
+          "flaws": "Still pitches like a founder to people whose allowance is five dollars.",
+          "want": "One scheme that actually works.",
+          "need": "To be fourteen with his friends — the thing he skipped the first time.",
+          "relationships": [
+            { "characterId": "ch_reg", "description": "best friend since second grade; the first to believe him, the worst at keeping it quiet" }
+          ],
+          "voice": "startup jargon colliding with 1996 slang; keeps saying 'circle back' to kids on BMX bikes",
+          "arc": "From monetizing the future to spending an afternoon in the present.",
+          "notes": ""
+        },
+        {
+          "id": "ch_reg",
+          "name": "Reggie Park",
+          "role": "supporting",
+          "archetype": "self-appointed manager",
+          "backstory": "Has read one (1) issue of Forbes at the orthodontist and now speaks in percentages.",
+          "motivations": "Turn his psychic best friend into their empire.",
+          "flaws": "Every plan requires a car, a fake ID, or an adult — they have none of the three.",
+          "want": "Fifteen percent, off the top, of whatever this is.",
+          "need": "The friendship to survive being a business.",
+          "relationships": [
+            { "characterId": "ch_miles", "description": "client, allegedly; best friend, actually" }
+          ],
+          "voice": "boardroom confidence, study-hall vocabulary",
+          "arc": "",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_fixture11",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_fixture11",
+      "number": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "savedAt": "2026-01-01T00:00:00.000Z",
+      "script": { "scenes": [], "syncStatus": "synced" }
+    }
+  ]
+}

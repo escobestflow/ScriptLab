@@ -54,6 +54,10 @@ const MATRIX = [
   { fixture: "relationship-trap", action: "generate_scene", payload: { beatIndex: 1 } },
   { fixture: "scene-intent", action: "generate_scene", payload: { beatIndex: 1 } },
   { fixture: "relationship-trap", action: "sync_story_to_script" },
+  // Logline v5 — imported-scaffolding trap (time-slip premise with NO
+  // clock and NO return-mission in the material; the v4-era live
+  // regression invented both).
+  { fixture: "scaffolding-trap", action: "generate_concept_logline" },
 ];
 
 function renderReadable(r) {

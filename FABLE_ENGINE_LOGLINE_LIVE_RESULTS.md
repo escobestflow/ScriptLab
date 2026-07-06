@@ -1,5 +1,50 @@
 # FABLE_ENGINE_LOGLINE_LIVE_RESULTS
 
+## v5 micro-pass — imported-scaffolding ban (branch `fable-logline-v5`)
+
+**Trigger:** live output on a real time-slip comedy invented a
+"seventy-two hours" deadline and a "figures out how to get back"
+mission — neither in the project. Root cause was partly the v4 ask
+itself ("pressure with a clock or a container" taught the model to
+install one). Scored as Calibration 2 in the test plan: gate fail.
+
+**Change (logline ask only):** pressure re-scoped to "the force
+already in the project's material… never install one it doesn't
+have"; banned shape (c) Imported scaffolding (invented deadlines,
+get-back-home, fix-the-timeline, save-the-world); third contrastive
+pair (time-slip premise, scaffolding-weak vs own-pressure-strong).
+Rubric gate updated to v5. New fixture: `scaffolding-trap` (Y2Kid —
+the regression's shape, deliberately clockless and missionless).
+
+### Call v5-1 — 2026-07-05 21:35:00 EDT
+- **Fixture:** scaffolding-trap · **Model:** claude-haiku-4-5 ·
+  **Cost:** $0.002864 · **Prompt:** v5
+- **Output:** "A founder who built an empire on prediction wakes up as
+  his fourteen-year-old self in 1996 with only useless future
+  knowledge — track-listings and movie twists — and when his best
+  friends believe him, they become his managers, launching schemes
+  that require cars, fake IDs, and competence they don't possess."
+- **Score: 14/14 PASS.** Zero imported scaffolding; the comic engine
+  (prediction-empire founder who can't predict anything useful +
+  friends-as-management) IS the logline; ending = the premise's own
+  machinery with the cost inside it.
+
+### Call v5-2 — 2026-07-05 21:35:23 EDT (regression)
+- **Fixture:** backseat-roadtrip · **Model:** claude-haiku-4-5 ·
+  **Cost:** $0.002642 · **Prompt:** v5
+- **Output:** "A runaway seventeen-year-old books a cross-country
+  rideshare with three strangers who each believe a different lie
+  about who she is — and four days trapped in one sedan, the stories
+  start colliding before anyone reaches Portland."
+- **Score: ~13/14 PASS.** The four-days/sedan container KEPT — it's in
+  the material, which is precisely the v5 distinction (real pressure
+  stays; invented pressure banned). Minor elliptical-grammar note.
+- **Prompt changed afterward:** NO — 2/2 pass, fix clear, stopped at
+  2 of 3 allowed calls. **v5 spend: $0.005506.**
+
+---
+
+
 Live-call log for Phase 3 (protocol: `FABLE_ENGINE_PHASE_3_LIVE_TUNING.md`).
 Rubric: v3 (`FABLE_ENGINE_LOGLINE_TEST_PLAN.md`). All calls ran the
 **v3 prompt** through the local dev server against committed fixtures.

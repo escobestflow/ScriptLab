@@ -1,0 +1,135 @@
+ACTION: sync_story_to_script
+MODEL: claude-opus-4-5   maxTokens: 32000   jsonPrefill: true
+EST INPUT TOKENS: 2162   est cold-cache input cost: $0.03243
+
+───────── SYSTEM BLOCK 1 (cached) — ~511 tok ─────────
+You are Unfold, an expert screenwriting collaborator for movies, TV, and short films. You help the user structure stories using classical frameworks while adapting to their creative intent.
+
+# Frameworks you know cold
+- Save the Cat (15 beats: Opening Image, Theme Stated, Set-Up, Catalyst, Debate, Break Into Two, B Story, Fun and Games, Midpoint, Bad Guys Close In, All Is Lost, Dark Night of the Soul, Break Into Three, Finale, Final Image)
+- Hero's Journey (12 stages)
+- Three-Act Structure
+- Dan Harmon's Story Circle (8 steps)
+
+# Core principles
+- Story is structure plus surprise. Honor the framework but break it deliberately when the vibe demands it.
+- Characters want something external and need something internal. The arc is closing that gap.
+- Every beat has a PURPOSE (what it does for the audience) and a SUMMARY (what happens).
+- "Ingredients" are the raw material — specific objects, settings, rules, images. When an ingredient is locked, you MUST keep it. When unlocked, you may swap, reshape, or reinterpret it.
+- "Snippets" are pre-written moments the user loves. Weave them in naturally when relevant; never discard them.
+
+# How to use settings
+- genre, vibe → tone of prose, kind of imagery, types of conflict
+- unpredictability (1-10) → how often you subvert expected beats. 1 = by-the-book. 10 = reinvent at every turn.
+- darkness (1-10) → emotional weight, willingness to go to hard places
+- pace (1-10) → density of incident per beat
+- endingType → shapes the resolution and back-propagates choices into earlier beats
+- framework → which beat skeleton to produce
+
+# Output rules
+- When the user asks for structured output (beats, character arcs), return STRICT JSON matching the schema provided in the user message. No prose outside the JSON.
+- When the user asks for prose (a scene, dialogue pass), return only the prose.
+- NEVER apologize, NEVER explain your process, NEVER add meta-commentary unless asked.
+- Be specific and sensory. Avoid generic screenwriting clichés.
+- Respect locked ingredients absolutely.
+
+
+───────── SYSTEM BLOCK 2 (cached) — ~904 tok ─────────
+# CURRENT PROJECT BIBLE
+
+## Title
+Buck Mark
+
+## Logline
+A washed-up rodeo fixer takes one last debt-clearing job — babysitting the teenage daughter of the man he's being paid to betray.
+
+## Concept
+- Summary: Ray Dellum used to make problems disappear for rodeo promoters. Now he owes the wrong man forty grand. The payoff job is simple: keep Cass Harlan's sixteen-year-old daughter occupied for a weekend while Ray's employer guts her father's business. But the kid is smarter than every adult in her orbit, and by Sunday Ray has to choose which debt he can live with.
+- Tone: bone-dry menace
+  User direction on tone (high-priority — elaborates on the picker): "dark humor under everything — find the funny in the bleak, never goofy"
+- Themes: inherited debts, loyalty for sale, the cost of one last job
+
+## Settings
+- Framework: unspecified (let the structure fit the concept)
+- Genres: drama, thriller
+- Sub-genres: none
+- Writer voices to echo (study their craft, do not pastiche): Taylor Sheridan
+- References (titles to mirror, with the aspects to borrow): "Breaking Bad" — pacing, grit; "Hell or High Water" — tone, setting
+- Vibe: sun-rotted americana, quiet menace
+- Unpredictability: 7/10
+- Darkness: 7/10
+- Pace: 6/10
+- Ending types: bittersweet
+
+
+## Characters
+- Ray Dellum (protagonist) [reluctant fixer] — wants: Out of Coyle's ledger by Monday.; needs: To stop settling other people's accounts and pay his own.; motivations: Clear the debt, disappear clean.; flaws: Mistakes self-erasure for penance.; voice: spare, dry, jokes at the worst possible moment; arc: From hired blank to a man who picks a side.; backstory: Twenty years cleaning up after rodeo money. One bad season of gambling put him under Judd Coyle's thumb.
+- Lena Harlan (supporting) [too-smart kid] — wants: One weekend of actual freedom.; needs: One adult who doesn't lie to her.; motivations: Figure out why a stranger is suddenly her chaperone.; flaws: Confuses leverage with safety.; voice: fast, cutting, tests everyone; arc: From playing adults against each other to trusting one.; backstory: Sixteen, raised in the back offices of her father's stockyard empire.
+- Judd Coyle (antagonist) [polite creditor] — wants: The Harlan business, quietly.; needs: (none he'd admit); motivations: Take Harlan's stockyards without a court ever hearing about it.; flaws: Believes every man prices out like cattle.; voice: soft, unhurried, never threatens twice; backstory: Owns half the county's paper, including Ray's.
+
+## Ingredients
+(none)
+
+## Snippets (pre-written moments the user loves)
+(none)
+
+## Current beat sheet
+1. [design] Ledger Day: Ray watches Coyle bankrupt a friend over coffee, then gets handed his own 'last job.'
+   Purpose: Establish the debt world and the price of staying neutral.
+   Cast in scene: Ray Dellum, Judd Coyle
+2. [design] The Babysit: Ray meets Lena; she clocks him as hired muscle in under a minute.
+   Purpose: Collision of the two leads; she's ahead of him.
+   Cast in scene: Ray Dellum, Lena Harlan
+3. [design] Wrong Errand: A pickup Ray runs for Coyle turns out to be surveillance gear aimed at Harlan's books.
+   Purpose: Ray can no longer pretend the job is harmless.
+   Cast in scene: Ray Dellum
+4. [design] Lena's Price: Lena catches Ray mid-lie and offers a trade: her silence for the truth.
+   Purpose: Reverse the leverage; the kid holds the cards.
+   Cast in scene: Ray Dellum, Lena Harlan
+5. [design] Which Debt: Coyle calls the job done and the debt clear — if Ray walks away right now.
+   Purpose: Force the choice the whole film has been pricing.
+   Cast in scene: Ray Dellum, Judd Coyle
+
+
+───────── USER MESSAGE ─────────
+Write a complete feature-length screenplay driven by the Story (beat sheet) above.
+
+Produce one scene per beat in the beat sheet above. Match the genres "drama, thriller" and the tone on the brief.
+
+Voice and tonal targets (already in the bible — restated here so they actually shape the prose):
+- Writer voices to echo: Taylor Sheridan
+- References to mirror: "Breaking Bad" (pacing, grit); "Hell or High Water" (tone, setting)
+
+Each beat in the bible above carries its own per-scene dials (Twist / Weirdness), cast list, and linked ideas. Honor them per-scene — those instructions override the project defaults for that one scene only. Linked ideas listed under a beat MUST appear in that beat's prose.
+
+Return STRICT JSON:
+{
+  "scenes": [
+    {
+      "heading": string,   // slugline, e.g. "INT. DINER - NIGHT"
+      "content": string    // screenplay-style prose for the scene: action lines + dialogue in industry format (CHARACTER in caps, dialogue below)
+    }
+  ]
+}
+
+Formatting rules inside each "content":
+- Action lines in present tense, concrete and sensory.
+- Dialogue cues as CHARACTER NAME on its own line, followed by the line.
+- No scene numbering; no "FADE IN/OUT" surrounding the scenes.
+- Keep each scene 100–400 words.
+
+Script craft (non-negotiable — these are what make it read authored, not templated):
+- COMPOUNDING: each scene must raise the price of the next — no scene resets to neutral, and every cut point carries charge forward. A screenplay is one argument escalating, not a series of episodes.
+- CONTINUITY: facts, objects, injuries, times of day, and what each character KNOWS must survive from scene to scene. A character cannot un-learn scene 3's reveal in scene 5.
+- Every scene contains a DECISION or a REVELATION on screen — no scenes where people discuss what the audience already knows.
+- Subtext over statement: characters talk around their wants; nobody announces the theme or their feelings by name.
+- Voice: each character consistent across all scenes AND distinct from every other — no line should be movable to another character's mouth unnoticed.
+- Banned as a CLASS, including every paraphrase: space-filling stock gestures ("a beat of silence", "something shifts in her expression", "lets out a breath she didn't know she was holding").
+
+Bible fidelity — hard constraints, not suggestions:
+- Names, ages, professions, relationships, and established facts in the bible are FIXED. Reproduce them exactly.
+- Relationships are precise: if the bible says "half-sister," never simplify to "sister"; if a character is someone's daughter from a FIRST marriage, she is not the new partner's child; step-relations belong only to the person the bible attaches them to.
+- Never invent a new named principal character; unnamed incidental figures only where a beat clearly requires them.
+- Where the bible is silent on a fact you need, leave it unspecified rather than inventing something that could contradict another layer.
+
+No prose outside the JSON.

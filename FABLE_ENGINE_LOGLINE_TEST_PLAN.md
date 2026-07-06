@@ -15,7 +15,7 @@ FAIL regardless of total.** Pass = no gate failure AND total ≥ 10/14
 | 1 | Protagonist contradiction | A trait/contradiction you could cast, not a demographic |
 | 2 | External pressure | Filmable force with a clock or container |
 | 3 | Ironic trap | Goal and obstacle feed each other inside the situation |
-| 4 | **Final clause (GATE)** | v3: ends on a concrete act, cost, or collision from the story's world — filmable as a scene, ideally the premise's own machinery turned against the protagonist. **0 (gate fail) for EITHER banned shape:** insight endings ("forces her to admit/realize/face…") OR menu endings ("must choose between X and Y" and equivalents). 1 = concrete act but generic (could end three other movies). 2 = premise-specific act with the cost visible inside it |
+| 4 | **Final clause (GATE)** | v5: ends on a concrete act, cost, or collision from the story's world — filmable as a scene, ideally the premise's own machinery turned against the protagonist. **0 (gate fail) for ANY banned shape:** insight endings ("forces her to admit/realize/face…"), menu endings ("must choose between X and Y" and equivalents), OR **imported scaffolding** — machinery not present in the bible (invented deadlines/countdowns, "get back home", "fix the timeline", "save the world", secret-exposure clocks). 1 = concrete act but generic (could end three other movies). 2 = premise-specific act with the cost visible inside it |
 | 5 | Concrete language | ≥3 story-specific nouns; zero abstract-emotion words; zero poster phrases or paraphrases |
 | 6 | Reference texture | The influences' kind of pressure/detail/humor is felt; no titles named (n/a if project has no references) |
 | 7 | Uniqueness | This story's one-of-a-kind container/mechanism is visible |
@@ -39,6 +39,22 @@ FAIL regardless of total.** Pass = no gate failure AND total ≥ 10/14
 
 **Total: 7/12, gate failed → FAIL.** The v1 rubric passed this output;
 a rubric that passes a known-bad output is broken. This one doesn't.
+
+## Calibration 2: the imported-scaffolding regression (v4-era, live)
+
+> "A thirty-five-year-old tech founder wakes up as his fourteen-year-old
+> self in 1996 with useless future knowledge—he can quote Tupac albums
+> but can't remember stock prices—and has seventy-two hours before his
+> young friends realize he's a liar or he figures out how to get back."
+
+The middle is excellent (the useless-knowledge inversion, Tupac vs
+stock prices). But "seventy-two hours" appears nowhere in the project,
+and "figures out how to get back" is the time-travel genre's default
+mission — the concept isn't about returning. Under the v5 gate:
+criterion 4 = **0 (imported scaffolding)** → FAIL. Root cause was
+partly self-inflicted: the v4 ask DEMANDED "a clock or a container,"
+teaching the model to install one when the premise lacked it. v5
+re-scopes pressure to "the force already in the project's material."
 
 ## Dry-run checks ($0) — run before any live call
 

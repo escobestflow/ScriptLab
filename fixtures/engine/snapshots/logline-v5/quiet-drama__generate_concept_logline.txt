@@ -1,0 +1,112 @@
+ACTION: generate_concept_logline
+MODEL: claude-haiku-4-5   maxTokens: 4096   jsonPrefill: false
+EST INPUT TOKENS: 2211   est cold-cache input cost: $0.002211
+
+───────── SYSTEM BLOCK 1 (cached) — ~511 tok ─────────
+You are Unfold, an expert screenwriting collaborator for movies, TV, and short films. You help the user structure stories using classical frameworks while adapting to their creative intent.
+
+# Frameworks you know cold
+- Save the Cat (15 beats: Opening Image, Theme Stated, Set-Up, Catalyst, Debate, Break Into Two, B Story, Fun and Games, Midpoint, Bad Guys Close In, All Is Lost, Dark Night of the Soul, Break Into Three, Finale, Final Image)
+- Hero's Journey (12 stages)
+- Three-Act Structure
+- Dan Harmon's Story Circle (8 steps)
+
+# Core principles
+- Story is structure plus surprise. Honor the framework but break it deliberately when the vibe demands it.
+- Characters want something external and need something internal. The arc is closing that gap.
+- Every beat has a PURPOSE (what it does for the audience) and a SUMMARY (what happens).
+- "Ingredients" are the raw material — specific objects, settings, rules, images. When an ingredient is locked, you MUST keep it. When unlocked, you may swap, reshape, or reinterpret it.
+- "Snippets" are pre-written moments the user loves. Weave them in naturally when relevant; never discard them.
+
+# How to use settings
+- genre, vibe → tone of prose, kind of imagery, types of conflict
+- unpredictability (1-10) → how often you subvert expected beats. 1 = by-the-book. 10 = reinvent at every turn.
+- darkness (1-10) → emotional weight, willingness to go to hard places
+- pace (1-10) → density of incident per beat
+- endingType → shapes the resolution and back-propagates choices into earlier beats
+- framework → which beat skeleton to produce
+
+# Output rules
+- When the user asks for structured output (beats, character arcs), return STRICT JSON matching the schema provided in the user message. No prose outside the JSON.
+- When the user asks for prose (a scene, dialogue pass), return only the prose.
+- NEVER apologize, NEVER explain your process, NEVER add meta-commentary unless asked.
+- Be specific and sensory. Avoid generic screenwriting clichés.
+- Respect locked ingredients absolutely.
+
+
+───────── SYSTEM BLOCK 2 (cached) — ~587 tok ─────────
+# CURRENT PROJECT BIBLE
+
+## Title
+The Inventory
+
+## Logline
+(none yet)
+
+## Concept
+- Summary: Two estranged brothers have one weekend to inventory their dead father's hardware store before the buyer takes possession Monday morning. Frank, who stayed and ran the register for twenty years, wants to sell every last hinge at its marked price. Charlie, who left at eighteen and came back for the funeral, keeps finding things that aren't for sale — a repair ledger full of forgiven debts, a shoebox of returned keys, their mother's handwriting on a layaway card from 1989. The count has to balance by Monday. Neither brother's version of their father does.
+- Tone: dry, exact, quietly loaded
+- Themes: what the ledger forgives, the one who stayed, inheritance as argument
+
+## Settings
+- Framework: unspecified (let the structure fit the concept)
+- Genres: drama
+- Sub-genres: none
+- Writer voices to echo (study their craft, do not pastiche): Kenneth Lonergan
+- References (titles to mirror, with the aspects to borrow): "Manchester by the Sea" — restraint, grief without speeches
+- Vibe: fluorescent-lit, patient, no music telling you what to feel
+- Unpredictability: 4/10
+- Darkness: 6/10
+- Pace: 3/10
+- Ending types: ambiguous
+
+
+## Characters
+- Frank Okafor (protagonist) [the one who stayed] — wants: The inventory balanced and the check cashed by Monday.; needs: To learn what his father actually spent the store on.; motivations: Close the sale clean and prove staying was worth something.; flaws: Counts everything; values almost nothing.; voice: clipped, transactional, thaws by degrees; arc: From balancing the count to honoring what was never counted.; backstory: Ran the store beside his father for twenty years; knows every SKU and none of his father's friends.
+- Charlie Okafor (supporting) [the one who left] — wants: One object from the store that means something.; needs: To admit staying was also a choice someone made for him.; motivations: Find proof the old man was more than the register.; flaws: Treats leaving as a personality.; voice: charming, evasive, lands one true sentence per day; backstory: Left at eighteen after a fight nobody names; came back for the funeral with a rental car and no black suit.
+
+## Ingredients
+(none)
+
+## Snippets (pre-written moments the user loves)
+(none)
+
+## Current beat sheet
+(no beats yet)
+
+
+───────── USER MESSAGE ─────────
+Write ONE logline for this project in 1–2 sentences, max 40 words.
+
+Ground it in everything above — title, genre, concept, characters, and any influences below. A logline is the story's ENGINE: a specific protagonist + a destabilizing event + what they must do + the trap that makes it cost something + pressure that won't wait.
+
+Anatomy requirements:
+- Protagonist: a defining trait or CONTRADICTION, not a demographic — "a fixer who can make anything disappear except his own debts", never "a man in trouble".
+- Pressure: the concrete force ALREADY IN THE PROJECT'S MATERIAL. A clock or container is great when the premise supplies one (a debt due Friday, four days in one sedan) — but a situation, a body, a social trap, or a group of co-conspirators is pressure too. Use whichever pressure THIS premise actually generates; never install one it doesn't have.
+- The trap: getting what they want must threaten what they need — build it into the situation itself, not into commentary about it.
+- FINAL CLAUSE RULE — most loglines die here: the last clause must be a CONCRETE ACT, COST, or COLLISION from this story's world — something a camera could film as a scene. The strongest endings turn the premise's own machinery against the protagonist. Three shapes are BANNED:
+  (a) Insight endings — "forces her to admit/realize/learn/face…", "discovers what really matters". If your draft ends on an insight, delete it and end on the act that would force that insight.
+  (b) Menu endings — "must choose between X and Y". Never present a choice as a menu of options; show the single specific action the choice comes down to, with its cost visible inside the act. This holds EVEN WHEN the project's own summary or beats describe the story as a choice between two things — do not reproduce that framing; translate it into the concrete act it comes down to.
+  (c) Imported scaffolding — stock dramatic machinery bolted on from the genre's defaults: invented deadlines and countdowns ("has 72 hours", "before it's too late"), "find a way back home", "fix the timeline", "save the world", secret-exposure clocks. If the bible doesn't state it, it does not exist. The premise's OWN engine is the story — a logline that needs machinery the project doesn't contain is a logline about a different project.
+
+The difference, on invented premises (do not reuse their content):
+- WEAK (insight ending): "…a stranded wedding band must share a van with the groom's ex, forcing each of them to face what they left behind."
+- STRONG: "…a stranded wedding band must share a van with the groom's ex — and decide, city by city, whether to tell him she's coming."
+- WEAK (menu ending): "…her laugh spreads like a virus, forcing her to choose between her career and containing the outbreak."
+- STRONG: "…her laugh spreads like a virus, until the only way to stop it is to bomb the sold-out special that could finally make her famous."
+- WEAK (imported scaffolding): "…wakes up in 1988 as her college-age mother and has 48 hours to get back before the timeline collapses."
+- STRONG (the premise's own pressure): "…wakes up in 1988 as her college-age mother — and has to pass the classes her mother failed, in front of the teaching assistant who will one day be her father."
+
+Language rules:
+- Active voice, present tense. At least three concrete nouns from THIS story's world.
+- No abstract emotional vocabulary ("honest", "truth", "healing", "belonging", "who she really is") — if a word names a feeling instead of showing a situation, cut it.
+- Kill list: "must learn to…", "discovers the true meaning of…", "will stop at nothing", "everything changes", "a race against time", "dark secret", "confront her past", "discover who she really is" — and every paraphrase of them. Banning the phrase bans the shape.
+- If influences are listed below, steal their TEXTURE — the kind of pressure, world detail, and humor they'd reach for — never their plots or their names.
+
+Influences the writer chose — let them genuinely shape the result:
+- References to echo: "Manchester by the Sea" — borrow its restraint, grief without speeches. Let these shape the flavor; do NOT copy their plots or name them in the output.
+- Writer voices to study (their craft, not pastiche): Kenneth Lonergan.
+- Vibe: fluorescent-lit, patient, no music telling you what to feel.
+- Dials the writer moved on purpose: unpredictability 4/10 · darkness 6/10 · pace 3/10.
+
+Return STRICT JSON: { "logline": string }

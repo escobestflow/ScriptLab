@@ -868,17 +868,20 @@ Ground it in everything above — title, genre, concept, characters, and any inf
 
 Anatomy requirements:
 - Protagonist: a defining trait or CONTRADICTION, not a demographic — "a fixer who can make anything disappear except his own debts", never "a man in trouble".
-- Pressure: one concrete, filmable external force with a clock or a container (a debt due Friday, four days in one sedan, the buyer takes the store Monday). Name THIS story's container or mechanism — the thing no other project has.
+- Pressure: the concrete force ALREADY IN THE PROJECT'S MATERIAL. A clock or container is great when the premise supplies one (a debt due Friday, four days in one sedan) — but a situation, a body, a social trap, or a group of co-conspirators is pressure too. Use whichever pressure THIS premise actually generates; never install one it doesn't have.
 - The trap: getting what they want must threaten what they need — build it into the situation itself, not into commentary about it.
-- FINAL CLAUSE RULE — most loglines die here: the last clause must be a CONCRETE ACT, COST, or COLLISION from this story's world — something a camera could film as a scene. The strongest endings turn the premise's own machinery against the protagonist. Two shapes are BANNED:
+- FINAL CLAUSE RULE — most loglines die here: the last clause must be a CONCRETE ACT, COST, or COLLISION from this story's world — something a camera could film as a scene. The strongest endings turn the premise's own machinery against the protagonist. Three shapes are BANNED:
   (a) Insight endings — "forces her to admit/realize/learn/face…", "discovers what really matters". If your draft ends on an insight, delete it and end on the act that would force that insight.
   (b) Menu endings — "must choose between X and Y". Never present a choice as a menu of options; show the single specific action the choice comes down to, with its cost visible inside the act. This holds EVEN WHEN the project's own summary or beats describe the story as a choice between two things — do not reproduce that framing; translate it into the concrete act it comes down to.
+  (c) Imported scaffolding — stock dramatic machinery bolted on from the genre's defaults: invented deadlines and countdowns ("has 72 hours", "before it's too late"), "find a way back home", "fix the timeline", "save the world", secret-exposure clocks. If the bible doesn't state it, it does not exist. The premise's OWN engine is the story — a logline that needs machinery the project doesn't contain is a logline about a different project.
 
 The difference, on invented premises (do not reuse their content):
 - WEAK (insight ending): "…a stranded wedding band must share a van with the groom's ex, forcing each of them to face what they left behind."
 - STRONG: "…a stranded wedding band must share a van with the groom's ex — and decide, city by city, whether to tell him she's coming."
 - WEAK (menu ending): "…her laugh spreads like a virus, forcing her to choose between her career and containing the outbreak."
 - STRONG: "…her laugh spreads like a virus, until the only way to stop it is to bomb the sold-out special that could finally make her famous."
+- WEAK (imported scaffolding): "…wakes up in 1988 as her college-age mother and has 48 hours to get back before the timeline collapses."
+- STRONG (the premise's own pressure): "…wakes up in 1988 as her college-age mother — and has to pass the classes her mother failed, in front of the teaching assistant who will one day be her father."
 
 Language rules:
 - Active voice, present tense. At least three concrete nouns from THIS story's world.
