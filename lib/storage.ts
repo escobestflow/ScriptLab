@@ -8,6 +8,7 @@ import {
 } from "./story";
 import { Moment } from "./sampleData";
 import { supabase } from "./supabase";
+import { normalizeGuardrails } from "./engineLab";
 
 // ── Field normalization helpers ──
 
@@ -152,6 +153,10 @@ function normalizeSettings(s: any): StorySettings {
     unpredictability: s?.unpredictability ?? 5,
     darkness: s?.darkness ?? 5,
     pace: s?.pace ?? 5,
+    // Engine Lab humor dial — optional, no default: unset stays unset
+    // so the bible omits the line and legacy prompts stay identical.
+    humor: typeof s?.humor === "number" && Number.isFinite(s.humor)
+      ? Math.max(0, Math.min(10, Math.round(s.humor))) : undefined,
     endingTypes: s?.endingTypes ?? (s?.endingType ? [s.endingType] : []),
     // Short-film fields. Both default to absent for legacy saves and for
     // non-short projects; the UI hides them and the prompts use safe
@@ -410,6 +415,10 @@ function normalizeStory(s: any): Story {
       title: s.title || "",
       projectType: s.projectType ?? "feature",
       thumbnail: s.thumbnail,
+      // Engine Lab project guardrails — validated pass-through so the
+      // field survives every load. Empty/unknown shapes normalize to
+      // undefined (the field simply doesn't exist for most projects).
+      guardrails: normalizeGuardrails(s.guardrails),
       conceptDrafts,
       charactersDrafts,
       storyDrafts,
@@ -511,6 +520,7 @@ function normalizeStory(s: any): Story {
       title: s.title || "",
       projectType: s.projectType ?? "feature",
       thumbnail: s.thumbnail,
+      guardrails: normalizeGuardrails(s.guardrails),
       conceptDrafts,
       charactersDrafts,
       storyDrafts,
@@ -576,6 +586,7 @@ function normalizeStory(s: any): Story {
     title: s.title || "",
     projectType: s.projectType ?? "feature",
     thumbnail: s.thumbnail,
+    guardrails: normalizeGuardrails(s.guardrails),
     conceptDrafts: [cd],
     charactersDrafts: [chd],
     storyDrafts: [sd],

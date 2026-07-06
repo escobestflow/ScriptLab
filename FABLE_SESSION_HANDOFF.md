@@ -76,11 +76,14 @@ turn; never force-push; secrets never local).
   v5, taste alignment.
 - **Branch-only:** `fable-big-pass-plan` (strategy doc
   `FABLE_BIG_PASS_PLAN.md` only — merge optional, content historical);
-  `fable-relationship-coverage` (**F2 closed** — TV import emits
-  relationships[], `derive_relationships` Haiku backfill action +
-  "Link Relationships" chip, Buck Mark wobble confirmed dead live;
-  $0.17; see `FABLE_RELATIONSHIP_COVERAGE.md`. **Awaiting user
-  approval to merge + deploy**; chip needs one visual check first).
+  `fable-engine-lab` (**the Engine Lab** — account taste profile +
+  project guardrails + humor dial, all conditionally injected;
+  /engine-lab admin page with prompt preview, capped test runner,
+  rubric scoring, run log, era history; $0.031 live of a $3 cap; see
+  `FABLE_ENGINE_LAB_*.md` ×6. **Awaiting user approval to merge +
+  deploy.**)
+- `fable-relationship-coverage` (F2) was merged + deployed 2026-07-06
+  ($0.17 live; `FABLE_RELATIONSHIP_COVERAGE.md`).
 - Uncommitted working-tree items, deliberately preserved untouched:
   `tsconfig.tsbuildinfo` (build cache churn),
   `public/icon-button-upload.svg` (referenced by Studio.tsx, reaches
@@ -122,13 +125,14 @@ turn; never force-push; secrets never local).
 
 ## 13. Next recommended task
 
-~~Relationship data coverage~~ **DONE 2026-07-05** on branch
-`fable-relationship-coverage` (see §9–10 above) — pending user
-approval to merge + deploy. Next up: `FABLE_GAUNTLET_NEXT_STEPS.md`
-#3 register-balance micro-pass, #6 cost preview on
-scriptLoop/easyMode. Also natural: fold the relationships schema into
-`sync_concept_to_characters` (feature-side cast gen still doesn't
-emit them — the derive action covers it post-hoc).
+~~Relationship data coverage~~ **DONE + deployed 2026-07-06.**
+~~Engine Lab~~ **BUILT 2026-07-06** on branch `fable-engine-lab` —
+pending merge approval. Next: `FABLE_ENGINE_LAB_NEXT_STEPS.md` (top:
+merge+prod check; L-1 guardrail wording fix; rubric-export;
+AI-judge). Still open from the gauntlet list: register balance
+(partially addressed by the humor dial), F3/F4 cosmetics, cost
+preview on scriptLoop/easyMode, relationships in
+`sync_concept_to_characters`.
 
 ## 14. User taste (binding, program-wide)
 

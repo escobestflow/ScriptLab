@@ -27,6 +27,7 @@ import {
 import { ActionRequest, ActionType, systemBrainFor } from "./prompt";
 import { WriterProfile, renderProfileForPrompt, isProfileMeaningful } from "./writerProfile";
 import { renderStyleProfileForPrompt } from "./styleProfile";
+import { hasTasteContent, renderTasteForPrompt, hasGuardrails, renderGuardrailsForBible } from "./engineLab";
 
 // Actions that emit writer-voice PROSE — the ones a locked Style Lab
 // profile should steer. Since the lab now trains across forms (logline,
@@ -79,6 +80,17 @@ export function buildPrompt(
     system.push({
       type: "text",
       text: renderProfileForPrompt(profile),
+      cache_control: { type: "ephemeral" },
+    });
+  }
+  // Account taste profile (Engine Lab) — deliberate, authored taste,
+  // distinct from the accumulated writer-profile signal above. Own
+  // cached block (changes only on Lab saves). Omitted entirely when
+  // empty so pre-Lab users get byte-identical prompts.
+  if (hasTasteContent(profile?.tasteProfile)) {
+    system.push({
+      type: "text",
+      text: renderTasteForPrompt(profile?.tasteProfile),
       cache_control: { type: "ephemeral" },
     });
   }
@@ -257,7 +269,7 @@ ${logline || "(none yet)"}
 - Vibe: ${settings.vibe}
 - Unpredictability: ${settings.unpredictability}/10
 - Darkness: ${settings.darkness}/10
-- Pace: ${settings.pace}/10
+- Pace: ${settings.pace}/10${typeof settings.humor === "number" ? `\n- Humor: ${settings.humor}/10 — weight the comedy register accordingly; at 7+ the funny beats carry equal load to the dramatic ones` : ""}
 - Ending types: ${settings.endingTypes?.join(", ") || "none"}${settings.endingNote?.trim() ? `\n  User direction on ending (high-priority — elaborates on the picker): "${settings.endingNote.trim()}"` : ""}
 ${story.projectType === "short" ? `
 ## Short-film parameters
@@ -273,7 +285,9 @@ isolation, internalize where in the arc this episode sits and pace
 accordingly.
 
 ${concept.seriesArc.trim()}
-` : ""}${isTV ? renderSeasonArcs(story) : ""}
+` : ""}${isTV ? renderSeasonArcs(story) : ""}${hasGuardrails(story.guardrails) ? `
+${renderGuardrailsForBible(story.guardrails)}
+` : ""}
 
 ## Characters
 ${characters.map(c => {

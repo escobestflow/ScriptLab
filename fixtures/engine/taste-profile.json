@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-07-06T00:00:00.000Z",
+  "updatedAt": "2026-07-06T00:00:00.000Z",
+  "totalEvents": 0,
+  "preferences": {
+    "projectTypes": {},
+    "genres": {},
+    "subGenres": {},
+    "tones": {},
+    "themes": {},
+    "endingTypes": {},
+    "writerStyles": {},
+    "referenceTitles": {},
+    "referenceAspects": {}
+  },
+  "style": {
+    "sentenceLenAvg": 0,
+    "dialogueDensity": 0,
+    "vocabularyRichness": 0,
+    "emdashPer1k": 0,
+    "ellipsisPer1k": 0,
+    "exclamationPer1k": 0,
+    "questionPer1k": 0,
+    "adverbPer1k": 0,
+    "sampleCount": 0,
+    "totalWords": 0
+  },
+  "exemplars": [],
+  "tasteProfile": {
+    "principles": [
+      "edgy-grounded",
+      "darkly-funny",
+      "morally-awkward",
+      "unexpected",
+      "not-sanitized",
+      "emotionally-messy",
+      "specific-over-generic",
+      "preserve-discomfort-responsibly",
+      "no-safe-substitutions"
+    ],
+    "notes": "A24 grit, Breaking Bad pacing, Succession wit and purposeful vulgarity, Chappelle/Louis CK dark humor. Misdirection over clich\u00e9; cliffhangers over tidy bows.",
+    "updatedAt": "2026-07-06T00:00:00.000Z",
+    "version": 1
+  }
+}

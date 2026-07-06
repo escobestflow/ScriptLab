@@ -93,6 +93,13 @@ export interface WriterProfile {
    *  a circular import with lib/styleProfile.ts; callers cast to
    *  StyleProfile. */
   styleProfile?: import("./styleProfile").StyleProfile | null;
+  /** Account-level creative taste authored in the Engine Lab. Same
+   *  ride as styleProfile: persists via writer_profiles, ships in the
+   *  `profile` request param. Optional field — schema version stays
+   *  unchanged, old blobs remain valid. Rendered as its own system
+   *  block by buildPrompt ONLY when it has content (absent taste ⇒
+   *  byte-identical prompts). */
+  tasteProfile?: import("./engineLab").TasteProfile | null;
 }
 
 // ─── Constructors ─────────────────────────────────────────────────────

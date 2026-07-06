@@ -1,0 +1,86 @@
+{
+  "note": "Era manifest for the engine's prompt/profile versions. Append an entry per engine pass; the Engine Lab History tab renders this. Snapshot dirs live in fixtures/engine/snapshots/<id>. Keep ids stable.",
+  "eras": [
+    {
+      "id": "before",
+      "name": "Pre-program baseline",
+      "date": "2026-06",
+      "commit": "d582ec0 (tag pre-fable-engine-backup)",
+      "summary": "The engine as it stood before the Fable quality program: ScriptWriter identity, TV-only rules leaking into features/shorts, six thin concept asks, no dry-run infrastructure.",
+      "snapshots": "before",
+      "docs": ["FABLE_ENGINE_AUDIT.md"]
+    },
+    {
+      "id": "after",
+      "name": "Phase 1 — $0 iteration infrastructure",
+      "date": "2026-06",
+      "commit": "31d6059 boundary",
+      "summary": "dryRun mode, lazy Anthropic client, UNFOLD_AI_LIVE kill switch, fixtures + snapshot harness, format-aware brain, Unfold identity, influencesBlock, six concept asks upgraded to craft prompts.",
+      "snapshots": "after",
+      "docs": ["FABLE_ENGINE_AUDIT.md", "FABLE_ENGINE_COST_SAFETY.md"]
+    },
+    {
+      "id": "phase2",
+      "name": "Phase 2 — logline method",
+      "date": "2026-06",
+      "commit": "ae6507d boundary",
+      "summary": "The METHOD: ban failure CLASSES + mandate the positive alternative; contrastive weak/strong pairs; gated rubrics calibrated to fail known-bads; regression fixture per failure. Applied to the logline final clause (insight-ending ban).",
+      "snapshots": "phase2-after",
+      "docs": ["FABLE_ENGINE_LOGLINE_TUNING_NOTES.md"]
+    },
+    {
+      "id": "phase3",
+      "name": "Phase 3 — budgeted live protocol",
+      "date": "2026-06",
+      "commit": "93a87a3 boundary",
+      "summary": "Live-testing protocol (rounds ≤3, hard caps, actual-cost logging, stop rules); killed menu endings + bible-priming override clause. 4 calls, $0.0106.",
+      "snapshots": "phase3-after",
+      "docs": ["FABLE_ENGINE_LOGLINE_LIVE_RESULTS.md"]
+    },
+    {
+      "id": "gauntlet",
+      "name": "Creative Quality Gauntlet",
+      "date": "2026-06",
+      "commit": "a5a38a7..93a87a3 range",
+      "summary": "Beats→scene→script craft contracts; relationships rendered as FIXED FACTS; shared BIBLE_FIDELITY_RULES; 3 gated rubrics + 5 trap fixtures. Live 7/7 surfaces, $0.6402.",
+      "snapshots": "gauntlet-after",
+      "docs": ["FABLE_GAUNTLET_AUDIT.md", "FABLE_GAUNTLET_RUBRICS.md", "FABLE_GAUNTLET_LIVE_RESULTS.md", "FABLE_GAUNTLET_NEXT_STEPS.md"]
+    },
+    {
+      "id": "logline-v5",
+      "name": "Logline v5 — imported-scaffolding ban",
+      "date": "2026-07",
+      "commit": "754b742",
+      "summary": "Pressure must come from the project's own material; banned invented clocks/return-missions; third contrastive pair. 2/2 live.",
+      "snapshots": "logline-v5",
+      "docs": ["FABLE_ENGINE_LOGLINE_LIVE_RESULTS.md", "FABLE_ENGINE_LOGLINE_TEST_PLAN.md"]
+    },
+    {
+      "id": "taste-alignment",
+      "name": "Taste alignment — edge preservation",
+      "date": "2026-07",
+      "commit": "495a4b8",
+      "summary": "Premise-sovereignty principle + EDGE_PRESERVATION_RULES (anti-sanitization AND hard lines) in 6 content-creating asks; cast corollary. Live 2/2, $0.026.",
+      "snapshots": "taste-alignment",
+      "docs": ["FABLE_TASTE_ALIGNMENT_AUDIT.md", "FABLE_TASTE_ALIGNMENT_RESULTS.md"]
+    },
+    {
+      "id": "relationship-coverage",
+      "name": "Relationship coverage (F2)",
+      "date": "2026-07-05",
+      "commit": "f0f808e",
+      "summary": "TV import emits relationships[]; derive_relationships Haiku backfill; Buck Mark parentage wobble confirmed dead with data. $0.17 live.",
+      "snapshots": "relationship-coverage",
+      "docs": ["FABLE_RELATIONSHIP_COVERAGE.md"]
+    },
+    {
+      "id": "engine-lab",
+      "name": "Engine Lab — taste, guardrails, lab tooling",
+      "date": "2026-07-06",
+      "commit": "(this branch)",
+      "summary": "Account taste profile (WriterProfile.tasteProfile) + project guardrails (Story.guardrails) + optional humor dial, all conditionally injected; /engine-lab admin page: preview with inclusion checklist, capped test runner with rubric scoring, run log, era history.",
+      "snapshots": "engine-lab",
+      "docs": ["FABLE_ENGINE_LAB_AUDIT.md", "FABLE_ENGINE_LAB_PRD.md", "FABLE_ENGINE_LAB_IMPLEMENTATION.md"]
+    }
+  ]
+}

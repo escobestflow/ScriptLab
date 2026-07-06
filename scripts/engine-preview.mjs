@@ -70,6 +70,13 @@ const MATRIX = [
   // empty relationships caused the Buck Mark parentage wobble.
   { fixture: "tv-ongoing", action: "tv_import_characters" },
   { fixture: "developed-feature", action: "derive_relationships" },
+  // Engine Lab — project guardrails + humor dial render into the bible
+  // (guardrails twin), and the account taste profile renders as its
+  // own system block (profile file). Rows with a `profile` post that
+  // WriterProfile fixture instead of null.
+  { fixture: "scaffolding-trap-guardrails", action: "generate_concept_logline" },
+  { fixture: "scaffolding-trap-guardrails", action: "generate_beats" },
+  { fixture: "scaffolding-trap-guardrails", action: "generate_concept_logline", profile: "taste-profile", suffix: "taste" },
 ];
 
 function renderReadable(r) {
@@ -92,19 +99,23 @@ function renderReadable(r) {
 async function main() {
   await mkdir(OUT, { recursive: true });
   let failures = 0;
-  for (const { fixture, action, payload } of MATRIX) {
-    const name = `${fixture}__${action}`;
+  for (const { fixture, action, payload, profile, suffix } of MATRIX) {
+    const name = `${fixture}__${action}${suffix ? `__${suffix}` : ""}`;
     try {
       const story = JSON.parse(
         await readFile(path.join("fixtures/engine", `${fixture}.json`), "utf8"),
       );
+      // Optional per-row WriterProfile fixture (Engine Lab taste rows).
+      const profileBody = profile
+        ? JSON.parse(await readFile(path.join("fixtures/engine", `${profile}.json`), "utf8"))
+        : null;
       const res = await fetch(`${BASE}/api/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-user-email": EMAIL },
         body: JSON.stringify({
           story,
           action: { type: action, payload: payload ?? {} },
-          profile: null,
+          profile: profileBody,
           dryRun: true,
         }),
       });

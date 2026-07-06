@@ -137,6 +137,13 @@ export interface StorySettings {
   unpredictability: number;  // 1-10
   darkness: number;          // 1-10
   pace: number;              // 1-10
+  /** Optional humor dial (0–10). Added by the Engine Lab because
+   *  register balance is a real logged issue (gauntlet P-B5: comedy
+   *  register thinner than the toneNote asked for). Unlike the three
+   *  always-rendered dials above, this one renders into the bible
+   *  ONLY when set — legacy projects and fixtures stay byte-identical.
+   *  Edited in the Engine Lab; not surfaced in the main app yet. */
+  humor?: number;
   endingTypes: EndingType[];
   /** For projectType === "short" only. Target runtime in minutes.
    *  Drives the default scene count (≈ duration/1.5 clamped 6–12)
@@ -737,6 +744,14 @@ export interface Story {
   projectType: ProjectType;
   thumbnail?: string;
   thumbnailPromptExtra?: string;
+  /** Project-level creative guardrails authored in the Engine Lab
+   *  (must-preserve, avoid, do-not-turn-into, tone/edge notes, …).
+   *  Top-level rather than per-draft because guardrails are project
+   *  identity — they survive draft forking and switching, like
+   *  `title`. Rendered into the story bible ONLY when any field is
+   *  non-empty, so projects without guardrails produce byte-identical
+   *  prompts. See lib/engineLab.ts. */
+  guardrails?: import("./engineLab").ProjectGuardrails;
   conceptDrafts: ConceptLayerDraft[];
   charactersDrafts: CharactersLayerDraft[];
   storyDrafts: StoryLayerDraft[];
