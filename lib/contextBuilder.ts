@@ -612,6 +612,7 @@ function buildAsk(story: Story, action: ActionRequest): string {
 
 Return STRICT JSON in this exact schema:
 { "beats": [ { "name": string, "summary": string, "purpose": string } ] }
+- "name": 2–5 words. "summary": 1–2 tight sentences, 40 words MAX — a beat is a promise, not the scene itself. "purpose": ONE sentence. The whole sheet must stay lean enough to read at a glance.
 
 Structure craft (non-negotiable):
 - CAUSALITY: every beat must be FORCED by the one before it — "therefore" or "but", never "and then". If a beat could be removed without breaking the chain, it doesn't belong. The difference, on an invented premise (do not reuse its content):
