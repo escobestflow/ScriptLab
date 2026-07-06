@@ -651,6 +651,22 @@ function applyTVImportArcsResult(story: Story, parsed: any, episodeCount: number
     }
     const linkedName = typeof a?.characterName === "string" ? a.characterName.trim().toLowerCase() : "";
     const characterId = linkedName ? byName.get(linkedName) : undefined;
+    // Hard moments — the arcs-quality pass extended the schema so the
+    // model anchors 1-3 filmable turns per major arc. AI emits 1-based
+    // episode numbers; ArcMoment.position is a 0-based fractional
+    // episode index, so EP n lands at position n-1 (exactly on the
+    // episode's marker). Invalid rows are dropped, positions clamped
+    // into the season, and text is required (a diamond with no event
+    // is noise downstream — the digest renders it "(empty moment)").
+    const rawMoments = Array.isArray(a?.moments) ? a.moments : [];
+    const moments = rawMoments
+      .filter((m: any) => m && Number.isFinite(Number(m.episode)) && typeof m.text === "string" && m.text.trim())
+      .slice(0, 3)
+      .map((m: any) => ({
+        id: `am_${Math.random().toString(36).slice(2, 10)}`,
+        position: Math.max(0, Math.min(episodeCount - 1, Math.round(Number(m.episode)) - 1)),
+        text: m.text.trim(),
+      }));
     next = addArcToActiveDraft(next, {
       type: characterId ? "character" : type,
       title,
@@ -660,6 +676,7 @@ function applyTVImportArcsResult(story: Story, parsed: any, episodeCount: number
       // the writer's job here is to seed the arc with intent.
       intensitySet: true,
       ...(characterId ? { characterId } : {}),
+      ...(moments.length ? { moments } : {}),
     });
     colorIdx++;
   }

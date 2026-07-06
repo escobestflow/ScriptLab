@@ -1,0 +1,648 @@
+{
+  "id": "44444444-4444-4444-8444-444444444445",
+  "title": "Stockyard Kings (arcs populated)",
+  "projectType": "tv-show",
+  "updatedAt": "2026-07-06T09:39:42.936Z",
+  "activeProjectDraftId": "pd_tvp",
+  "projectDrafts": [
+    {
+      "id": "pd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "conceptDraftId": "cd_tvp",
+      "charactersDraftId": "chd_tvp",
+      "storyDraftId": "sd_tvp",
+      "scriptDraftId": "scd_tvp",
+      "episodesDraftId": "epd_tvp",
+      "arcsDraftId": "ad_tvp"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "logline": "Three estranged siblings inherit their father's failing cattle empire and the coded ledger of favors he used to quietly run a county — and discover the inheritance is a weapon pointed at whichever of them tries to hold it.",
+      "settings": {
+        "framework": null,
+        "genres": [
+          "drama"
+        ],
+        "subGenres": [],
+        "references": [
+          {
+            "id": "ref_1",
+            "title": "Succession",
+            "aspects": [
+              "wit",
+              "family power"
+            ]
+          }
+        ],
+        "writerStyles": [],
+        "vibe": "",
+        "unpredictability": 6,
+        "darkness": 6,
+        "pace": 5,
+        "endingTypes": [],
+        "seriesType": "ongoing",
+        "episodeCount": 8,
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Three siblings inherit a failing cattle empire and the ledger of favors their father used to run a county. Clay, the eldest, fled to teach history in Austin and wants to liquidate and leave. Jolene, the middle child, ran the ranch through their father's decline and believes she has earned it all. Ben, the youngest, wants to reform the ledger system that everyone else treats as either treasure or shame. The county's debtors — sheriffs, judges, feed suppliers — all want their pages back.",
+        "tone": "dry, coiled, land-rich and cash-poor",
+        "themes": [
+          "inheritance as debt",
+          "power vs. legitimacy",
+          "family as leverage"
+        ],
+        "seriesArc": ""
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_clay",
+          "name": "Clay Stockton",
+          "role": "protagonist",
+          "archetype": "reluctant heir",
+          "backstory": "Fled the ranch fifteen years ago to teach high-school history in Austin; came back for the funeral, inherited a third of everything and all of the ledger's signature authority.",
+          "motivations": "Liquidate his share and get back to Austin before the school year ends.",
+          "flaws": "Mistakes neutrality for virtue; his moral superiority is cowardice with a syllabus.",
+          "want": "To sell out clean.",
+          "need": "To stop pretending abstention is innocence.",
+          "voice": "measured, academic deflection",
+          "arc": "From passive refusal to active complicity.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_jolene",
+              "description": "younger sister — stayed and ran the ranch; resents his fifteen-year absence"
+            },
+            {
+              "characterId": "ch_ben",
+              "description": "youngest brother — the idealist he condescends to"
+            },
+            {
+              "characterId": "ch_wade",
+              "description": "the ranch foreman — his sister's ex-husband, loyal to the land not the family"
+            }
+          ]
+        },
+        {
+          "id": "ch_jolene",
+          "name": "Jolene Stockton",
+          "role": "protagonist",
+          "archetype": "iron daughter",
+          "backstory": "Stayed and ran operations through her father's decline; learned the ledger's cipher in his last two years. Divorced the foreman who thought marriage was a promotion.",
+          "motivations": "Consolidate control; turn the ledger from her father's leash into her whip.",
+          "flaws": "Mistakes cruelty for strength; burns bridges she'll need.",
+          "want": "Full ownership, brothers bought out.",
+          "need": "To stop auditioning for a dead man.",
+          "voice": "clipped, transactional",
+          "arc": "From ruthless competence to ruling a graveyard.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_clay",
+              "description": "older brother — the absent heir handed the authority she earned"
+            },
+            {
+              "characterId": "ch_ben",
+              "description": "younger brother — protects him while despising his softness"
+            },
+            {
+              "characterId": "ch_wade",
+              "description": "ex-husband — still works her ranch; knows where her bodies are buried"
+            }
+          ]
+        },
+        {
+          "id": "ch_ben",
+          "name": "Ben Stockton",
+          "role": "supporting",
+          "archetype": "dreamer heir",
+          "backstory": "The youngest; studied sustainable ranching, came home with plans his father laughed at. The inheritance is the first real power he has ever held.",
+          "motivations": "Reform the operation; burn the ledger publicly and end the favor economy.",
+          "flaws": "Naive about roots; thinks goodwill can replace leverage in a county that runs on debt.",
+          "want": "An honest ranch.",
+          "need": "To learn some machines only have off switches, not reform settings.",
+          "voice": "earnest, over-explaining",
+          "arc": "From idealism to the choice between compromise and arson.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_clay",
+              "description": "oldest brother — craves his approval, never gets it"
+            },
+            {
+              "characterId": "ch_jolene",
+              "description": "older sister — his fiercest protector and harshest critic"
+            }
+          ]
+        },
+        {
+          "id": "ch_wade",
+          "name": "Wade Carver",
+          "role": "supporting",
+          "archetype": "keeper of the land",
+          "backstory": "Foreman for twenty years; married Jolene young, divorced her when he realized she managed him like staff. The only person the hands trust.",
+          "motivations": "Keep the ranch alive through whoever ends up owning it.",
+          "flaws": "Loyal to land over people; keeps secrets past the point they rot.",
+          "want": "The herd through winter.",
+          "need": "To pick a Stockton and mean it.",
+          "voice": "few words, all load-bearing",
+          "arc": "From neutral keeper to kingmaker.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_jolene",
+              "description": "ex-wife — he still runs her yards; unfinished business both directions"
+            },
+            {
+              "characterId": "ch_clay",
+              "description": "the heir he'd back if the man ever chose anything"
+            }
+          ]
+        },
+        {
+          "id": "ch_dray",
+          "name": "Sheriff Ada Dray",
+          "role": "antagonist",
+          "archetype": "debtor with a badge",
+          "backstory": "Owes her three elections to the ledger — page 14. Has decided the Stockton succession is her one chance to get the page back.",
+          "motivations": "Recover her page before any sibling learns to read the cipher.",
+          "flaws": "Confuses being owed with being owned; can't tell which she is.",
+          "want": "Her page, burned.",
+          "need": "(none she'd admit)",
+          "voice": "warm on top, wire underneath",
+          "arc": "",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_clay",
+              "description": "the signature authority — the sibling she works first because he wants out"
+            },
+            {
+              "characterId": "ch_jolene",
+              "description": "the real threat — the one who can read the cipher"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "script": {
+        "content": "",
+        "scenes": []
+      }
+    }
+  ],
+  "episodesDrafts": [
+    {
+      "id": "epd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "episodes": []
+    }
+  ],
+  "arcsDrafts": [
+    {
+      "id": "ad_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T09:39:42.936Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "arcs": [
+        {
+          "id": "arc_uw22v1jf",
+          "type": "main-plot",
+          "title": "The Ledger",
+          "description": "The three siblings inherit joint control of a coded ledger containing forty years of favors owed to their father — pages naming sheriffs, judges, suppliers, politicians. Jolene alone can read the cipher and hoards it as leverage to force her brothers out. Clay holds signature authority but refuses to use it until Sheriff Dray forges page fourteen (EP4), forcing Clay to learn the cipher to verify authenticity — which means teaching Ben, too. The ledger splits three ways mid-season: each sibling now authors new entries, erasing the single-owner power structure their father held. The season ends with all three holding partial ciphers and the county's debtors realizing no Stockton can speak for the whole ledger anymore — transforming a weapon of consolidation into a destabilizing artifact.",
+          "color": "#4A6FA5",
+          "scores": [
+            5,
+            6,
+            7,
+            9,
+            8,
+            7,
+            9,
+            10
+          ],
+          "moments": [
+            {
+              "id": "am_fix_0_102",
+              "position": 0,
+              "text": "Clay opens the safe and finds the ledger; Jolene takes it from his hands and walks out without a word."
+            },
+            {
+              "id": "am_fix_1_133",
+              "position": 3,
+              "text": "Sheriff Dray presents a forged page claiming her debt is paid; Clay realizes he cannot verify it without learning to read the cipher."
+            },
+            {
+              "id": "am_fix_2_111",
+              "position": 3,
+              "text": "Jolene trades the cipher key to Clay in exchange for his proxy vote on liquidation — he teaches Ben that night."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_t9g69p37",
+          "type": "character",
+          "title": "Clay's Signature",
+          "description": "Clay starts the season refusing to sign anything — he treats signature authority as contamination and plans to liquidate his third without touching the ledger. When Dray's forged page surfaces (EP4), Clay's neutrality becomes a liability: his brothers need him to verify authenticity, which forces him to learn the cipher and acknowledge he IS the ledger's authenticator. His failed strategy is abstention. Mid-season he begins signing new entries to buy time and cattle feed, telling himself it's temporary. By EP7 he has signed five new favors and can no longer pretend he isn't his father. The season ends with Clay signing a favor to protect Ben from a supplier Ben pissed off — an act of complicity he'd have refused in EP1, done now without hesitation.",
+          "color": "#E55757",
+          "scores": [
+            6,
+            5,
+            4,
+            8,
+            7,
+            6,
+            8,
+            7
+          ],
+          "characterId": "ch_clay",
+          "moments": [
+            {
+              "id": "am_fix_0_98",
+              "position": 0,
+              "text": "Clay tells Jolene he will not sign a single ledger entry and plans to liquidate within sixty days."
+            },
+            {
+              "id": "am_fix_1_106",
+              "position": 3,
+              "text": "Clay learns to read the cipher to verify Dray's forged page — his first act as the ledger's authenticator."
+            },
+            {
+              "id": "am_fix_2_135",
+              "position": 4,
+              "text": "Clay signs his first new entry: a favor to the feed supplier in exchange for ninety-day credit; he tells himself it's just buying time."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_1x7xzikp",
+          "type": "character",
+          "title": "Jolene's Yard",
+          "description": "Jolene starts the season as the only sibling who can read the cipher and the only one who kept the ranch alive through their father's decline — she believes this earned her sole ownership. Her strategy is to hoard the cipher as leverage to force Clay and Ben to sell out cheap. When she trades the cipher to Clay (EP4) to secure his proxy, she discovers that a shared cipher means the ledger is no longer hers to control — Clay and Ben begin writing entries she doesn't authorize. By EP6 she has burned her relationship with Wade by using a ledger favor to block his union organizing, and the hands stop taking her orders. The season ends with Jolene holding legal ownership of the land but unable to operate it — she rules a yard that won't work for her.",
+          "color": "#D86A9F",
+          "scores": [
+            7,
+            8,
+            6,
+            9,
+            7,
+            8,
+            6,
+            9
+          ],
+          "characterId": "ch_jolene",
+          "moments": [
+            {
+              "id": "am_fix_0_109",
+              "position": 1,
+              "text": "Jolene uses a ledger entry to force the feed supplier to cut off credit to Ben's sustainable pasture project."
+            },
+            {
+              "id": "am_fix_1_114",
+              "position": 3,
+              "text": "Jolene trades the cipher key to Clay for his proxy vote on liquidation — the first time she has ever given ground."
+            },
+            {
+              "id": "am_fix_2_163",
+              "position": 5,
+              "text": "Jolene calls in a favor from the county labor board to shut down Wade's union drive; Wade tells her she just lost the only crew that knew how to run her operation."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_jka952id",
+          "type": "character",
+          "title": "Ben's Audit",
+          "description": "Ben starts the season believing the ledger should be burned publicly to end the favor economy and transition the ranch to sustainable, above-board operations. His strategy is transparency: he begins auditing every ledger entry, planning to expose the whole system. When Clay teaches him the cipher (EP4), Ben discovers entries showing their father funded Ben's college tuition and his sustainable ranching equipment through ledger favors — his idealism was built on the system he wants to destroy. By EP6 he is using the ledger himself: calling in a favor to protect a ranch hand from an ICE audit, then another to bury his own audit findings when they threaten Clay. The season ends with Ben holding the thickest stack of new entries he has authored — the reformer became the system's most active user.",
+          "color": "#6FAD8F",
+          "scores": [
+            5,
+            6,
+            7,
+            6,
+            8,
+            9,
+            7,
+            8
+          ],
+          "characterId": "ch_ben",
+          "moments": [
+            {
+              "id": "am_fix_0_87",
+              "position": 0,
+              "text": "Ben proposes burning the ledger on the courthouse steps; Clay and Jolene both veto him."
+            },
+            {
+              "id": "am_fix_1_100",
+              "position": 3,
+              "text": "Clay teaches Ben to read the cipher; Ben begins a full audit of every entry going back twenty years."
+            },
+            {
+              "id": "am_fix_2_149",
+              "position": 4,
+              "text": "Ben finds the entries showing his father funded his entire education and ranch equipment through favors — his idealism was purchased with the ledger."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_3a1w9wb8",
+          "type": "character",
+          "title": "Wade's Choice",
+          "description": "Wade starts the season as neutral keeper — loyal to the land and herd, not to any Stockton, and determined to keep the ranch alive through whoever ends up owning it. His strategy is to stay out of the family fight and serve the operation. When Jolene uses a ledger favor to crush his union drive (EP6), Wade realizes neutrality is not an option: the ledger will be wielded against him no matter whose side he's on. He begins working with Clay, teaching him the ranch's rhythms and which hands can be trusted. By EP8 Wade has chosen Clay as the sibling to back — not because Clay is good, but because Clay is weak enough to need him. The season ends with Wade directing the hands during a drive while Jolene watches from the fence, a visual transfer of operational authority.",
+          "color": "#E8C551",
+          "scores": [
+            4,
+            5,
+            6,
+            7,
+            9,
+            8,
+            7,
+            8
+          ],
+          "characterId": "ch_wade",
+          "moments": [
+            {
+              "id": "am_fix_0_116",
+              "position": 4,
+              "text": "Wade begins organizing the ranch hands into a de facto union to demand better pay and housing; he tells no Stockton."
+            },
+            {
+              "id": "am_fix_1_158",
+              "position": 5,
+              "text": "The county labor board shuts down Wade's union drive the day before a vote; Wade finds Jolene's ledger entry and realizes she used her father's weapon on him."
+            },
+            {
+              "id": "am_fix_2_117",
+              "position": 6,
+              "text": "Wade takes Clay out to check fence lines and teaches him how to read the land; Clay realizes Wade is auditioning him."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_d3k31gq0",
+          "type": "character",
+          "title": "Dray's Page",
+          "description": "Sheriff Ada Dray starts the season knowing her three elections were bought with ledger favors — page fourteen — and that the Stockton succession is her one chance to recover and destroy it before anyone learns to read the cipher. Her strategy is to work Clay, the sibling who wants out, offering to 'help' him liquidate if he returns her page first. When Clay refuses (EP3), Dray escalates: she forges a page claiming her debt is paid and presents it to Clay, gambling he cannot verify it. Clay learns the cipher to check her forgery (EP4), exposing her. Dray spends the back half trying to recover by trading operational favors (looking the other way on zoning, permits, ICE) in exchange for the real page fourteen. The season ends with Dray still holding her badge but no longer holding her page — it surfaces in Ben's audit and he uses it as leverage, making her the youngest Stockton's creature.",
+          "color": "#6BA6D9",
+          "scores": [
+            6,
+            7,
+            8,
+            10,
+            7,
+            6,
+            5,
+            8
+          ],
+          "characterId": "ch_dray",
+          "moments": [
+            {
+              "id": "am_fix_0_144",
+              "position": 1,
+              "text": "Dray visits Clay at the ranch and offers to expedite his liquidation in exchange for page fourteen; Clay says he doesn't even know what's on it."
+            },
+            {
+              "id": "am_fix_1_143",
+              "position": 3,
+              "text": "Dray presents Clay with a forged page fourteen claiming her debt is paid; Clay learns the cipher that night and catches the forgery by morning."
+            },
+            {
+              "id": "am_fix_2_120",
+              "position": 3,
+              "text": "Clay confronts Dray with proof of forgery; she offers him three county permits in exchange for destroying the real page."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_grlrycsy",
+          "type": "relationship",
+          "title": "Jolene ↔ Wade: The Ex-Marriage",
+          "description": "Jolene ↔ Wade: They start the season with an unfinished-business bond — he is her ex-husband who still runs her yards; she is his ex-wife who manages him like staff. The starting contract is operational: he keeps the ranch alive, she keeps him employed, neither acknowledges the years they were married. When Jolene uses a ledger favor to crush Wade's union drive (EP6), the contract re-prices: Wade realizes she will weaponize their proximity, and Jolene realizes Wade has the operational loyalty of every hand she needs. The failed strategy is pretending the personal and operational are separate. By EP8 the new contract is a cold war: Wade works for the ranch and answers to Clay, Jolene holds the deed but cannot enforce her orders, and the hands watch both of them for cues. The season ends with Wade and Jolene standing on opposite sides of a fence during a cattle drive, the visual grammar of a severed bond.",
+          "color": "#A87FB8",
+          "scores": [
+            5,
+            6,
+            7,
+            6,
+            9,
+            8,
+            7,
+            9
+          ],
+          "moments": [
+            {
+              "id": "am_fix_0_113",
+              "position": 2,
+              "text": "Wade tells Jolene the hands need a raise or they will walk before winter; Jolene tells him to manage them better."
+            },
+            {
+              "id": "am_fix_1_135",
+              "position": 5,
+              "text": "Wade discovers Jolene used the ledger to shut down his union drive; he tells her 'You just chose the deed over the people who work it.'"
+            },
+            {
+              "id": "am_fix_2_126",
+              "position": 6,
+              "text": "Wade begins taking orders from Clay instead of Jolene; she confronts him in front of the hands and he walks away mid-sentence."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_fkqy4665",
+          "type": "mystery-reveal",
+          "title": "The Cipher's Author",
+          "description": "The audience believes (EP1-3) that the ledger is their father's weapon and he alone authored it. First reveal (EP4): Jolene has been writing entries for two years during her father's decline — half the ledger is hers, not his. Second reveal (EP6): Wade finds pages in their mother's handwriting from fifteen years ago, before she died — the ledger predates the father and the mother was its original architect. Third reveal (EP8): Ben's audit discovers the oldest entry is in a fourth hand, dated forty years back, signed by the grandfather — the ledger is not a Stockton invention but a county inheritance, passed down and expanded by each generation. The investigation layer: Clay begins cross-referencing handwriting samples in EP5 and realizes the cipher has changed authors multiple times; he hides this from his siblings until the finale. The reframe: the siblings are not inheriting a weapon their father built; they are inheriting a system their family has served for two generations, and they are fighting over who gets to be the next author of a book that owns them all.",
+          "color": "#E89C5D",
+          "scores": [
+            3,
+            4,
+            5,
+            8,
+            6,
+            9,
+            7,
+            10
+          ],
+          "moments": [
+            {
+              "id": "am_fix_0_154",
+              "position": 3,
+              "text": "Clay notices Jolene's handwriting in entries dated within the last two years; he realizes she has been authoring the ledger during their father's decline."
+            },
+            {
+              "id": "am_fix_1_136",
+              "position": 5,
+              "text": "Wade finds a ledger page in the barn records room, fifteen years old, in their mother's handwriting — she wrote entries before she died."
+            },
+            {
+              "id": "am_fix_2_209",
+              "position": 7,
+              "text": "Ben's audit reaches the ledger's first page: an entry forty years old in their grandfather's hand, establishing the favor system; the siblings realize they did not inherit a weapon, they inherited a tradition."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_atzqxhjr",
+          "type": "subplot",
+          "title": "The Feed Debt",
+          "description": "The ranch is sixty days from running out of cattle feed and the supplier will not extend credit without ledger collateral or cash up front. This subplot forces liquidation pressure into every sibling conversation (EP1-4): sell land, sell herd, or write a favor. Clay signs a ledger entry for ninety-day credit (EP5), which buys time but adds a new debtor who starts demanding operational control. The supplier shows up in EP6 demanding a second favor to ship feed, then in EP7 threatens to cut off supply entirely unless the Stocktons back his zoning variance. The subplot escalates the main-plot: each favor written to keep the herd fed tightens the ledger's grip, making liquidation harder and the inheritance more toxic. It climaxes in EP7 when the supplier demands the Stocktons use the ledger to force a county vote in his favor — Ben refuses, the supplier cuts them off, and Wade has to broker a emergency feed purchase with a debtor from page twelve, bringing that page's owner into play.",
+          "color": "#4F8B9B",
+          "scores": [
+            7,
+            8,
+            6,
+            9,
+            7,
+            8,
+            4,
+            3
+          ],
+          "moments": [
+            {
+              "id": "am_fix_0_126",
+              "position": 0,
+              "text": "The feed supplier tells Jolene the ranch has sixty days of feed left and he will not extend credit without the ledger or cash."
+            },
+            {
+              "id": "am_fix_1_121",
+              "position": 4,
+              "text": "Clay signs his first ledger entry: a favor to the feed supplier in exchange for ninety-day credit and immediate shipment."
+            },
+            {
+              "id": "am_fix_2_138",
+              "position": 6,
+              "text": "The feed supplier demands the Stocktons force a county zoning vote in his favor or he cuts off supply; Ben refuses and the supplier walks."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_dy3cdgv9",
+          "type": "theme",
+          "title": "The Water Line",
+          "description": "The ranch's water table is dropping — the well that feeds the cattle troughs is six inches lower each week, a visible measure of depletion. In EP1 Wade marks the water level with a red line; by EP3 it is a foot below the mark. The water line becomes a recurring image: characters check it when they need to see whether the ranch is dying, and the camera returns to it at the end of every episode. It carries the theme of inheritance as a depleting resource — the siblings are fighting over an empire that is running dry beneath them while they argue. The water crisis forces a choice in EP7: drill a new well (expensive, requires selling land) or ration water (lose cattle). Jolene wants to drill, Clay wants to sell, Ben wants to use a ledger favor to get county water access. The season ends with the well pumping air — the water line is gone, the inheritance has run out, and the siblings are left staring at a dry pipe.",
+          "color": "#B85C3C",
+          "scores": [
+            4,
+            5,
+            6,
+            5,
+            7,
+            8,
+            9,
+            10
+          ],
+          "moments": [
+            {
+              "id": "am_fix_0_117",
+              "position": 0,
+              "text": "Wade marks the well's water level with a red line on the pipe; it is already six inches below where it was last year."
+            },
+            {
+              "id": "am_fix_1_115",
+              "position": 4,
+              "text": "Clay checks the water line alone at night; it is a foot below the mark and dropping; he does not tell his siblings."
+            },
+            {
+              "id": "am_fix_2_141",
+              "position": 6,
+              "text": "The siblings argue over the water crisis while standing beside the well; the level is now two feet below the mark and the pump is struggling."
+            }
+          ],
+          "intensitySet": true
+        },
+        {
+          "id": "arc_ke4snhwx",
+          "type": "power",
+          "title": "The County's Grip",
+          "description": "The ledger's debtors begin as scattered background figures (a sheriff, a judge, a supplier) but coalesce mid-season into a coordinated pressure system. In EP1-3 they approach individually, each asking for their page back. By EP4 they realize the siblings cannot agree on anything, which makes the ledger vulnerable. Sheriff Dray organizes an informal coalition (EP5) — debtors who coordinate their asks to force the Stocktons into contradictions. The Stocktons start writing conflicting entries (Jolene promises a favor to X, Ben promises the opposite to Y), and the debtors exploit the chaos. By EP7 the debtors are playing the siblings against each other: offering allegiance to whichever Stockton can deliver their page. The season ends with the county's debtors convening a meeting (EP8) where they collectively demand the ledger's destruction — but now the siblings cannot credibly promise it without each other, and the debtors realize the inheritance has fragmented into a three-way stalemate they can exploit indefinitely.",
+          "color": "#8AB85C",
+          "scores": [
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            8,
+            10
+          ],
+          "moments": [
+            {
+              "id": "am_fix_0_132",
+              "position": 4,
+              "text": "Sheriff Dray meets privately with the feed supplier and the county judge; they agree to coordinate their asks to split the siblings."
+            },
+            {
+              "id": "am_fix_1_179",
+              "position": 6,
+              "text": "The feed supplier tells Clay he will back him for full ownership if Clay delivers page nineteen; the judge tells Jolene the same thing; the siblings realize they are being played."
+            },
+            {
+              "id": "am_fix_2_179",
+              "position": 7,
+              "text": "The county's debtors convene a meeting at the courthouse and collectively demand the ledger's destruction; the siblings attend and cannot agree on terms, exposing their stalemate."
+            }
+          ],
+          "intensitySet": true
+        }
+      ]
+    }
+  ],
+  "lastUserEditAt": "2026-07-06T09:39:42.936Z"
+}

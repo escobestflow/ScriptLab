@@ -126,12 +126,19 @@ turn; never force-push; secrets never local).
 ## 13. Next recommended task
 
 ~~Relationship data coverage~~ **DONE + deployed 2026-07-06.**
-~~Engine Lab~~ **BUILT 2026-07-06** on branch `fable-engine-lab` —
-pending merge approval. Next: `FABLE_ENGINE_LAB_NEXT_STEPS.md` (top:
-merge+prod check; L-1 guardrail wording fix; rubric-export;
-AI-judge). Still open from the gauntlet list: register balance
-(partially addressed by the humor dial), F3/F4 cosmetics, cost
-preview on scriptLoop/easyMode, relationships in
+~~Engine Lab~~ **DONE + deployed 2026-07-06.**
+~~Arcs quality pass~~ **BUILT 2026-07-06** on branch
+`fable-arcs-quality` (off engine-lab main) — pending merge approval:
+tv_import_arcs rewritten around an arc-mechanics contract + curve
+grammar + moments schema (arcs now emit 1-3 filmable hard moments
+each); relationship arcs from FIXED-FACTS dyads; overload triage note
+in the episode digest; no-pre-emption rule in the season-arcs bible
+render; 3 new TV fixtures + arc-populated downstream twin; 4 new docs
+(`FABLE_ARCS_{AUDIT,RUBRIC,TEST_RESULTS,DOWNSTREAM_CHECK}.md`).
+Live $0.384 of $2. Next after merge: `FABLE_ENGINE_LAB_NEXT_STEPS.md`
+items (L-1 guardrail wording, AI-judge — now that arcs have a rubric
+too), heat-budget enforcement if it bites in practice, F3/F4
+cosmetics, cost preview on scriptLoop/easyMode, relationships in
 `sync_concept_to_characters`.
 
 ## 14. User taste (binding, program-wide)

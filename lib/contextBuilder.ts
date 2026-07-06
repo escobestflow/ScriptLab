@@ -201,7 +201,7 @@ function renderSeasonArcs(story: Story): string {
   const lines: string[] = [
     "",
     "## Season arcs (HIGH PRIORITY — these are the writer's structural plan for the season)",
-    "Each arc carries: a TYPE (which determines the kind of beat it pushes for), a per-episode intensity 1–10 (how prominent this arc should be in that episode), and any hard moments anchored to specific episodes. When generating episode content, weight beats / scenes by the active arcs and their intensity at that episode. Hard moments are NOT optional — they must land in the episode they're anchored to.",
+    "Each arc carries: a TYPE (which determines the kind of beat it pushes for), a per-episode intensity 1–10 (how prominent this arc should be in that episode), and any hard moments anchored to specific episodes. When generating episode content, weight beats / scenes by the active arcs and their intensity at that episode. Hard moments are NOT optional — they must land in the episode they're anchored to. And they must not be PRE-EMPTED: a reveal or turn anchored to a later episode may be foreshadowed earlier, but never shown or stated outright before its episode — if you are writing EP1 and a reveal is anchored to EP4, the audience does not get it in EP1.",
     "",
   ];
   for (const arc of arcs) {
@@ -1602,25 +1602,58 @@ Return STRICT JSON in this exact schema:
   "arcs": [
     {
       "type": "main-plot" | "character" | "relationship" | "subplot" | "secrecy" | "investigation" | "mystery-reveal" | "antagonist" | "world" | "theme" | "power" | "moral-descent" | "redemption" | "rise" | "fall" | "survival" | "revenge" | "love-romance" | "family" | "identity",
-      "title": string,                  // short, evocative (e.g. "Walt's Descent")
-      "description": string,            // 1-2 sentences
-      "scores": number[],               // EXACTLY ${epCount} entries, each integer 1-10, intensity per episode
-      "characterName": string | null    // only for type=character — must match one of the character names in the bible
+      "title": string,                  // short, evocative, THIS story's nouns (e.g. "Page Fourteen") — never template names ("X's Journey", "X's Education")
+      "description": string,            // 2-4 sentences of MECHANICS — see the arc contract below
+      "scores": number[],               // EXACTLY ${epCount} entries, each integer 1-10, intensity per episode — see curve grammar below
+      "characterName": string | null,   // only for type=character — must match one of the character names in the bible
+      "moments": [                      // 1-3 for every major arc (main-plot, character, relationship, mystery, descent); [] allowed only for minor texture arcs
+        {
+          "episode": number,            // 1-based episode number the moment lands in (1..${epCount})
+          "text": string                // ONE filmable turn: a reveal, a choice, a consequence — an event a scene can stage ("Jolene finds Wade's name on page 30"), never a trend ("tensions rise")
+        }
+      ]
     }
   ]
 }
 
+THE ARC CONTRACT — an arc is a machine the episode generator will execute, not a mood. Every description must carry, in this story's nouns:
+(a) the starting state, (b) the pressure source that moves it, (c) what someone DOES about that pressure first — the strategy that fails or costs, (d) the irreversible turn, (e) the end state — what is DIFFERENT ON SCREEN in the finale.
+
+Weak (rejected): "Jolene learns the true cost of power as she fights for control." — a theme statement; nothing an episode can stage.
+Strong (accepted): "Jolene starts the season the only sibling who can read the cipher and hoards it as leverage; when Dray forges a page (EP4) Jolene can't expose the forgery without teaching her brothers to read, so she trades the cipher to Clay for his proxy — and spends the back half discovering that a shared cipher means the ledger now has three authors and no owner."
+The strong version names the asset, the failed strategy, the forced trade, the turn, and the new state. Write every arc at that grade.
+
+Per-type requirements:
+- main-plot: name the concrete contested object/question, who wants it, and the ROUNDS of escalation (what each round costs more of). Not "they battle over X" — the shape of the battle.
+- character: BEHAVIOR change, not inner growth. Name an act the character performs late-season that they refuse or cannot perform in episode 1, and the false strategy they burn through first. BANNED CLASS: "learns to accept/believe in himself", "comes to terms", "discovers who they are", "realizes that…" and every equivalent — interiority without behavior is not an arc.
+- relationship: START the description by naming the pair ("Jolene ↔ Wade: …"), then the bond's starting contract, the event that re-prices it, and the new contract at season's end. Build these FROM the Relationships (FIXED FACTS) in the bible — loaded dyads there (ex-marriages, debts, teacher/student, secrets) are your raw material, and a cast with such dyads should produce 1-2 relationship arcs.
+- mystery-reveal: the reveal LADDER — what the audience believes at the start, 2-3 stepped reveals where each REFRAMES what came before (not just adds), and what must NOT surface before its step (put the step's episode in a moment).
+- moral-descent: RUNGS — each rung a choice that would have been refused one rung earlier, with a witness who clocks it. Name the first rung and the point of no return.
+- theme: must be CARRIED by a recurring concrete object, ritual, or transaction (a page changing hands; a water line dropping). If the description reads like an essay ("the season explores…"), it is wrong.
+- subplot: state what it FORCES into the main plot (proximity, a deadline, a resource drain) and which episode range it owns. A subplot that never touches another arc is dead weight.
+
+CURVE GRAMMAR (scores):
+- 1=background hum, 4=active, 8+=dominates the hour. An episode's identity comes from WHICH arcs dominate it — so curves must differ in shape, not just height.
+- BANNED: monotonic ramps (e.g. 3,4,5,6,7,8,9,10) and everything-peaks-at-the-finale. Real seasons have early spikes that recede, mid-season peaks, valleys after a blow lands, quiet episodes where an arc breathes at 2 before returning.
+- Every score of 8+ must correspond to something HAPPENING in that episode — a peak without a moment or a described turn is noise.
+- Stagger the peaks: each episode should have a DIFFERENT 1-2 arcs on top. At most ONE deliberate convergence episode where 3+ arcs peak together (midpoint or finale) — name that collision in a moment.
+- Budget the heat: no more than 6 arcs may sit at 6+ in the same episode. An hour of television cannot service ten hot threads — when an episode fills up, push the arcs that don't own it into genuine valleys (2-3), not polite 6s.
+- Design at least one collision: an episode where two arcs force each other's hand ("Dray's forged page surfaces in the same hour Ben audits the ledger"). Collisions are where episodes come from.
+
 Rules:
 ${isTest
   ? `- Return EXACTLY 1 arc: a single main-plot arc that spans the season.
-- type must be "main-plot". characterName is null.
+- type must be "main-plot". characterName is null. Include 1-2 moments.
 - No subplot, theme, mystery, world, or character arcs in test mode.`
   : `- Include ONE main-plot arc that spans the whole season.
-- Include 1-2 subplot arcs and 1 thematic arc (type=theme).
-- Include a mystery-reveal or world arc if the genre supports it.
+- Include 1-2 subplot arcs and 1 thematic arc (type=theme) — theme must obey the carrier rule above.
+- Include a mystery-reveal, secrecy, investigation, power, or world arc where the material supports it — use the roster's range; don't default to character+subplot+theme.
+- Include 1-2 relationship arcs when the bible's Relationships (FIXED FACTS) contain loaded dyads (they usually do).
 - ALSO INCLUDE 3-5 character arcs — pick the TOP 3-5 most important characters by their emphasis in the source material (regardless of declared role tag). For each, characterName must match a name in the project bible's Characters list exactly.`}
-- Each arc's scores array must be exactly ${epCount} integers in [1, 10]. Use the score to show the arc's prominence at that episode — 1=quiet/background, 10=dominant.
+- Each arc's scores array must be exactly ${epCount} integers in [1, 10], obeying the curve grammar above.
 - Honor the series-type structural rules in the bible — limited series arcs land on the finale; ongoing-series arcs leave seeds.
+- The project guardrails and taste profile (when present above) BIND arc design: never plan an arc that walks a do-not-turn-into path, and put must-preserve material at the center of the plan, not the margins.
+- Arcs and moments use ONLY the bible's characters. Where the season needs outside pressure the cast doesn't cover, keep those figures as unnamed roles ("a rival buyer", "the school paper's editor") — inventing named principals is the Characters layer's job, and the writer approves that cast, not this step.
 - No prose outside the JSON.`;
     }
 

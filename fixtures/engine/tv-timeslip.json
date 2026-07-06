@@ -1,0 +1,268 @@
+{
+  "id": "66666666-6666-4666-8666-666666666666",
+  "title": "Y2Kid",
+  "projectType": "tv-show",
+  "updatedAt": "2026-07-06T00:00:00.000Z",
+  "activeProjectDraftId": "pd_tvt",
+  "projectDrafts": [
+    {
+      "id": "pd_tvt",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "conceptDraftId": "cd_tvt",
+      "charactersDraftId": "chd_tvt",
+      "storyDraftId": "sd_tvt",
+      "scriptDraftId": "scd_tvt",
+      "episodesDraftId": "epd_tvt",
+      "arcsDraftId": "ad_tvt"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_tvt",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "logline": "",
+      "settings": {
+        "framework": null,
+        "genres": [
+          "comedy"
+        ],
+        "subGenres": [],
+        "references": [
+          {
+            "id": "ref_1",
+            "title": "Superbad",
+            "aspects": [
+              "teenage scheme energy",
+              "friendship voice"
+            ]
+          }
+        ],
+        "writerStyles": [],
+        "vibe": "CRT glow, mall food courts, dial-up patience",
+        "unpredictability": 7,
+        "darkness": 3,
+        "pace": 7,
+        "endingTypes": [],
+        "seriesType": "ongoing",
+        "episodeCount": 8,
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": "",
+        "humor": 8
+      },
+      "concept": {
+        "summary": "Miles Okada, a present-day AI startup founder, wakes up in his fourteen-year-old body in 1996 \u2014 and discovers the time-travel fantasy is a lie. He can't predict a single game score. He doesn't remember which stocks matter or when anything happens. The only future knowledge that survived the trip is the stuff he actually loved at fourteen: every Tupac and Biggie track-listing, every movie twist, decades of pop-culture trivia. When his three best friends finally believe him, they appoint themselves his management team \u2014 and every scheme they invent to monetize a psychic fourteen-year-old is stupid, physically impossible, illegal, or socially fatal, because they are fourteen, have eleven dollars between them, and need to be home by dinner. And then there's the thread nobody can know about: Ms. Vann, the young student teacher Miles worshipped from the back row the first time he was fourteen. Now he can actually TALK to her \u2014 book recommendations, dry jokes about the faculty, the kind of easy adult rapport that makes her linger by his desk \u2014 and every one of those conversations is a live grenade: he is a grown man in a child's seat, she has no idea, and there is no version of this that isn't wrong.",
+        "tone": "affectionate, escalating, deeply uncool",
+        "themes": [
+          "the fantasy of foresight",
+          "being fourteen is the constraint",
+          "friends as bad management",
+          "a connection that must never be one"
+        ],
+        "seriesArc": ""
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_tvt",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_miles",
+          "name": "Miles Okada",
+          "role": "protagonist",
+          "archetype": "founder in a kid suit",
+          "backstory": "35-year-old AI startup founder whose consciousness wakes in his 14-year-old body, 1996. Future knowledge is nearly useless: no scores, no stocks, no dates \u2014 only rap track-listings, movie twists, pop trivia.",
+          "motivations": "Prove his knowledge is worth something; find one scheme that works.",
+          "flaws": "Pitches like a founder to people with five-dollar net worths; needs the future to matter.",
+          "want": "One win.",
+          "need": "To be fourteen with his friends instead of performing an adult.",
+          "voice": "startup jargon colliding with 1996 slang",
+          "arc": "From monetizing the future to being present.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_reggie",
+              "description": "best friend since second grade \u2014 self-appointed manager"
+            },
+            {
+              "characterId": "ch_tone",
+              "description": "friend \u2014 the muscle who has never won a fight"
+            },
+            {
+              "characterId": "ch_pdub",
+              "description": "friend \u2014 the 'numbers guy' who is failing pre-algebra"
+            },
+            {
+              "characterId": "ch_vann",
+              "description": "his young English teacher \u2014 an impossibly mature rapport HE experiences as adult conversation; ethically impossible and he knows it"
+            }
+          ]
+        },
+        {
+          "id": "ch_reggie",
+          "name": "Reggie Park",
+          "role": "supporting",
+          "archetype": "self-appointed manager",
+          "backstory": "First believer; read one Forbes at the orthodontist and now speaks in percentages he invents.",
+          "motivations": "Manage Miles to their mutual fortune; be somebody's boss.",
+          "flaws": "Confidence fully decoupled from competence; doubles every failed bet.",
+          "want": "Ten percent of everything.",
+          "need": "To be a good friend, which is free.",
+          "voice": "motivational-poster fluency",
+          "arc": "From manager of a psychic to friend of a weird kid.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_miles",
+              "description": "client and best friend \u2014 the asset"
+            },
+            {
+              "characterId": "ch_tone",
+              "description": "co-conspirator he outranks by self-appointment"
+            },
+            {
+              "characterId": "ch_pdub",
+              "description": "CFO he appointed and ignores"
+            }
+          ]
+        },
+        {
+          "id": "ch_tone",
+          "name": "Tone DeLuca",
+          "role": "supporting",
+          "archetype": "gentle muscle",
+          "backstory": "Biggest kid in ninth grade, softest heart in the county; cries at long-distance commercials.",
+          "motivations": "Protect the operation; be included.",
+          "flaws": "Agrees to everything, executes nothing on schedule.",
+          "want": "To matter to the crew.",
+          "need": "To learn size isn't the job.",
+          "voice": "slow, sincere, devastatingly literal",
+          "arc": "",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_miles",
+              "description": "the psychic he'd take a punch for"
+            },
+            {
+              "characterId": "ch_reggie",
+              "description": "the boss he never questions"
+            }
+          ]
+        },
+        {
+          "id": "ch_pdub",
+          "name": "P-Dub Watts",
+          "role": "supporting",
+          "archetype": "numbers guy",
+          "backstory": "Keeps the crew's 'books' in a Trapper Keeper; failing pre-algebra with visible pride.",
+          "motivations": "Track the money there isn't any of.",
+          "flaws": "Precision about fictional numbers, allergy to real ones.",
+          "want": "A ledger worth keeping.",
+          "need": "Homework.",
+          "voice": "auditor solemnity, child spelling",
+          "arc": "",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_miles",
+              "description": "the asset class"
+            },
+            {
+              "characterId": "ch_reggie",
+              "description": "the CEO he invoices in gum"
+            }
+          ]
+        },
+        {
+          "id": "ch_vann",
+          "name": "Ms. Vann",
+          "role": "supporting",
+          "archetype": "young teacher; dark-comedy foil",
+          "backstory": "24, first year teaching ninth-grade English; earnest and lonely in a way that makes a student who talks like an equal disorienting.",
+          "motivations": "Be taken seriously as a teacher; have one conversation a day that isn't about hall passes.",
+          "flaws": "Poor boundary-setting with a kid who flatters her with book recommendations; mistakes a 35-year-old's performance for kinship.",
+          "want": "Adult conversation.",
+          "need": "Boundaries that don't need to be interesting.",
+          "voice": "wry, over-prepared, first-year formal",
+          "arc": "",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_miles",
+              "description": "her student \u2014 the rapport is impossibly mature and she cannot place why"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_tvt",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_tvt",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "script": {
+        "content": "",
+        "scenes": []
+      }
+    }
+  ],
+  "episodesDrafts": [
+    {
+      "id": "epd_tvt",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "episodes": []
+    }
+  ],
+  "arcsDrafts": [
+    {
+      "id": "ad_tvt",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "arcs": []
+    }
+  ],
+  "guardrails": {
+    "mustPreserve": "The uselessness of Miles's future knowledge (no scores, no stocks, no dates \u2014 only rap, movie twists, pop trivia); the friends-as-terrible-management-team engine; the Ms. Vann subplot as ethically uncomfortable dark comedy.",
+    "avoid": "Nostalgia-listicle humor (jokes that are just \"remember Tamagotchis?\"); any scheme that actually works; adults who take a fourteen-year-old's pitch seriously without cost.",
+    "doNotTurnInto": "Back to the Future with a sports almanac (get-rich time-travel plot); a peer-romance coming-of-age story; a fix-the-timeline mission.",
+    "toneGuardrails": "Affectionate toward 1996, merciless toward Miles's dignity. Dark where the premise is dark (a 35-year-old mind in a kid's life), never mean toward the kids themselves.",
+    "edgeNotes": "The Ms. Vann dynamic is deliberately uncomfortable: an adult mind's impossibly mature rapport with a young teacher, played as dark comedy of impossibility. The discomfort is the point \u2014 keep it on the page as discomfort.",
+    "sensitiveHandling": "Ms. Vann never reciprocates romantically; boundaries hold; the comedy comes from social danger and consequence, never from the relationship progressing.",
+    "uniqueness": "Time-slip comedy where future knowledge is mostly WORTHLESS \u2014 the engine is competence colliding with a fourteen-year-old's total lack of leverage.",
+    "referencePriorities": "Freaks and Geeks texture over high-concept time-travel plotting; Big's body-logic honesty for the adult-mind-kid-world gap."
+  }
+}

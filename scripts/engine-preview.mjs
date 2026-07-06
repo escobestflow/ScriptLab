@@ -77,6 +77,19 @@ const MATRIX = [
   { fixture: "scaffolding-trap-guardrails", action: "generate_concept_logline" },
   { fixture: "scaffolding-trap-guardrails", action: "generate_beats" },
   { fixture: "scaffolding-trap-guardrails", action: "generate_concept_logline", profile: "taste-profile", suffix: "taste" },
+  // Arcs quality pass — the rewritten tv_import_arcs craft prompt
+  // (arc contract, curve grammar, moments schema, relationship arcs)
+  // across the three TV fixtures: prestige drama w/ relationships,
+  // relationship-heavy mystery, and the guardrailed dark comedy with
+  // the taste profile active.
+  { fixture: "tv-prestige", action: "tv_import_arcs", payload: { episodeCount: 8 } },
+  { fixture: "tv-mystery", action: "tv_import_arcs", payload: { episodeCount: 8 } },
+  { fixture: "tv-timeslip", action: "tv_import_arcs", payload: { episodeCount: 8 }, profile: "taste-profile", suffix: "taste" },
+  // Downstream: the arc-populated twin (live AFTER arcs applied via
+  // the real helpers) exercises the season-arcs bible render, the
+  // episode digest with DOMINANT tiers + hard moments, and the
+  // no-pre-emption rule in a generate_episode prompt.
+  { fixture: "tv-prestige-arcs", action: "generate_episode" },
 ];
 
 function renderReadable(r) {

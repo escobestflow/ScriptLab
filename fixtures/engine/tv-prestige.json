@@ -1,0 +1,256 @@
+{
+  "id": "44444444-4444-4444-8444-444444444444",
+  "title": "Stockyard Kings",
+  "projectType": "tv-show",
+  "updatedAt": "2026-07-06T00:00:00.000Z",
+  "activeProjectDraftId": "pd_tvp",
+  "projectDrafts": [
+    {
+      "id": "pd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "conceptDraftId": "cd_tvp",
+      "charactersDraftId": "chd_tvp",
+      "storyDraftId": "sd_tvp",
+      "scriptDraftId": "scd_tvp",
+      "episodesDraftId": "epd_tvp",
+      "arcsDraftId": "ad_tvp"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "logline": "Three estranged siblings inherit their father's failing cattle empire and the coded ledger of favors he used to quietly run a county \u2014 and discover the inheritance is a weapon pointed at whichever of them tries to hold it.",
+      "settings": {
+        "framework": null,
+        "genres": [
+          "drama"
+        ],
+        "subGenres": [],
+        "references": [
+          {
+            "id": "ref_1",
+            "title": "Succession",
+            "aspects": [
+              "wit",
+              "family power"
+            ]
+          }
+        ],
+        "writerStyles": [],
+        "vibe": "",
+        "unpredictability": 6,
+        "darkness": 6,
+        "pace": 5,
+        "endingTypes": [],
+        "seriesType": "ongoing",
+        "episodeCount": 8,
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "Three siblings inherit a failing cattle empire and the ledger of favors their father used to run a county. Clay, the eldest, fled to teach history in Austin and wants to liquidate and leave. Jolene, the middle child, ran the ranch through their father's decline and believes she has earned it all. Ben, the youngest, wants to reform the ledger system that everyone else treats as either treasure or shame. The county's debtors \u2014 sheriffs, judges, feed suppliers \u2014 all want their pages back.",
+        "tone": "dry, coiled, land-rich and cash-poor",
+        "themes": [
+          "inheritance as debt",
+          "power vs. legitimacy",
+          "family as leverage"
+        ],
+        "seriesArc": ""
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_clay",
+          "name": "Clay Stockton",
+          "role": "protagonist",
+          "archetype": "reluctant heir",
+          "backstory": "Fled the ranch fifteen years ago to teach high-school history in Austin; came back for the funeral, inherited a third of everything and all of the ledger's signature authority.",
+          "motivations": "Liquidate his share and get back to Austin before the school year ends.",
+          "flaws": "Mistakes neutrality for virtue; his moral superiority is cowardice with a syllabus.",
+          "want": "To sell out clean.",
+          "need": "To stop pretending abstention is innocence.",
+          "voice": "measured, academic deflection",
+          "arc": "From passive refusal to active complicity.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_jolene",
+              "description": "younger sister \u2014 stayed and ran the ranch; resents his fifteen-year absence"
+            },
+            {
+              "characterId": "ch_ben",
+              "description": "youngest brother \u2014 the idealist he condescends to"
+            },
+            {
+              "characterId": "ch_wade",
+              "description": "the ranch foreman \u2014 his sister's ex-husband, loyal to the land not the family"
+            }
+          ]
+        },
+        {
+          "id": "ch_jolene",
+          "name": "Jolene Stockton",
+          "role": "protagonist",
+          "archetype": "iron daughter",
+          "backstory": "Stayed and ran operations through her father's decline; learned the ledger's cipher in his last two years. Divorced the foreman who thought marriage was a promotion.",
+          "motivations": "Consolidate control; turn the ledger from her father's leash into her whip.",
+          "flaws": "Mistakes cruelty for strength; burns bridges she'll need.",
+          "want": "Full ownership, brothers bought out.",
+          "need": "To stop auditioning for a dead man.",
+          "voice": "clipped, transactional",
+          "arc": "From ruthless competence to ruling a graveyard.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_clay",
+              "description": "older brother \u2014 the absent heir handed the authority she earned"
+            },
+            {
+              "characterId": "ch_ben",
+              "description": "younger brother \u2014 protects him while despising his softness"
+            },
+            {
+              "characterId": "ch_wade",
+              "description": "ex-husband \u2014 still works her ranch; knows where her bodies are buried"
+            }
+          ]
+        },
+        {
+          "id": "ch_ben",
+          "name": "Ben Stockton",
+          "role": "supporting",
+          "archetype": "dreamer heir",
+          "backstory": "The youngest; studied sustainable ranching, came home with plans his father laughed at. The inheritance is the first real power he has ever held.",
+          "motivations": "Reform the operation; burn the ledger publicly and end the favor economy.",
+          "flaws": "Naive about roots; thinks goodwill can replace leverage in a county that runs on debt.",
+          "want": "An honest ranch.",
+          "need": "To learn some machines only have off switches, not reform settings.",
+          "voice": "earnest, over-explaining",
+          "arc": "From idealism to the choice between compromise and arson.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_clay",
+              "description": "oldest brother \u2014 craves his approval, never gets it"
+            },
+            {
+              "characterId": "ch_jolene",
+              "description": "older sister \u2014 his fiercest protector and harshest critic"
+            }
+          ]
+        },
+        {
+          "id": "ch_wade",
+          "name": "Wade Carver",
+          "role": "supporting",
+          "archetype": "keeper of the land",
+          "backstory": "Foreman for twenty years; married Jolene young, divorced her when he realized she managed him like staff. The only person the hands trust.",
+          "motivations": "Keep the ranch alive through whoever ends up owning it.",
+          "flaws": "Loyal to land over people; keeps secrets past the point they rot.",
+          "want": "The herd through winter.",
+          "need": "To pick a Stockton and mean it.",
+          "voice": "few words, all load-bearing",
+          "arc": "From neutral keeper to kingmaker.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_jolene",
+              "description": "ex-wife \u2014 he still runs her yards; unfinished business both directions"
+            },
+            {
+              "characterId": "ch_clay",
+              "description": "the heir he'd back if the man ever chose anything"
+            }
+          ]
+        },
+        {
+          "id": "ch_dray",
+          "name": "Sheriff Ada Dray",
+          "role": "antagonist",
+          "archetype": "debtor with a badge",
+          "backstory": "Owes her three elections to the ledger \u2014 page 14. Has decided the Stockton succession is her one chance to get the page back.",
+          "motivations": "Recover her page before any sibling learns to read the cipher.",
+          "flaws": "Confuses being owed with being owned; can't tell which she is.",
+          "want": "Her page, burned.",
+          "need": "(none she'd admit)",
+          "voice": "warm on top, wire underneath",
+          "arc": "",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_clay",
+              "description": "the signature authority \u2014 the sibling she works first because he wants out"
+            },
+            {
+              "characterId": "ch_jolene",
+              "description": "the real threat \u2014 the one who can read the cipher"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "script": {
+        "content": "",
+        "scenes": []
+      }
+    }
+  ],
+  "episodesDrafts": [
+    {
+      "id": "epd_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "episodes": []
+    }
+  ],
+  "arcsDrafts": [
+    {
+      "id": "ad_tvp",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "arcs": []
+    }
+  ]
+}

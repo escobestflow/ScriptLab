@@ -1,0 +1,233 @@
+{
+  "id": "55555555-5555-4555-8555-555555555555",
+  "title": "The Reservoir",
+  "projectType": "tv-show",
+  "updatedAt": "2026-07-06T00:00:00.000Z",
+  "activeProjectDraftId": "pd_tvm",
+  "projectDrafts": [
+    {
+      "id": "pd_tvm",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "conceptDraftId": "cd_tvm",
+      "charactersDraftId": "chd_tvm",
+      "storyDraftId": "sd_tvm",
+      "scriptDraftId": "scd_tvm",
+      "episodesDraftId": "epd_tvm",
+      "arcsDraftId": "ad_tvm"
+    }
+  ],
+  "conceptDrafts": [
+    {
+      "id": "cd_tvm",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "logline": "When a drought drops the reservoir and exposes a car with a body inside, a small-town claims adjuster realizes the insurance file she closed twenty years ago \u2014 the one that paid for her house \u2014 was the cover story, and every adult she loves helped write it.",
+      "settings": {
+        "framework": null,
+        "genres": [
+          "thriller",
+          "drama"
+        ],
+        "subGenres": [],
+        "references": [
+          {
+            "id": "ref_m1",
+            "title": "Mare of Easttown",
+            "aspects": [
+              "texture",
+              "relationship web"
+            ]
+          }
+        ],
+        "writerStyles": [],
+        "vibe": "",
+        "unpredictability": 7,
+        "darkness": 7,
+        "pace": 5,
+        "endingTypes": [],
+        "seriesType": "ongoing",
+        "episodeCount": 8,
+        "toneNote": "",
+        "themesNote": "",
+        "frameworkNote": "",
+        "endingNote": ""
+      },
+      "concept": {
+        "summary": "A drought exposes a submerged car with a body in Lake Verity, and the 1999 drowning-accident file that claims adjuster Nora Pell closed as her first case reopens. The payout from that file bought her mother's house. The victim turns out to be her mother's first husband \u2014 a man the town believed ran off. Nora investigates her own family and her own signature, while her mother, her stepfather (the town's retired pharmacist), and her childhood best friend (now the county detective assigned to the case) each protect a different piece of what happened. Every reveal re-prices a relationship; the mystery IS the family.",
+        "tone": "damp, close, kitchen-table tense",
+        "themes": [
+          "the cost of being protected",
+          "signatures as complicity",
+          "drought as confession"
+        ],
+        "seriesArc": ""
+      }
+    }
+  ],
+  "charactersDrafts": [
+    {
+      "id": "chd_tvm",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "characters": [
+        {
+          "id": "ch_nora",
+          "name": "Nora Pell",
+          "role": "protagonist",
+          "archetype": "adjuster of record",
+          "backstory": "Closed the drowning file at 24 as her first solo case; the payout cleared her mother's mortgage. Built a careful life on a signature she never questioned.",
+          "motivations": "Establish what she actually signed and who arranged for her to sign it.",
+          "flaws": "Treats documentation as truth; would rather amend a record than have a conversation.",
+          "want": "The file to hold up.",
+          "need": "To learn who she is when the paper is wrong.",
+          "voice": "precise, actuarial, cracks when personal",
+          "arc": "From adjuster to claimant against her own family.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_marion",
+              "description": "her mother \u2014 the beneficiary of the file Nora signed"
+            },
+            {
+              "characterId": "ch_gil",
+              "description": "her stepfather \u2014 married her mother two years after the 'accident'"
+            },
+            {
+              "characterId": "ch_dess",
+              "description": "childhood best friend \u2014 now the detective on the reopened case"
+            }
+          ]
+        },
+        {
+          "id": "ch_marion",
+          "name": "Marion Pell",
+          "role": "supporting",
+          "archetype": "protected witness",
+          "backstory": "Widow of the man in the reservoir \u2014 though the town believed he ran off, and she let them. Remarried the pharmacist who was kindest during the search.",
+          "motivations": "Keep her daughter from learning which parts of the story were built for her.",
+          "flaws": "Protects people by editing their reality; calls it kindness.",
+          "want": "The past to stay drowned.",
+          "need": "To be known by her daughter and survive it.",
+          "voice": "soft, deflecting, sudden steel",
+          "arc": "From curator of the story to its confessor.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_nora",
+              "description": "her daughter \u2014 protected by the lie, paid by the claim"
+            },
+            {
+              "characterId": "ch_gil",
+              "description": "second husband \u2014 the man who helped the story hold"
+            },
+            {
+              "characterId": "ch_dess",
+              "description": "her daughter's friend \u2014 the child who saw the car leave"
+            }
+          ]
+        },
+        {
+          "id": "ch_gil",
+          "name": "Gil Harmon",
+          "role": "supporting",
+          "archetype": "kind accomplice",
+          "backstory": "The town pharmacist for forty years; filled every prescription and knew every dose in the county, including the one in the dead man's blood.",
+          "motivations": "Die respected; keep Marion's family intact the way he helped rebuild it.",
+          "flaws": "Believes a good outcome retroactively justifies its chemistry.",
+          "want": "Quiet last years.",
+          "need": "To say out loud what the kindness cost.",
+          "voice": "gentle, exact, pharmacy-counter calm",
+          "arc": "From beloved elder to the season's quietest confession.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_marion",
+              "description": "his wife \u2014 he married the widow he helped make"
+            },
+            {
+              "characterId": "ch_nora",
+              "description": "stepdaughter \u2014 the adjuster whose signature closed his handiwork"
+            }
+          ]
+        },
+        {
+          "id": "ch_dess",
+          "name": "Detective Dess Okafor",
+          "role": "supporting",
+          "archetype": "friend with a warrant",
+          "backstory": "Nora's best friend since fourth grade; was eleven when she saw a car towed up the old boat ramp at night and was told she dreamed it. Now assigned to the body.",
+          "motivations": "Work the case straight in a town that raised her crooked.",
+          "flaws": "Recuses herself from nothing; believes friendship and procedure can both survive this.",
+          "want": "A clean case.",
+          "need": "To accept the case ends her version of home.",
+          "voice": "procedural warmth, interrogates by apology",
+          "arc": "From hometown cop to the one who reads Nora her rights, or doesn't.",
+          "notes": "",
+          "relationships": [
+            {
+              "characterId": "ch_nora",
+              "description": "best friend \u2014 and now the adjuster of record is her person of interest"
+            },
+            {
+              "characterId": "ch_marion",
+              "description": "the woman who told an eleven-year-old she was dreaming"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "storyDrafts": [
+    {
+      "id": "sd_tvm",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "beats": [],
+      "ingredients": [],
+      "snippets": [],
+      "direction": ""
+    }
+  ],
+  "scriptDrafts": [
+    {
+      "id": "scd_tvm",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "script": {
+        "content": "",
+        "scenes": []
+      }
+    }
+  ],
+  "episodesDrafts": [
+    {
+      "id": "epd_tvm",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "episodes": []
+    }
+  ],
+  "arcsDrafts": [
+    {
+      "id": "ad_tvm",
+      "number": 1,
+      "createdAt": "2026-07-06T00:00:00.000Z",
+      "updatedAt": "2026-07-06T00:00:00.000Z",
+      "savedAt": "2026-07-06T00:00:00.000Z",
+      "arcs": []
+    }
+  ]
+}

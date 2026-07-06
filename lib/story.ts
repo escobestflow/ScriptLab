@@ -972,6 +972,11 @@ export function addArcToActiveDraft(
      *  popup adds pass the flag based on whether the user filled in
      *  the optional intensity row. */
     intensitySet?: boolean;
+    /** Optional pre-built hard moments — used by the TV-import arcs
+     *  step, whose schema now emits 1-3 filmable turns per major arc
+     *  (already normalized to ArcMoment shape by the caller). Manual
+     *  adds omit this; the user pins diamonds by clicking the curve. */
+    moments?: ArcMoment[];
   },
 ): Story {
   const active = getActiveArcsDraft(story);
@@ -999,6 +1004,7 @@ export function addArcToActiveDraft(
     while (arc.scores.length < episodeCount) arc.scores.push(5);
   }
   if (input.characterId) arc.characterId = input.characterId;
+  if (input.moments?.length) arc.moments = input.moments;
   // Default `intensitySet`: character arcs default to FALSE (gated
   // out of the graph until the user fills in the intensity row);
   // every other arc type defaults to TRUE since the Arcs-tab popup
@@ -1222,6 +1228,13 @@ export function digestArcsForEpisode(
 export function formatArcDigest(d: EpisodeArcDigest): string {
   if (d.activeArcs.length === 0 && d.hardMoments.length === 0) return "";
   const lines: string[] = ["\n## Active arcs this episode (HIGH PRIORITY)"];
+  // Overload guard — until the arcs-quality pass this flag was
+  // computed and read by nobody. When the writer's plan stacks too
+  // many hot arcs into one hour, tell the model to triage instead of
+  // servicing everything equally (which flattens into montage).
+  if (d.overloaded) {
+    lines.push("NOTE — this episode is OVERLOADED (more than 8 arcs run hot here). Do not service them all equally: give the DOMINANT arcs the scenes, and let every other active arc surface in at most one beat or a single line. Depth over coverage.");
+  }
   if (d.activeArcs.length === 0) {
     lines.push("(none above the threshold for this episode)");
   } else {
