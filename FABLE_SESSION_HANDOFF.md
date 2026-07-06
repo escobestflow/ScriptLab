@@ -75,7 +75,12 @@ turn; never force-push; secrets never local).
 - **Merged + deployed (all on prod):** Phases 1–3, gauntlet, logline
   v5, taste alignment.
 - **Branch-only:** `fable-big-pass-plan` (strategy doc
-  `FABLE_BIG_PASS_PLAN.md` only — merge optional, content historical).
+  `FABLE_BIG_PASS_PLAN.md` only — merge optional, content historical);
+  `fable-relationship-coverage` (**F2 closed** — TV import emits
+  relationships[], `derive_relationships` Haiku backfill action +
+  "Link Relationships" chip, Buck Mark wobble confirmed dead live;
+  $0.17; see `FABLE_RELATIONSHIP_COVERAGE.md`. **Awaiting user
+  approval to merge + deploy**; chip needs one visual check first).
 - Uncommitted working-tree items, deliberately preserved untouched:
   `tsconfig.tsbuildinfo` (build cache churn),
   `public/icon-button-upload.svg` (referenced by Studio.tsx, reaches
@@ -93,9 +98,11 @@ turn; never force-push; secrets never local).
 
 ## 12. Known risks / open items
 
-1. **F2 — empty relationships in real projects:** the fidelity render
-   only protects where `relationships[]` is populated; most real
-   projects (incl. TV-import output) have empty arrays.
+1. **F2 — empty relationships in real projects:** ✅ closed on
+   `fable-relationship-coverage` (TV import emits them; derive action
+   backfills; see `FABLE_RELATIONSHIP_COVERAGE.md`). Residual:
+   `sync_concept_to_characters` still doesn't emit relationships at
+   creation time.
 2. Single-sample evidence per surface (each fixture×surface ran live
    once; variance uncharacterized).
 3. Minor logged issues: markdown artifacts in Opus scene prose (F3),
@@ -115,12 +122,13 @@ turn; never force-push; secrets never local).
 
 ## 13. Next recommended task
 
-**Relationship data coverage** (`FABLE_GAUNTLET_NEXT_STEPS.md` #2):
-extend `tv_import_characters` schema to emit `relationships[]`, add a
-cheap derive-relationships action for existing projects, re-run the
-Buck Mark scene live once (~$0.08) to confirm the parentage wobble
-dies with data. Then: #3 register-balance micro-pass, #6 cost preview
-on scriptLoop/easyMode.
+~~Relationship data coverage~~ **DONE 2026-07-05** on branch
+`fable-relationship-coverage` (see §9–10 above) — pending user
+approval to merge + deploy. Next up: `FABLE_GAUNTLET_NEXT_STEPS.md`
+#3 register-balance micro-pass, #6 cost preview on
+scriptLoop/easyMode. Also natural: fold the relationships schema into
+`sync_concept_to_characters` (feature-side cast gen still doesn't
+emit them — the derive action covers it post-hoc).
 
 ## 14. User taste (binding, program-wide)
 

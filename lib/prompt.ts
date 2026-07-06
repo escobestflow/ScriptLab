@@ -174,6 +174,15 @@ export type ActionType =
   | "tv_import_arcs"
   | "tv_import_episodes"
   | "tv_import_pilot"
+  // ── Relationship derivation ──
+  // Reads the existing bible (concept + full cast) and emits the
+  // structural bonds between characters as name-pairs the client
+  // resolves to ids. Exists because relationships[] render into every
+  // downstream prompt as FIXED FACTS (the gauntlet's F2 fidelity fix)
+  // but most existing projects have empty arrays — this backfills
+  // them for cents. Fill-only on the client: characters that already
+  // have relationships are never overwritten.
+  | "derive_relationships"
   // ── Style Lab (preference calibration) ──
   // `style_sample` writes ONE short prose sample at a given style
   // coordinate — fired 15× per training round (cheap, Haiku).
@@ -286,6 +295,10 @@ export function modelForAction(type: ActionType): string {
     case "generate_character_arc":
     case "generate_character_notes":
     case "detect_character_gender":
+    // Relationship derivation is extraction, not invention — the bonds
+    // are already in the bible text; the model just names them. Short
+    // structured output over a cached bible ⇒ Haiku.
+    case "derive_relationships":
     default:
       return "claude-haiku-4-5"; // fast + cheap for structure work
   }

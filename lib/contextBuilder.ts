@@ -1075,6 +1075,36 @@ Rules:
 - Output nothing except the JSON object above.`;
     }
 
+    case "derive_relationships": {
+      const ch = getActiveCharactersDraft(story);
+      const names = ch.characters.map(c => c.name.trim()).filter(Boolean);
+      if (names.length < 2) return `Not enough characters to derive relationships.`;
+      return `Extract the structural bonds between the characters in the project bible above.
+
+Read every character's backstory, motivations, notes, and arc — plus the concept and any beats — and name each real bond between two characters in the cast: kinship (with exact precision — "half-sister", "former stepdaughter"), marriage/ex, debt or power over someone, employment, mentorship, teacher/student.
+
+The cast: ${names.join(", ")}.
+
+Return STRICT JSON in this exact schema:
+{
+  "relationships": [
+    {
+      "character": string,      // EXACT name from the cast list above — the character this bond belongs to
+      "with": string,           // EXACT name from the cast list — the other character
+      "description": string     // the bond from "character"'s side, ≤ 12 words ("his creditor — holds his gambling debt")
+    }
+  ]
+}
+
+Rules:
+- EXTRACTION, not invention: only bonds the bible's own material establishes. If the bible is silent on how two characters connect, emit nothing for that pair — never guess.
+- These become FIXED FACTS that every scene and script generation must reproduce exactly — precision beats coverage. Use the bible's own wording for kinship and power relations; never simplify ("half-sister" is not "sister").
+- When a bond reads differently from each side (creditor/debtor, teacher/student, boss/employee), emit BOTH directions, each phrased from its owner's side.
+- Symmetric bonds (siblings, best friends, spouses) also get both directions.
+- A character whose relationships are already listed in the bible as "Relationships (FIXED FACTS)" keeps them — re-emit those unchanged, in the same wording.
+- No prose outside the JSON.`;
+    }
+
     // ── Cross-layer sync (Update Other Layers) ──
     // The storyBible above already contains the current active drafts of
     // every layer; these prompts just tell the model which to treat as
@@ -1518,7 +1548,13 @@ Return STRICT JSON in this exact schema:
       "need": string,               // the unconscious need — 1 sentence
       "voice": string,              // dialogue voice in 1 sentence ("clipped, deflects with humor")
       "arc": string,                // 1-2 sentence freeform character-arc summary (legacy field — structured arcs come next step)
-      "notes": string               // anything else worth knowing — 0-2 sentences
+      "notes": string,              // anything else worth knowing — 0-2 sentences
+      "relationships": [            // structural bonds to OTHER characters in this roster — 0-4 entries
+        {
+          "with": string,           // EXACT name of another character in this list
+          "description": string     // the precise bond from THIS character's side, ≤ 12 words ("his creditor — holds his gambling debt", "her half-sister")
+        }
+      ]
     }
   ]
 }
@@ -1527,6 +1563,7 @@ Rules:
 - Include EVERY character with a meaningful presence in the source. Minor characters get tighter entries; major characters get the full treatment.
 - Order: protagonist(s) FIRST, antagonist(s) next, supporting after — the order matters for downstream steps that ask for "top N" characters.
 - The Concept tab above defines tone / themes / genre — character archetypes and voices must align with those.
+- Relationships are FIXED FACTS downstream — every prompt that writes scenes will treat them as binding. Only record bonds the source material actually establishes (kinship, marriage/ex, debt/power, employment, mentorship). Use the source's PRECISE wording: "half-sister" is not "sister"; "former stepdaughter" is not "niece". When a bond reads differently from each side (creditor/debtor, teacher/student), record it on both characters, each from their own side. No bonds established? Empty array — never invent one.
 - No prose outside the JSON.
 
 ${EDGE_PRESERVATION_RULES}

@@ -6,13 +6,12 @@ natural continuations, all runnable under the same protocol.
 1. **Merge + deploy this branch** (user approval). Everything is
    prompt/context/evaluation-layer; rollback is a revert range;
    production risk is low and measured.
-2. **Relationship data coverage (F2).** The render-fix only helps
-   where `relationships[]` is populated — most real projects have
-   empty arrays. Two cheap moves: (a) TV import's character step
-   already extracts a cast — extend its schema to emit relationships;
-   (b) a Haiku "derive relationships from concept+characters" action
-   behind the existing test-mode discipline. Then re-run the Buck Mark
-   scene live once (~$0.08) to confirm the wobble dies with data.
+2. **Relationship data coverage (F2).** ✅ **CLOSED** on branch
+   `fable-relationship-coverage` (2026-07-05, $0.17 live) — TV import
+   emits relationships, new `derive_relationships` Haiku action
+   backfills existing projects, Buck Mark parentage wobble confirmed
+   dead with data. Evidence + residuals:
+   `FABLE_RELATIONSHIP_COVERAGE.md`.
 3. **Register balance micro-pass (P-B5).** Horror-comedy's comedy
    register came out thin. One contrastive pair in the beats ask
    (dread-only beat vs both-registers beat) + one live retry (~$0.01).

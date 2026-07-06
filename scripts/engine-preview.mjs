@@ -64,6 +64,12 @@ const MATRIX = [
   // safe peer love interest.
   { fixture: "scaffolding-trap", action: "sync_concept_to_characters" },
   { fixture: "scaffolding-trap", action: "generate_beats" },
+  // Relationship coverage (F2) — the TV-import character step now emits
+  // relationships[] (schema addition), and derive_relationships
+  // backfills existing projects. developed-feature is the fixture whose
+  // empty relationships caused the Buck Mark parentage wobble.
+  { fixture: "tv-ongoing", action: "tv_import_characters" },
+  { fixture: "developed-feature", action: "derive_relationships" },
 ];
 
 function renderReadable(r) {

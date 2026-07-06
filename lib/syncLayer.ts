@@ -28,6 +28,7 @@ import type {
   LayerKey,
   LayerContent,
   Character,
+  CharacterRelationship,
   Beat,
   Episode,
   Scene,
@@ -582,15 +583,47 @@ function applyTVImportCharactersResult(story: Story, parsed: any): Story {
     flaws: typeof ch?.flaws === "string" ? ch.flaws : "",
     want: typeof ch?.want === "string" ? ch.want : "",
     need: typeof ch?.need === "string" ? ch.need : "",
-    // Cross-character relationships aren't part of the TV-import schema
-    // (the AI tracks relationships through scenes/arcs, not a separate
-    // map). Start empty; user can add via the character popup later.
+    // Filled in the second pass below — the AI emits relationships by
+    // character NAME (it never sees ids), so resolution has to wait
+    // until every character has an id.
     relationships: [],
     voice: typeof ch?.voice === "string" ? ch.voice : "",
     arc: typeof ch?.arc === "string" ? ch.arc : "",
     notes: typeof ch?.notes === "string" ? ch.notes : "",
   }));
+  // Second pass — resolve each character's relationships[] from names
+  // to ids. These render into every downstream prompt as FIXED FACTS
+  // (the gauntlet's F2 gap: the render path existed but TV-import
+  // never populated the data). Unresolvable names and self-references
+  // are dropped rather than kept as dangling ids.
+  const idByName = new Map(characters.map(c => [c.name.trim().toLowerCase(), c.id]));
+  characters.forEach((c, i) => {
+    c.relationships = resolveRelationshipNames(raw[i]?.relationships, idByName, c.id);
+  });
   return updateCharactersDraft(story, { characters });
+}
+
+/** Resolve AI-emitted `{ with: name, description }` relationship rows
+ *  to `{ characterId, description }` against a lowercased name→id map.
+ *  Shared by TV import and derive_relationships. Drops rows whose name
+ *  doesn't resolve, self-references, and duplicate targets. */
+export function resolveRelationshipNames(
+  rawRels: any,
+  idByName: Map<string, string>,
+  selfId: string,
+): CharacterRelationship[] {
+  if (!Array.isArray(rawRels)) return [];
+  const out: CharacterRelationship[] = [];
+  const seen = new Set<string>();
+  for (const r of rawRels) {
+    const name = typeof r?.with === "string" ? r.with.trim().toLowerCase() : "";
+    const description = typeof r?.description === "string" ? r.description.trim() : "";
+    const characterId = idByName.get(name);
+    if (!characterId || !description || characterId === selfId || seen.has(characterId)) continue;
+    seen.add(characterId);
+    out.push({ characterId, description });
+  }
+  return out;
 }
 
 /** Apply the AI's season arcs. Each arc gets a fresh id + an assigned

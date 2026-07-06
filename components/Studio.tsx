@@ -39,6 +39,7 @@ import {
   // takes script + notes + episode count and populates concept →
   // characters → arcs → episodes → pilot screenplay.
   importTVProjectFromScript,
+  resolveRelationshipNames,
   type TVImportStep,
 } from "@/lib/syncLayer";
 import {
@@ -9263,6 +9264,75 @@ function CharactersTab({
     }
   }
 
+  // ── Derive relationships (AI backfill) ──────────────────────
+  // Haiku-tier extraction of the structural bonds already implied by
+  // the bible (backstories, notes, beats) into Character.relationships,
+  // which render into every downstream prompt as FIXED FACTS. Exists
+  // because most projects predate the TV-import schema carrying
+  // relationships — their arrays are empty, so the fidelity render
+  // has nothing to protect. Fill-only: characters that already have
+  // relationships (user-authored or imported) are never touched.
+  const [relBusy, setRelBusy] = useState(false);
+  async function deriveRelationships() {
+    if (relBusy) return;
+    setRelBusy(true);
+    try {
+      const action: ActionRequest = { type: "derive_relationships", payload: {} };
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ story, action, profile }),
+      });
+      if (!res.ok || !res.body) throw new Error("Failed to derive relationships");
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "", full = "";
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split("\n");
+        buf = lines.pop() ?? "";
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          try {
+            const msg = JSON.parse(line);
+            if (msg.type === "text") full += msg.value;
+          } catch {}
+        }
+      }
+      const match = full.match(/\{[\s\S]*\}/);
+      if (!match) throw new Error("Empty model response");
+      const parsed = JSON.parse(match[0]);
+      const rows: any[] = Array.isArray(parsed?.relationships) ? parsed.relationships : [];
+      setStory(s => {
+        const chars = getActiveCharactersDraft(s).characters;
+        const idByName = new Map(chars.map(c => [c.name.trim().toLowerCase(), c.id]));
+        return updateCharactersDraft(s, {
+          characters: chars.map(c => {
+            if (c.relationships?.length) return c; // fill-only — never clobber
+            const mine = rows.filter(r =>
+              typeof r?.character === "string" &&
+              r.character.trim().toLowerCase() === c.name.trim().toLowerCase()
+            );
+            const resolved = resolveRelationshipNames(mine, idByName, c.id);
+            return resolved.length ? { ...c, relationships: resolved } : c;
+          }),
+        });
+      });
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      if (typeof window !== "undefined") window.alert(msg);
+    } finally {
+      setRelBusy(false);
+    }
+  }
+  // Only offer the chip when there's a web to derive (≥2 named
+  // characters) and at least one character has nothing yet.
+  const canDeriveRelationships =
+    d.characters.filter(c => c.name.trim()).length >= 2 &&
+    d.characters.some(c => !c.relationships?.length);
+
   const roleLabels: Record<string, string> = {
     protagonist: "Protagonist",
     antagonist: "Antagonist",
@@ -9323,17 +9393,42 @@ function CharactersTab({
           <img src="/icon-ai-button.svg" alt="" aria-hidden="true" />
           <span>{addOneBusy ? "Creating…" : "Add a Character"}</span>
         </button>
+        {canDeriveRelationships && (
+          <button
+            type="button"
+            className="add-one-chip"
+            onClick={deriveRelationships}
+            disabled={relBusy || addOneBusy || genBusy}
+            title="AI reads the bible and fills in each character's relationships"
+          >
+            <img src="/icon-ai-button.svg" alt="" aria-hidden="true" />
+            <span>{relBusy ? "Linking…" : "Link Relationships"}</span>
+          </button>
+        )}
       </div>
     ) : (
-      <button
-        type="button"
-        className="add-all-characters-chip"
-        onClick={generateAllCharacters}
-        disabled={genBusy}
-      >
-        <img src="/icon-ai-button.svg" alt="" aria-hidden="true" />
-        <span>{genBusy ? "Creating…" : "Add All Characters"}</span>
-      </button>
+      <div className="v2-add-one-actions">
+        <button
+          type="button"
+          className="add-all-characters-chip"
+          onClick={generateAllCharacters}
+          disabled={genBusy || relBusy}
+        >
+          <img src="/icon-ai-button.svg" alt="" aria-hidden="true" />
+          <span>{genBusy ? "Creating…" : "Add All Characters"}</span>
+        </button>
+        {canDeriveRelationships && (
+          <button
+            type="button"
+            className="add-all-characters-chip"
+            onClick={deriveRelationships}
+            disabled={relBusy || genBusy}
+          >
+            <img src="/icon-ai-button.svg" alt="" aria-hidden="true" />
+            <span>{relBusy ? "Linking…" : "Link Relationships"}</span>
+          </button>
+        )}
+      </div>
     )
   ) : null;
 
