@@ -626,6 +626,62 @@ export function resolveRelationshipNames(
   return out;
 }
 
+/** Enforce the curve grammar's per-arc season budget on an
+ *  AI-generated intensity curve: DOMINANT (8-10) in at most 2
+ *  episodes, everything below the arc's top-6 episodes pressed into
+ *  BACKGROUND (1-3). The prompt teaches the budget but three live
+ *  rounds proved the model cannot hold numeric allocations across a
+ *  whole season (it places PEAKS well; it pads the valleys with
+ *  polite 6s). So: the model decides WHERE an arc peaks — that's the
+ *  creative signal and it is never moved or raised — and this pass
+ *  compresses only DOWNWARD so every curve has real valleys:
+ *    - the arc's top-2 episodes keep their exact scores
+ *    - its next-4 episodes cap at 7 (ACTIVE)
+ *    - everything below caps at 3 (BACKGROUND)
+ *  Downward-only means designed convergence episodes survive (peaks
+ *  stay peaks) and no arc is ever inflated. Exported for testing.
+ *  Applied ONLY to import-generated arcs — user-authored curves are
+ *  never touched. */
+export function enforceCurveBudget(scores: number[]): number[] {
+  const ranked = scores
+    .map((s, i) => ({ s, i }))
+    .sort((a, b) => b.s - a.s || a.i - b.i)
+    .map((x, rank) => ({ ...x, rank }));
+  const out = [...scores];
+  for (const { i, rank } of ranked) {
+    if (rank < 2) continue;                       // top-2: untouched
+    else if (rank < 6) out[i] = Math.min(out[i], 7); // ACTIVE cap
+    else out[i] = Math.min(out[i], 3);            // BACKGROUND cap
+  }
+  return out;
+}
+
+/** The budget's global half. Per-arc caps alone can't stop STACKING —
+ *  ten arcs can still park their hot slots on the same episode (live
+ *  measurement: max 11 arcs ≥6 in one hour even after per-arc caps).
+ *  So per episode: the 5 hottest arcs keep their scores; every other
+ *  arc ≥6 there is pressed to 5 — still ACTIVE (it keeps its beats in
+ *  the digest), no longer claiming heat it can't be given on screen.
+ *  Ties resolve by arc order (the model lists main-plot first, so
+ *  structural arcs win ties). Peaks kept by the per-arc pass are
+ *  ranked highest and therefore never pressed unless 5 hotter arcs
+ *  own the hour — exactly the triage the digest's overload note asks
+ *  the model to perform, done deterministically at the source.
+ *  Exported for testing. */
+export function enforceEpisodeHeat(all: number[][]): number[][] {
+  if (all.length === 0) return all;
+  const out = all.map(s => [...s]);
+  const epCount = out[0]?.length ?? 0;
+  for (let ep = 0; ep < epCount; ep++) {
+    const hot = out
+      .map((s, arcIdx) => ({ score: s[ep], arcIdx }))
+      .filter(x => x.score >= 6)
+      .sort((a, b) => b.score - a.score || a.arcIdx - b.arcIdx);
+    for (const x of hot.slice(5)) out[x.arcIdx][ep] = 5;
+  }
+  return out;
+}
+
 /** Apply the AI's season arcs. Each arc gets a fresh id + an assigned
  *  color from ARC_COLORS in order. Character-type arcs resolve their
  *  characterName back to a characterId by exact-match search against
@@ -635,8 +691,13 @@ function applyTVImportArcsResult(story: Story, parsed: any, episodeCount: number
   const raw = Array.isArray(parsed?.arcs) ? parsed.arcs : [];
   const chars = getActiveCharactersDraft(story).characters;
   const byName = new Map(chars.map(c => [c.name.trim().toLowerCase(), c.id]));
-  let next = story;
-  let colorIdx = 0;
+  // Two-phase apply: normalize every arc first (per-arc curve budget
+  // included), run the GLOBAL episode-heat pass across the whole set,
+  // then add to the draft. See enforceCurveBudget/enforceEpisodeHeat.
+  const pending: Array<{
+    type: ArcType; title: string; description: string; scores: number[];
+    characterId?: string; moments?: Array<{ id: string; position: number; text: string }>;
+  }> = [];
   for (const a of raw) {
     const type = typeof a?.type === "string" && (ARC_TYPES as readonly string[]).includes(a.type)
       ? (a.type as ArcType)
@@ -644,11 +705,15 @@ function applyTVImportArcsResult(story: Story, parsed: any, episodeCount: number
     const title = typeof a?.title === "string" ? a.title.trim() : "";
     const description = typeof a?.description === "string" ? a.description.trim() : "";
     const rawScores = Array.isArray(a?.scores) ? a.scores : [];
-    const scores: number[] = [];
+    const clamped: number[] = [];
     for (let i = 0; i < episodeCount; i++) {
       const s = Number(rawScores[i]);
-      scores.push(Number.isFinite(s) ? Math.max(1, Math.min(10, Math.round(s))) : 5);
+      clamped.push(Number.isFinite(s) ? Math.max(1, Math.min(10, Math.round(s))) : 5);
     }
+    // Curve-grammar enforcement, per-arc half — see enforceCurveBudget
+    // above. The global per-episode half runs after the loop, once
+    // every arc's curve is known.
+    const scores = enforceCurveBudget(clamped);
     const linkedName = typeof a?.characterName === "string" ? a.characterName.trim().toLowerCase() : "";
     const characterId = linkedName ? byName.get(linkedName) : undefined;
     // Hard moments — the arcs-quality pass extended the schema so the
@@ -667,19 +732,28 @@ function applyTVImportArcsResult(story: Story, parsed: any, episodeCount: number
         position: Math.max(0, Math.min(episodeCount - 1, Math.round(Number(m.episode)) - 1)),
         text: m.text.trim(),
       }));
-    next = addArcToActiveDraft(next, {
+    pending.push({
       type: characterId ? "character" : type,
       title,
       description,
       scores,
-      // Character arcs from the AI implicitly have intensitySet=true —
-      // the writer's job here is to seed the arc with intent.
-      intensitySet: true,
       ...(characterId ? { characterId } : {}),
       ...(moments.length ? { moments } : {}),
     });
-    colorIdx++;
   }
+  // Global half of the curve grammar: at most 5 arcs hot (≥6) per
+  // episode; everything past the top-5 there is pressed to 5.
+  const balanced = enforceEpisodeHeat(pending.map(p => p.scores));
+  let next = story;
+  pending.forEach((p, i) => {
+    next = addArcToActiveDraft(next, {
+      ...p,
+      scores: balanced[i],
+      // Character arcs from the AI implicitly have intensitySet=true —
+      // the writer's job here is to seed the arc with intent.
+      intensitySet: true,
+    });
+  });
   return next;
 }
 

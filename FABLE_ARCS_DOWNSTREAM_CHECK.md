@@ -67,6 +67,12 @@ accepted: the digest is doing the steering work the layer exists for.
 The improved arcs measurably change episode generation: hard moments
 become beats, dominant arcs own the hour, relationship scenes are
 named requirements, and the digest reads as a per-episode build sheet
-instead of a mood board. With the pre-emption rule in place, the
-remaining risk is the advisory heat budget (see TEST_RESULTS residual
-1).
+instead of a mood board.
+
+**Iteration-2 update:** the heat budget is now ENFORCED at the source
+(per-arc `enforceCurveBudget` + global `enforceEpisodeHeat` in the
+import apply path — downward-only, peaks never moved, import-only).
+Re-checked on the rebuilt twin: `overloaded=false` on every episode,
+digest sizes graded from a 2-arc setup hour (EP1) to a 5-dominant
+convergence finale (EP8). The overload triage note remains in the
+digest as defense-in-depth for hand-authored curve stacks.

@@ -48,14 +48,29 @@ Phase D of the Arcs quality pass (branch `fable-arcs-quality`,
   (11/11 arcs carry moments; 1-based episodes → 0-based positions;
   >3 moments truncated to the first 3).
 
+## Iteration 2 (user-authorized self-iteration addendum, same $2 cap)
+
+The heat residual was attacked with the full loop. **Design
+conclusion: prompts teach design; code enforces grammar.**
+
+| # | Step | Cost | Result |
+|---|---|---|---|
+| 6 | tv-mystery × tv_import_arcs with band-semantics prompt (per-arc season budget + self-check) | $0.0921 | Better raw design (9 arcs, no ramps) but per-arc budget held 0/9, max 9 hot/ep — THIRD prompt-only failure ⇒ design rethink |
+| — | `enforceCurveBudget` (per-arc, downward-only: top-2 episodes untouched, next-4 cap 7, rest cap 3) + `enforceEpisodeHeat` (global: top-5 hot arcs keep their scores per episode, rest pressed to 5) in `applyTVImportArcsResult` | $0 | Measured on all three captured live sets via the real exported functions: **max hot = 5 on every episode of every fixture** (was 8–11); dominance ≤2/arc everywhere; **0 peaks moved across 30 arcs**; no curve flattened (all retain ≥4 range). Import-only — user-authored curves never touched |
+| 7 | tv-prestige × tv_import_arcs (v2 grammar, fresh set for the downstream twin) | $0.0884 | Raw output improved unaided too: EP1-2 nearly silent (0-1 hot), 4/10 arcs hold budget before enforcement (was 0) |
+| 8 | tv-timeslip × tv_import_arcs + taste (v2) | $0.0928 | **No invented principals** (Derek-class rule verified live); guardrails stronger than round 1: a colleague warns Ms. Vann it "LOOKS like something" and she pulls back horrified — social danger + boundaries + consequence; no get-back-home/fix-timeline machinery |
+| — | Twin rebuilt from run 7 through the real two-phase path; digest re-check | $0 | **overloaded=false on every episode** (was true on EP4/EP6); episode identity grades: EP1 = 2-arc setup hour → EP8 = 5-dominant convergence finale |
+
+Iteration-2 spend: $0.2733. **Cumulative pass total: $0.6576 of $2.00.**
+
 ## Known residuals
 
-1. **Heat budget (A3)** is advisory, not enforced: Sonnet still
-   over-heats back halves on dense dramas (held on the comedy). The
-   digest overload note now instructs triage downstream, which is the
-   real mitigation. If it matters more later: post-generation curve
-   validation, or surface the overload flag in the Arcs tab UI
-   (deliberately not done — no UI changes in this pass).
+1. ~~Heat budget advisory-only~~ **CLOSED in iteration 2** — enforced
+   deterministically in the apply path (see above). Residual within
+   the residual: the model's RAW curves still exceed the budget on
+   dense dramas; enforcement makes this invisible to users, and the
+   band-semantics prompt measurably narrows the gap. A convergence
+   finale may carry up to 5 dominant arcs — allowed by design.
 2. Duplicate hard moments across arcs at a designed collision (the
    EP4 cipher trade appears from two arcs' moment lists) — harmless
    emphasis, arguably correct; noted.

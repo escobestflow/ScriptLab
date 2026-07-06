@@ -127,8 +127,12 @@ turn; never force-push; secrets never local).
 
 ~~Relationship data coverage~~ **DONE + deployed 2026-07-06.**
 ~~Engine Lab~~ **DONE + deployed 2026-07-06.**
-~~Arcs quality pass~~ **BUILT 2026-07-06** on branch
-`fable-arcs-quality` (off engine-lab main) — pending merge approval:
+~~Arcs quality pass~~ **MERGED + DEPLOYED 2026-07-06** (commit
+73a1a18). **Iteration 2** on branch `fable-arcs-v2` — pending merge
+approval: heat budget now ENFORCED in code (enforceCurveBudget +
+enforceEpisodeHeat, downward-only, import-only), band-semantics curve
+grammar, no-invented-principals verified live; $0.658 cumulative of
+$2. Original pass summary:
 tv_import_arcs rewritten around an arc-mechanics contract + curve
 grammar + moments schema (arcs now emit 1-3 filmable hard moments
 each); relationship arcs from FIXED-FACTS dyads; overload triage note
